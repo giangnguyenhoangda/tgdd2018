@@ -15,4 +15,9 @@ class NewsController extends Controller
     {
     	return view('guest.pages.new');
     }
+
+    public function getPostNews()
+    {
+    	return view('employee.pages.post_new');
+    }
 }

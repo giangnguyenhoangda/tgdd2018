@@ -15,4 +15,14 @@ class ProductsController extends Controller
     {
     	return view('guest.pages.product-info');
     }
+
+    public function getAddProductPage()
+    {
+    	return view('employee/pages/add_product');
+    }
+
+    public function getProductList()
+    {
+    	return view('employee/pages/smartphone_list');
+    }
 }

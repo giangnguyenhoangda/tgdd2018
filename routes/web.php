@@ -28,3 +28,15 @@ Route::get('gio-hang','CartController@getCart')->name('getCart');
 Route::get('uu-dai',function (){
 	return view('guest.pages.nothing-found');
 });
+
+Route::get('nhan-vien/trang-chu','EmployeeController@getHome')->name('getEmployeeHome');
+
+Route::get('nhan-vien/dang-nhap','EmployeeController@getLogin')->name('getLogin');
+
+Route::get('nhan-vien/san-pham/them','ProductsController@getAddProductPage')->name('getAddProductPage');
+
+Route::get('nhan-vien/san-pham/','ProductsController@getProductList')->name('getProductList');
+
+Route::get('nhan-vien/dang-bai/','NewsController@getPostNews')->name('getPostNews');
+
+Route::get('nhan-vien/thong-tin','EmployeeController@getInfo')->name('getInfo');
