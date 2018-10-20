@@ -29,6 +29,7 @@ Route::get('uu-dai',function (){
 	return view('guest.pages.nothing-found');
 });
 
+
 Route::get('nhan-vien/trang-chu','EmployeeController@getHome')->name('getEmployeeHome');
 
 Route::get('nhan-vien/dang-nhap','EmployeeController@getLogin')->name('getLogin');
@@ -40,3 +41,16 @@ Route::get('nhan-vien/san-pham/','ProductsController@getProductList')->name('get
 Route::get('nhan-vien/dang-bai/','NewsController@getPostNews')->name('getPostNews');
 
 Route::get('nhan-vien/thong-tin','EmployeeController@getInfo')->name('getInfo');
+
+
+Route::get('admin/dang-nhap','AdminController@getLogin')->name('getAdminLogin');
+
+Route::get('admin/trang-chu','AdminController@getHome')->name('getAdminHome');
+
+Route::get('admin/them-nhan-vien','EmployeeController@getAddEmployee')->name('getAddEmployee');
+
+Route::get('admin/nhan-vien','EmployeeController@getEmployees')->name('getEmployees');
+
+Route::get('thong-ke/doanh-so','StatisticController@getSaleStatistic')->name('getSaleStatistic');
+
+

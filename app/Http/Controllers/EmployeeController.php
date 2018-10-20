@@ -20,4 +20,14 @@ class EmployeeController extends Controller
     {
     	return view('employee/pages/info');
     }
+
+    public function getAddEmployee()
+    {
+        return view('admin.pages.add_employee');
+    }
+
+    public function getEmployees()
+    {
+        return view('admin.pages.employees');
+    }
 }
