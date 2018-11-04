@@ -27,4 +27,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function add($username,$password,$fullname,$phonenumber,$email)
+    {
+        $this->username=$username;
+        $this->password=$password;
+        $this->fullname=$fullname;
+        $this->phonenumber=$phonenumber;
+        $this->role=0;
+        $this->email=$email;
+        $this->save();
+    }
+
+    public function edit($password,$fullname,$phonenumber,$email)
+    {
+        $this->password=$password;
+        $this->fullname=$fullname;
+        $this->phonenumber=$phonenumber;
+        $this->email=$email;
+        $this->update();
+    }
 }

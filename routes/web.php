@@ -53,4 +53,10 @@ Route::get('admin/nhan-vien','EmployeeController@getEmployees')->name('getEmploy
 
 Route::get('thong-ke/doanh-so','StatisticController@getSaleStatistic')->name('getSaleStatistic');
 
+Route::post('admin/them-nhan-vien','EmployeeController@postAddEmployee')->name('postAddEmployee');
+
+Route::get('admin/sua-nhan-vien/{id}','EmployeeController@getEditEmployee')->name('getEditEmployee');
+
+Route::post('admin/sua-nhan-vien','EmployeeController@postEditEmployee')->name('postEditEmployee');
+
 
