@@ -43,4 +43,19 @@ class News extends Model
         }
         $news->save();
     }
+
+    public function listCommentHref()
+    {
+        return $this->hasMany('App\Comment_New_Href','newid','id');
+    }
+
+    public function getListComment()
+    {
+        $listComment=array();
+        $listCommentHref=$this->listCommentHref;
+        foreach ($listCommentHref as $value) {
+            array_push($listComment,$value->getComment);
+        }
+        return $listComment;
+    }
 }

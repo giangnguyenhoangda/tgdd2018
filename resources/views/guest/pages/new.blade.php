@@ -11,7 +11,7 @@
 @endsection
 
 @section('title')
-	Tải Hình Nền Ý Nghĩa Cho Máy Tính
+	{{ $news['title'] }}
 @endsection
 
 @section('main')
@@ -70,62 +70,70 @@
                         </article>
                         <!-- #-2044 -->
                         <div id="comments" class="comments-area">
-                            <h3 class="comments-title uppercase">One thought on &ldquo;<span>Tải Hình Nền Ý Nghĩa Cho Máy Tính</span>&rdquo;     </h3>
+                            <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $news['title'] }}</span>&rdquo;     </h3>
                             <ol class="comment-list">
-                                <li class="comment even thread-even depth-1" id="li-comment-13">
-                                    <article id="comment-13" class="comment-inner">
-                                        <div class="flex-row align-top">
-                                            <div class="flex-col">
-                                                <div class="comment-author mr-half">
-                                                    <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
-                                            </div>
-                                            <!-- .large-3 -->
-                                            <div class="flex-col flex-grow">
-                                                <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>admin</a></cite> <span class="says">says:</span>
-                                                <div class="comment-content">
-                                                    <p>Alo</p>
+                                @if (count($listComment)>0)
+                                   
+                                
+                                @foreach ($listComment as $element)
+                                    <li class="comment even thread-even depth-1" id="li-comment-13">
+                                        <article id="comment-13" class="comment-inner">
+                                            <div class="flex-row align-top">
+                                                <div class="flex-col">
+                                                    <div class="comment-author mr-half">
+                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
                                                 </div>
-                                                <div class="comment-meta commentmetadata uppercase is-xsmall clear">
-                                                    <a href="http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/#comment-13">
-                                                        <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
-                                                            24/03/2018 at 14:24 </time>
-                                                    </a>
-                                                    <div class="reply pull-right">
-                                                        <a rel='nofollow' class='comment-reply-link' href='http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/?replytocom=13#respond' onclick='return addComment.moveForm( "comment-13", "13", "respond", "2044" )' aria-label='Phản hồi đến admin'>Trả lời
-                                                        </a> 
+                                                <!-- .large-3 -->
+                                                <div class="flex-col flex-grow">
+                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <div class="comment-content">
+                                                        <p>{{ $element->content }}</p>
                                                     </div>
-                                                    <!-- .reply -->
+                                                    <div class="comment-meta commentmetadata uppercase is-xsmall clear">
+                                                        <a href="http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/#comment-13">
+                                                            <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
+                                                                {{ $element->time }} </time>
+                                                        </a>
+                                                        <div class="reply pull-right">
+                                                            <a rel='nofollow' class='comment-reply-link' href='http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/?replytocom=13#respond' onclick='return addComment.moveForm( "comment-13", "13", "respond", "2044" )' aria-label='Phản hồi đến {{ $element->name }}'>Trả lời
+                                                            </a> 
+                                                        </div>
+                                                        <!-- .reply -->
+                                                    </div>
+                                                    <!-- .comment-meta .commentmetadata -->
                                                 </div>
-                                                <!-- .comment-meta .commentmetadata -->
+                                                <!-- .flex-col -->
                                             </div>
-                                            <!-- .flex-col -->
-                                        </div>
-                                        <!-- .flex-row -->
-                                    </article>
-                                    <!-- #comment -->
-                                </li>
+                                            <!-- .flex-row -->
+                                        </article>
+                                        <!-- #comment -->
+                                    </li>
+                                @endforeach
+                                @endif
                                 <!-- #comment-## -->
                             </ol>
                             <!-- .comment-list -->
                             <div id="respond" class="comment-respond">
                                 <h3 id="reply-title" class="comment-reply-title">Trả lời <small><a rel="nofollow" id="cancel-comment-reply-link" href="/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/#respond" style="display:none;">Hủy</a></small></h3>
-                                <form action="http://localhost/TGDD/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+                                <form action="{{ route('postAddCommentNew') }}" method="post" id="commentform" class="comment-form" novalidate enctype="multipart/form-data">
                                     <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Bình luận</label>
-                                        <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                        <input type="hidden" name="newid" value="{{ $news['id'] }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                     </p>
                                     <p class="comment-form-author">
                                         <label for="author">Tên <span class="required">*</span></label>
-                                        <input id="author" name="author" type="text" value="" size="30" maxlength="245" required='required' />
+                                        <input id="author" name="name" type="text" value="" size="30" maxlength="245" required='required' />
                                     </p>
                                     <p class="comment-form-email">
                                         <label for="email">Email <span class="required">*</span></label>
                                         <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' />
                                     </p>
                                     <p class="comment-form-url">
-                                        <label for="url">Trang web</label>
-                                        <input id="url" name="url" type="url" value="" size="30" maxlength="200" />
+                                        <label for="url">Số Điện Thoại</label>
+                                        <input id="url" name="phone" type="text" value="" size="30" maxlength="200" />
                                     </p>
                                     <p class="form-submit">
                                         <input name="submit" type="submit" id="submit" class="submit" value="Phản hồi" />

@@ -120,6 +120,6 @@ Route::get('admin/sua-nhan-vien/{id}','EmployeeController@getEditEmployee')->nam
 
 Route::post('admin/sua-nhan-vien','EmployeeController@postEditEmployee')->name('postEditEmployee');
 
-
+Route::post('tin-tuc/them-binh-luan','CommentController@postAddCommentNew')->name('postAddCommentNew');
 
 

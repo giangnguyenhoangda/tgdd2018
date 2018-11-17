@@ -26,8 +26,10 @@ class NewsController extends Controller
     }
     public function getNew($id)
     {
-        $news=News::find($id)->toArray();
-    	return view('guest.pages.new',['news'=>$news]);
+        $news=News::find($id);
+        $listComment=$news->getListComment();
+        $news=$news->toArray();
+        return view('guest.pages.new',['news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getPostNews()
