@@ -27,7 +27,7 @@
 												
 												<div class="media-body">
 													<input type="file" class="file-styled" name="logo">
-													<input type="hidden" name="old_logo" value="{{ asset($news['logo']) }}">
+													<input type="hidden" name="old_logo" value="{{ $news['logo'] }}">
 													<span class="help-block">Accepted formats: gif, png, jpg. Max file size 2Mb</span>
 												</div>
 											</div>
