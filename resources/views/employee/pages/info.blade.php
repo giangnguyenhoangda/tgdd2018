@@ -5,11 +5,19 @@
 @section('content')
 	<!-- Cover area -->
 				<div class="profile-cover">
-					<div class="profile-cover-img" style="background-image: url({{ asset('uploads/placeholder.jpg') }})"></div>
+					<div class="profile-cover-img" @if ($user->avatar!=null)
+						style="background-image: url('{{ asset($user->avatar) }}')"
+					@else
+						style="background-image: url({{ asset('uploads/placeholder.jpg') }})"
+					@endif></div>
 					<div class="media">
 						<div class="media-left">
 							<a href="#" class="profile-thumb">
-								<img src="{{ asset('uploads/placeholder.jpg') }}" class="img-circle" alt="">
+								<img src="@if ($user->avatar!=null)
+									{{ asset($user->avatar) }}
+								@else
+									{{ asset('uploads/placeholder.jpg') }}
+								@endif" class="img-circle" alt="">
 							</a>
 						</div>
 
@@ -492,16 +500,19 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="#">
+												<form action="{{ route('postChangeInfoE') }}" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
 																<label>Họ Tên:</label>
-																<input type="text" placeholder="Họ Tên" class="form-control">
+																<input type="hidden" name="_token" value="{{ csrf_token() }}">
+																<input type="hidden" name="id" value="{{ $user->id }}">
+																<input type="text" name="fullname" placeholder="Họ Tên" class="form-control" value="{{ $user->fullname }}">
 															</div>
 															<div class="col-md-6">
 																<label>Vai Trò</label>
-																<input type="text" readonly="readonly" placeholder="Nhân Viên" class="form-control">
+																<input type="text" readonly="readonly"
+																 placeholder="Nhân Viên" value="Nhân Viên" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -510,11 +521,11 @@
 														<div class="row">
 															<div class="col-md-6">
 																<label>Số Điện Thoại</label>
-																<input type="text" placeholder="09........" class="form-control">
+																<input type="text" name="phonenumber" placeholder="09........" value="{{ $user->phonenumber }}" class="form-control">
 															</div>
 															<div class="col-md-6">
 																<label>Email</label>
-																<input type="text" placeholder="abc@xyz.t" class="form-control">
+																<input type="text" name="email" value="{{ $user->email }}" placeholder="abc@xyz.t" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -529,7 +540,8 @@
 
 															<div class="col-md-6">
 																<label class="display-block">Avatar</label>
-							                                    <input type="file" class="file-styled">
+							                                    <input type="file" name="avatar_new" class="file-styled">
+							                                    <input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
 							                                    <span class="help-block">Định Dạng Hỗ Trợ: gif, png, jpg.</span>
 															</div>
 							                        	</div>
@@ -558,16 +570,19 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="#">
+												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
 																<label>Username</label>
-																<input type="text" value="giangnguyen" readonly="readonly" class="form-control">
+																<input type="hidden" name="_token" value="{{ csrf_token() }}">
+																<input type="hidden" name="id" value="{{ $user->id }}">
+																<input type="text" value="{{ $user->username }}" readonly="readonly" class="form-control">
 															</div>
 
 															<div class="col-md-6">
 																<label>Mật Khẩu Hiện Tại</label>
+																<input type="hidden" name="cur_pass" value="{{ $user->password }}">
 																<input type="password" placeholder="Mật Khẩu Hiện Tại" class="form-control">
 															</div>
 														</div>
@@ -577,7 +592,7 @@
 														<div class="row">
 															<div class="col-md-6">
 																<label>Mật Khẩu Mới</label>
-																<input type="password" placeholder="Mật Khẩu Mới" class="form-control">
+																<input type="password" name="pass_new" placeholder="Mật Khẩu Mới" class="form-control">
 															</div>
 
 															<div class="col-md-6">

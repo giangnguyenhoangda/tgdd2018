@@ -19,7 +19,8 @@ class EmployeeController extends Controller
 
     public function getInfo()
     {
-    	return view('employee/pages/info');
+        $user=User::find(1);
+    	return view('employee/pages/info',['user'=>$user]);
     }
 
     public function getAddEmployee()
@@ -36,7 +37,7 @@ class EmployeeController extends Controller
     public function postAddEmployee(Request $req)
     {
         $user = new User;
-        $user->add($req->username,$req->password,$req->fullname,$req->phonenumber,$req->email);
+        $user->add($req->username,$req->password,$req->fullname,$req->phonenumber,$req->email,$req->avatar);
         echo "Đã thêm";
     }
 
@@ -49,8 +50,36 @@ class EmployeeController extends Controller
     public function postEditEmployee(Request $req)
     {
         $user=User::find($req->id);
-        $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email);
+        if ($req->hasFile('avatar_new')) {
+            $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email,$req->avatar_new,true);
+        }
+        else{
+            $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email,$req->old_avatar,false);
+        }
         echo "Sửa thành công";
+    }
+
+    public function postChangePass(Request $req)
+    {
+        $user=new User;
+        $user->changePass($req->id,$req->pass_new);
+        echo "Đã thay đổi mật khẩu";
+    }
+
+    public function postChangeInfoE(Request $req)
+    {
+        $user=new User;
+        $fullname=$req->fullname;
+        $phonenumber=$req->phonenumber;
+        $email=$req->email;
+        if ($req->hasFile('avatar_new')) {
+            $user->changeInfo($req->id,$fullname,$phonenumber,$email,$req->avatar_new,true);
+        }
+        else{
+            $user->changeInfo($req->id,$fullname,$phonenumber,$email,$req->old_avatar,false);
+        }
+        
+        echo "Đã thay đổi thông tin";
     }
 
     

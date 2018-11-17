@@ -23,6 +23,7 @@
 						<table class="table datatable-multi-sorting">
 							<thead>
 								<tr>
+									<th>Avatar</th>
 									<th>UserName</th>
 									<th>Password</th>
 									<th>Họ Và Tên</th>
@@ -36,6 +37,7 @@
 								
 								@foreach ($list as $element)
 								<tr>
+									<td ><img src="{{ asset($element->avatar) }}" width="50px"></td>
 									<td>{{ $element->username }}</td>
 									<td>{{ $element->password }}</td>
 									<td>{{ $element->fullname }}</td>

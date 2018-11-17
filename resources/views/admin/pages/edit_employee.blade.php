@@ -59,6 +59,23 @@
 											</div>
 
 											<div class="row">
+												
+												<div class="col-md-6">
+													<div class="form-group">
+														<label class="text-semibold">Ảnh Bìa:</label>
+														<div class="media no-margin-top">
+															<div class="media-left">
+																<a href="#"><img src="{{ asset($user->avatar)}}" style="width: 200px; height: 150px; border-radius: 2px;" alt=""></a>
+															</div>
+												
+															<div class="row" style="margin-left: 0.1%">
+
+																<input type="file" class="file-styled" name="avatar_new">
+																<input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
+															</div>
+														</div>
+													</div>
+												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label>Email:</label>

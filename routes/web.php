@@ -100,6 +100,10 @@ Route::get('nhan-vien/phu-kien','AccessoryController@getListAccessory')->name('g
 
 Route::get('nhan-vien/xoa-phu-kien/{id}','AccessoryController@getDeleteAccessory')->name('getDeleteAccessory');
 
+Route::post('nhan-vien/doi-mat-khau','EmployeeController@postChangePass')->name('postChangePass');
+
+Route::post('nhan-vien/sua-thong-tin','EmployeeController@postChangeInfoE')->name('postChangeInfoE');
+
 Route::get('admin/dang-nhap','AdminController@getLogin')->name('getAdminLogin');
 
 Route::get('admin/trang-chu','AdminController@getHome')->name('getAdminHome');

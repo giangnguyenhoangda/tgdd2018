@@ -27,37 +27,48 @@
 											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
-														<input type="hidden" name="_token" value="{{ csrf_token() }}">
-														<label>Tên Đăng Nhập:</label>
-														<input type="text" name="username" placeholder="Nhập tên đăng nhập của bạn" class="form-control">
+														<label class="display-block">Avatar</label>
+							                            <input type="file" name="avatar" class="file-styled">
+							                            <span class="help-block">Định Dạng Hỗ Trợ: gif, png, jpg.</span>
 													</div>
 												</div>
 
+												<div class="col-md-6">
+													<div class="form-group">
+														<input type="hidden" name="_token" value="{{ csrf_token() }}">
+														<label>Tên Đăng Nhập:</label>
+														<input type="text" name="username" placeholder="Nhập tên đăng nhập của bạn" class="form-control">
+														
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
 														<label>Mật Khẩu:</label>
 														<input type="text" name="password" placeholder="Nhập mật khẩu của bạn" class="form-control">
+														
 													</div>
 												</div>
-											</div>
 
-											<div class="row">
 												<div class="col-md-6">
 													<div class="form-group">
 														<label>Họ Và Tên:</label>
 														<input type="text" name="fullname" placeholder="Nguyễn Văn A" class="form-control">
-													</div>
-												</div>
-
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>Số Điện Thoại:</label>
-														<input type="text" name="phonenumber" placeholder="+8412345678" class="form-control">
+														
 													</div>
 												</div>
 											</div>
 
 											<div class="row">
+												<div class="col-md-6">
+													<div class="form-group">
+														<label>Số Điện Thoại:</label>
+														<input type="text" name="phonenumber" placeholder="+8412345678" class="form-control">
+														
+													</div>
+												</div>
 												<div class="col-md-6">
 													<div class="form-group">
 														<label>Email:</label>
