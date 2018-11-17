@@ -52,4 +52,6 @@ class EmployeeController extends Controller
         $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email);
         echo "Sửa thành công";
     }
+
+    
 }

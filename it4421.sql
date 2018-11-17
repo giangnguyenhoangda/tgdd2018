@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 03, 2018 lúc 08:08 AM
+-- Thời gian đã tạo: Th10 17, 2018 lúc 04:00 AM
 -- Phiên bản máy phục vụ: 10.1.35-MariaDB
 -- Phiên bản PHP: 7.2.9
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accessory` (
   `id` int(11) NOT NULL,
-  `description` tinytext COLLATE utf8_vietnamese_ci,
   `productid` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
@@ -140,6 +139,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 CREATE TABLE `new` (
   `id` int(11) NOT NULL,
   `postDate` date NOT NULL,
+  `title` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
+  `logo` text COLLATE utf8_vietnamese_ci NOT NULL,
+  `type` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
   `content` longtext COLLATE utf8_vietnamese_ci NOT NULL,
   `postEmpid` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
@@ -166,14 +168,16 @@ CREATE TABLE `product` (
   `id` int(11) NOT NULL,
   `productName` varchar(255) COLLATE utf8_vietnamese_ci NOT NULL,
   `quantity` int(11) NOT NULL,
+  `purchase` float NOT NULL,
   `price` float NOT NULL,
   `discountPercent` int(11) DEFAULT NULL,
-  `productType` int(11) NOT NULL,
+  `productType` varchar(50) COLLATE utf8_vietnamese_ci NOT NULL,
   `weight` float DEFAULT NULL,
   `madein` varchar(255) COLLATE utf8_vietnamese_ci DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `imagesurl` mediumtext COLLATE utf8_vietnamese_ci,
-  `gift` tinytext COLLATE utf8_vietnamese_ci
+  `gift` tinytext COLLATE utf8_vietnamese_ci,
+  `description` text COLLATE utf8_vietnamese_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_vietnamese_ci;
 
 -- --------------------------------------------------------
@@ -189,7 +193,7 @@ CREATE TABLE `smartdevice` (
   `chipset` tinytext COLLATE utf8_vietnamese_ci,
   `gpu` tinytext COLLATE utf8_vietnamese_ci,
   `ram` tinytext COLLATE utf8_vietnamese_ci,
-  `connection` tinytext COLLATE utf8_vietnamese_ci,
+  `connections` tinytext COLLATE utf8_vietnamese_ci,
   `memory` tinytext COLLATE utf8_vietnamese_ci,
   `battery` tinytext COLLATE utf8_vietnamese_ci,
   `design` tinytext COLLATE utf8_vietnamese_ci,
@@ -231,6 +235,7 @@ CREATE TABLE `tablet` (
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
+  `avatar` text COLLATE utf8mb4_unicode_ci,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fullname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -242,6 +247,13 @@ CREATE TABLE `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `users`
+--
+
+INSERT INTO `users` (`id`, `avatar`, `username`, `password`, `fullname`, `role`, `phonenumber`, `email`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'giang', '123456', 'Giang', 0, '0912345678', 'giang@abc.com', NULL, NULL, '2018-11-03 01:46:36', '2018-11-03 01:58:05');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -438,7 +450,7 @@ ALTER TABLE `tablet`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

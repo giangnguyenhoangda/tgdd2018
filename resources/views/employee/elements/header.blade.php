@@ -18,9 +18,9 @@
 						<div class="dropdown-content-body">
 							<div class="row">
 								<div class="col-md-3">
-									<a style="color: #333333" href="{{ route('getProductList') }}"><span class="menu-heading underlined">Điện Thoại</span></a>
+									<a style="color: #333333" href="{{ route('getListSmartPhone') }}"><span class="menu-heading underlined">Điện Thoại</span></a>
 									<ul class="menu-list">
-										<li><a href="{{ route('getAddProductPage') }}">Thêm Điện Thoại</a></li>
+										<li><a href="{{ route('getAddSmartPhone') }}">Thêm Điện Thoại</a></li>
 										<li><a href="form_inputs_basic.html">Iphone</a></li>
 										<li><a href="form_checkboxes_radios.html">Samsung</a></li>
 										<li><a href="form_input_groups.html">Lg</a></li>
@@ -31,21 +31,22 @@
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getProductList') }}" style="color: #333333"><span class="menu-heading underlined">Laptop</span></a>
+									<a href="{{ route('getListLaptop') }}" style="color: #333333"><span class="menu-heading underlined">Laptop</span></a>
 									<ul class="menu-list">
-										<li><a href="{{ route('getAddProductPage') }}">Thêm Laptop</a></li>
-										<li><a href="components_modals.html">Asus</a></li>
-										<li><a href="components_dropdowns.html">Dell <span class="badge badge-default">30+</span></a></li>
+										<li><a href="{{ route('getAddLaptop') }}">Thêm Laptop</a></li>
+										<li><a href="components_modals.html">Apple</a></li>
+										<li><a href="components_dropdowns.html">Asus <span class="badge badge-default">30+</span></a></li>
 										<li><a href="components_popups.html">Acer</a></li>
-										<li><a href="components_tabs.html">Lenove</a></li>
+										<li><a href="components_tabs.html">Dell</a></li>
 										<li><a href="components_navs.html">HP</a></li>
+										<li><a href="components_navs.html">Lenovo</a></li>
 										<li><a href="components_notifications_pnotify.html">Hãng Khác <span class="badge badge-danger">3</span></a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getProductList') }}" style="color: #333333"><span class="menu-heading underlined">Máy Tính Bảng</span></a>
+									<a href="{{ route('getListTablet') }}" style="color: #333333"><span class="menu-heading underlined">Máy Tính Bảng</span></a>
 									<ul class="menu-list">
-										<li><a href="{{ route('getAddProductPage') }}">Thêm Máy Tính Bảng</a></li>
+										<li><a href="{{ route('getAddTablet') }}">Thêm Máy Tính Bảng</a></li>
 										<li><a href="sidebar_default_collapse.html">Samsung</a></li>
 										<li><a href="sidebar_mini_collapse.html">Asus</a></li>
 										<li><a href="sidebar_dual.html">Acer</a></li>
@@ -54,9 +55,9 @@
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getProductList') }}" style="color: #333333"><span class="menu-heading underlined">Phụ Kiện</span></a>
+									<a href="{{ route('getListAccessory') }}" style="color: #333333"><span class="menu-heading underlined">Phụ Kiện</span></a>
 									<ul class="menu-list">
-										<li><a href="{{ route('getAddProductPage') }}">Thêm Phụ Kiện</a></li>
+										<li><a href="{{ route('getAddAccessory') }}">Thêm Phụ Kiện</a></li>
 										<li><a href="navigation_horizontal_click.html">Tai Nghe</a></li>
 										<li><a href="navigation_horizontal_hover.html">Sạc - Cáp</a></li>
 										<li><a href="navigation_horizontal_elements.html">USB - Thẻ Nhớ</a></li>
@@ -77,7 +78,7 @@
 
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="{{ route('getPostNews') }}"><i class="icon-quill4"></i> Thêm Bài Đăng</a></li>
-						<li><a href="#"><i class="icon-file-text"></i> Danh Sách</a></li>
+						<li><a href="{{ route('getListNews') }}"><i class="icon-file-text"></i> Danh Sách</a></li>
 					</ul>
 				</li>
 			</ul>
