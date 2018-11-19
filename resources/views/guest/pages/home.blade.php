@@ -1,7 +1,7 @@
 @extends('guest.elements.master')
 
 @section('title')
-	Thế Giới Công Nghệ
+	BKTECH - Thế Giới Công Nghệ
 @endsection
 
 @section('head')
@@ -2079,10 +2079,10 @@
 	                                    }(document, 'script', 'facebook-jssdk'));
 	                                </script>
 								</p>
-								<div class="fb-page" data-href="https://www.facebook.com/truesmartphone/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-									<blockquote cite="https://www.facebook.com/truesmartphone/" class="fb-xfbml-parse-ignore">
+								<div class="fb-page" data-href="https://www.facebook.com/bktech.azurewebsites.net/" data-tabs="timeline" data-width="288" data-height="280" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+									<blockquote cite="https://www.facebook.com/bktech.azurewebsites.net/" class="fb-xfbml-parse-ignore">
 										<p>
-											<a href="https://www.facebook.com/truesmartphone/">TrueSmart &#8211; Hệ Thống Bán Lẻ Di Động Chính Hãng</a>
+											<a href="https://www.facebook.com/bktech.azurewebsites.net/">BKTECH &#8211; Thế Giới Công Nghệ</a>
 										</p>
 									</blockquote>
 								</div>
