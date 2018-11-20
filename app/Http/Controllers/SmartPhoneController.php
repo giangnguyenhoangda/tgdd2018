@@ -7,12 +7,33 @@ use App\Http\Controllers\Controller;
 use App\Product;
 use App\Smartdevice;
 use App\Smartphone;
+use Session;
+use App\Cart;
+use Illuminate\Support\Facades\DB;
 
 class SmartPhoneController extends Controller
 {
     public function getAddSmartPhone()
     {
     	return view('employee.pages.smartphone.add_smartphone');
+    }
+
+    public function postSmartPhoneAddCart(Request $req)
+    {
+        $smartphone=Smartphone::find($req->id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($smartphone, $smartphone->isProduct->id,$req->quantity);
+        $req->session()->put('cart', $cart);
+        // Session::forget('cart');
+        return redirect('gio-hang');
+    }
+
+    public function getSmartPhone($id)
+    {
+        $smartphone=Smartphone::find($id);
+        $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
+        return view('guest.pages.smartphone-info',['smartphone'=>$smartphone,'news'=>$news]);
     }
 
     public function getEditSmartPhone($id)
@@ -111,5 +132,11 @@ class SmartPhoneController extends Controller
     	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
     	echo "Thêm Điện Thoại Thành Công";
+    }
+
+    public function getAllSmartPhone()
+    {
+        $list=Smartphone::all();
+        return view('guest.pages.smartphones',['list'=>$list]);
     }
 }

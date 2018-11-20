@@ -25,6 +25,11 @@ class Laptop extends Model
     	$laptop->save();
     }
 
+    public function getSmartDevice()
+    {
+        return $this->belongsTo('App\Smartdevice','smartdeviceid','id');
+    }
+
     public function isProduct()
     {
         return $this->belongsTo('App\Product','productid','id');

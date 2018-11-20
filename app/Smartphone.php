@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Smartdevice;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class Smartphone extends Model
 {
@@ -50,6 +51,11 @@ class Smartphone extends Model
         return $this->belongsTo('App\Product','productid','id');
     }
 
+    public function getSmartDevice()
+    {
+        return $this->belongsTo('App\Smartdevice','smartdeviceid','id');
+    }
+
     public function doDelete($id)
     {
         $smartphone=Smartphone::find($id);
@@ -58,5 +64,10 @@ class Smartphone extends Model
         $smartphone->delete();
         $smartdevice->delete();
         $product->delete();
+    }
+
+    public function doWhere($x1,$x2,$x3)
+    {
+        return DB::table('smartphone')->join('product','productid','=','product.id')->where($x1,$x2,$x3)->get();
     }
 }

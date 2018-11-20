@@ -66,7 +66,7 @@
                         <div class="flex-col hide-for-medium flex-right">
                             <ul class="header-nav header-nav-main nav nav-right  nav-spacing-medium nav-uppercase">
                                 <li id="menu-item-1930" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1930 has-dropdown">
-                                    <a href="{{ route('getSearch') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="13" height="24" src="{{ asset('uploads/p217.png') }} " class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">ĐIỆN THOẠI</span></a>
+                                    <a href="{{ route('getAllSmartPhone') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="13" height="24" src="{{ asset('uploads/p217.png') }} " class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">ĐIỆN THOẠI</span></a>
                                     <ul class='nav-dropdown nav-dropdown-default dark dropdown-uppercase'>
                                         <li id="menu-item-1988" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1988 nav-dropdown-col"><a href="{{ route('getSearch') }}" class="menu-image-title-after"><span class="menu-image-title">IPHONE</span></a>
                                             <ul class='nav-column nav-dropdown-default dark dropdown-uppercase'>
@@ -91,7 +91,7 @@
                                     </ul>
                                 </li>
                                 <li id="menu-item-1928" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1928 has-dropdown">
-                                    <a href="{{ route('getDevelopingPage') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="28" height="20" src="{{ asset('uploads/p218-1.png') }}" class="menu-image menu-image-title-below" alt="" srcset="{{ asset('uploads/p218-1.png') }}  28w, {{ asset('uploads/p218-1-24x17.png') }}  24w" sizes="(max-width: 28px) 100vw, 28px" /><span class="menu-image-title">TABLET</span></a>
+                                    <a href="{{ route('getAllTablet') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="28" height="20" src="{{ asset('uploads/p218-1.png') }}" class="menu-image menu-image-title-below" alt="" srcset="{{ asset('uploads/p218-1.png') }}  28w, {{ asset('uploads/p218-1-24x17.png') }}  24w" sizes="(max-width: 28px) 100vw, 28px" /><span class="menu-image-title">TABLET</span></a>
                                     <ul class='nav-dropdown nav-dropdown-default dark dropdown-uppercase'>
                                         <li id="menu-item-1995" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1995 nav-dropdown-col"><a href="{{ route('getDevelopingPage') }}" class="menu-image-title-after"><span class="menu-image-title">HÃNG SẢN XUẤT</span></a>
                                             <ul class='nav-column nav-dropdown-default dark dropdown-uppercase'>
@@ -107,7 +107,7 @@
                                     </ul>
                                 </li>
                                 <li id="menu-item-1931" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1931 has-dropdown">
-                                    <a href="{{ route('getDevelopingPage') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="28" height="20" src="{{ asset('uploads/laptopicon.png') }}" class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">LAPTOP</span></a>
+                                    <a href="{{ route('getAllLaptop') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="28" height="20" src="{{ asset('uploads/laptopicon.png') }}" class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">LAPTOP</span></a>
                                     <ul class='nav-dropdown nav-dropdown-default dark dropdown-uppercase'>
                                         <li id="menu-item-2003" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-2003"><a href="{{ route('getDevelopingPage') }}" class="menu-image-title-after"><span class="menu-image-title">ASUS</span></a></li>
                                         <li id="menu-item-2004" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-2004"><a href="{{ route('getDevelopingPage') }}" class="menu-image-title-after"><span class="menu-image-title">MSI</span></a></li>
@@ -115,7 +115,7 @@
                                     </ul>
                                 </li>
                                 <li id="menu-item-1931" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-has-children  menu-item-1931 has-dropdown">
-                                    <a href="{{ route('getDevelopingPage') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="23" height="21" src="{{ asset('uploads/p219.png') }}" class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">PHỤ KIỆN</span></a>
+                                    <a href="{{ route('getAllAccessory') }}" class="menu-image-title-below menu-image-not-hovered nav-top-link"><img width="23" height="21" src="{{ asset('uploads/p219.png') }}" class="menu-image menu-image-title-below" alt="" /><span class="menu-image-title">PHỤ KIỆN</span></a>
                                     <ul class='nav-dropdown nav-dropdown-default dark dropdown-uppercase'>
                                         <li id="menu-item-2003" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-2003"><a href="{{ route('getDevelopingPage') }}" class="menu-image-title-after"><span class="menu-image-title">Cáp kết nối</span></a></li>
                                         <li id="menu-item-2004" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-2004"><a href="{{ route('getDevelopingPage') }}" class="menu-image-title-after"><span class="menu-image-title">Củ sạc</span></a></li>

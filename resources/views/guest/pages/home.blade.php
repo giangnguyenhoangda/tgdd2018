@@ -73,7 +73,7 @@
 							<div class="col-inner">
 								<div class="video video-fit mb" style="padding-top:56.25%;">
 									<p>
-										<iframe width="1020" height="574" src="https://www.youtube.com/embed/Qh91i2tNYTw?feature=oembed" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										<iframe width="1020" height="574" src="https://www.youtube.com/embed/o6lxAi8FYYk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 									</p>
 								</div>
 								<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_347924980">
@@ -246,20 +246,21 @@
 							<div class="col-inner" style="background-color:rgb(255, 255, 255);">
 								<div class="row large-columns-4 medium-columns- small-columns-2 row-small has-shadow row-box-shadow-1 row-box-shadow-2-hover slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'></div>
 								<div class="row large-columns-5 medium-columns-3 small-columns-2 row-normal">
+									@foreach ($smartphones1 as $element)
 									<div class="col">
 										<div class="col-inner">
 											<div class="badge-container absolute left top z-1">
 												<div class="callout badge badge-circle">
 													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-91%</span>
+														<span class="onsale">-{{ $element->discountPercent }}%</span>
 													</div>
 												</div>
 											</div>
 											<div class="product-small box has-hover box-normal box-text-bottom">
 												<div class="box-image">
 													<div class="image-zoom">
-														<a href="{{ route('getProduct') }}">
-															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/566565656565-247x296.jpg') }} " class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
+														<a href="{{ route('getSmartPhone',$element->id) }}">
+															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->imagesurl) }} " class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
 														</a>
 													</div>
 													<div class="image-tools top right show-on-hover"></div>
@@ -271,69 +272,23 @@
 														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
 	                                                        ĐIỆN THOẠI </p>
 														<p class="name product-title">
-															<a href="{{ route('getProduct') }}">Điện thoại iPhone 6 cũ &#8211; Fullbox giá rẻ nhất</a>
+															<a href="{{ route('getSmartPhone',$element->id) }}">{{ $element->productName }}</a>
 														</p>
 													</div>
 													<div class="price-wrapper">
-														<div class="star-rating">
+														{{-- <div class="star-rating">
 															<span style="width:100%">Được xếp hạng 
 																<strong class="rating">5.00</strong> 5 sao
 															</span>
-														</div>
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">4
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span> &ndash; 
-															<span class="woocommerce-Price-amount amount">3.300.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-4%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="{{ route('getProduct') }}">
-															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-247x296.jpg') }}" class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="{{ route('getProduct') }}">iPhone 6S 16GB Lock Mỹ (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
+														</div> --}}
 														<span class="price">
 															<del>
-																<span class="woocommerce-Price-amount amount">4.700.000
+																<span class="woocommerce-Price-amount amount">{{ $element->price }}
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
 																</span>
 															</del>
 															<ins>
-																<span class="woocommerce-Price-amount amount">4.500.000
+																<span class="woocommerce-Price-amount amount">{{ ((100 - $element->discountPercent)*$element->price)/100 }}
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
 																</span>
 															</ins>
@@ -347,156 +302,7 @@
 										<!-- .col-inner -->
 									</div>
 									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-2%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="{{ route('getProduct') }}">
-															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/untitled-2_5-1-247x296.jpg') }}" class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        Apple </p>
-														<p class="name product-title">
-															<a href="{{ route('getProduct') }}">iPad Mini 3 16GB Wifi &#038; 4G</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">5.979.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">5.879.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-1%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="{{ route('getProduct') }}">
-															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        Apple </p>
-														<p class="name product-title">
-															<a href="{{ route('getProduct') }}">iPad Mini 4 16GB Wifi &#038; 4G</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">7.879.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">7.779.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-7%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-247x296.jpg') }}" class="lazy-load attachment-shop_catalog size-shop_catalog wp-post-image" alt="" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        IPHONE </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">Điện thoại iPhone X 64GB</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">32.000.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">29.900.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
+									@endforeach
 								</div>
 								<div class="row large-columns-4 medium-columns- small-columns-2 row-xsmall"></div>
 							</div>
@@ -542,7 +348,7 @@
 							<div class="col-inner" style="background-color:rgb(255, 255, 255);">
 								<div class="row large-columns-4 medium-columns- small-columns-2 row-small has-shadow row-box-shadow-1 row-box-shadow-2-hover slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'></div>
 								<div class="row large-columns-5 medium-columns-3 small-columns-3 row-normal">
-									<div class="col">
+									{{-- <div class="col">
 										<div class="col-inner">
 											<div class="badge-container absolute left top z-1"></div>
 											<div class="product-small box has-hover box-normal box-text-bottom">
@@ -582,22 +388,25 @@
 											<!-- box -->
 										</div>
 										<!-- .col-inner -->
-									</div>
+									</div> --}}
 									<!-- col -->
+									@foreach ($smartphones as $element)
 									<div class="col">
 										<div class="col-inner">
+											@if ($element->discountPercent>0)
 											<div class="badge-container absolute left top z-1">
 												<div class="callout badge badge-circle">
 													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-7%</span>
+														<span class="onsale">-{{ $element->discountPercent }}%</span>
 													</div>
 												</div>
 											</div>
+											@endif
 											<div class="product-small box has-hover box-normal box-text-bottom">
 												<div class="box-image">
 													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
+														<a href="{{ route('getSmartPhone',$element->id) }}">
+															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->imagesurl) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->imagesurl) }} 300w, {{ asset($element->imagesurl) }} 510w, {{ asset($element->imagesurl) }} 100w, {{ asset($element->imagesurl) }} 150w, {{ asset($element->imagesurl) }} 768w, {{ asset($element->imagesurl) }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
 														</a>
 													</div>
 													<div class="image-tools top right show-on-hover"></div>
@@ -609,18 +418,18 @@
 														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
 	                                                        IPHONE </p>
 														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">Điện thoại iPhone X 64GB</a>
+															<a href="{{ route('getSmartPhone',$element->id) }}">{{ $element->productName }}</a>
 														</p>
 													</div>
 													<div class="price-wrapper">
 														<span class="price">
 															<del>
-																<span class="woocommerce-Price-amount amount">32.000.000
+																{{-- <span class="woocommerce-Price-amount amount">32.000.000
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
+																</span> --}}
 															</del>
 															<ins>
-																<span class="woocommerce-Price-amount amount">29.900.000
+																<span class="woocommerce-Price-amount amount">{{ $element->price }}
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
 																</span>
 															</ins>
@@ -634,328 +443,8 @@
 										<!-- .col-inner -->
 									</div>
 									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-7-32gb-lock-my-like-new/">iPhone 7 32GB Lock Mỹ (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">8.279.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-64gb-lock-my-new/">iPhone 6S 64GB Lock Mỹ (New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">7.979.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-plus-16gb-quoc-te-like-new/">iPhone 6S Plus 16GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">7.879.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-25%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-64gb-quoc-te-like-new-khong-van-tay/">iPhone 6S 64GB Quốc Tế (Like New) &#8211; Không Vân Tay</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">5.979.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">4.500.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-4%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-16gb-lock-my-like-new/">iPhone 6S 16GB Lock Mỹ (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">4.700.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">4.500.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-plus-128gb-quoc-te-like-new/">iPhone 6 Plus 128GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">8.579.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-16gb-quoc-te-like-new/">iPhone 6 16GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">4.679.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-16gb-lock-nhat-like-new/">iPhone 6 16GB Lock Nhật (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">3.279.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
+									@endforeach
+									
 								</div>
 								<div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
 								<div class="row" id="row-1993572322">
@@ -1045,14 +534,26 @@
 									<div class="col small-12 large-12">
 										<div class="col-inner" style="background-color:rgb(255, 255, 255);">
 											<div class="row large-columns-5 medium-columns-3 small-columns-3 row-normal">
+												@foreach ($tablets as $item)
+												@php
+													$element=$item->isProduct;
+												@endphp
 												<div class="col">
 													<div class="col-inner">
-														<div class="badge-container absolute left top z-1"></div>
+														@if ($element->discountPercent>0)
+											<div class="badge-container absolute left top z-1">
+												<div class="callout badge badge-circle">
+													<div class="badge-inner secondary on-sale">
+														<span class="onsale">-{{ $element->discountPercent }}%</span>
+													</div>
+												</div>
+											</div>
+											@endif
 														<div class="product-small box has-hover box-normal box-text-bottom">
 															<div class="box-image">
 																<div class="image-zoom">
-																	<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">
-																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }} 300w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-510x510.jpg') }} 510w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-100x100.jpg') }} 100w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-150x150.jpg') }} 150w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-768x768.jpg') }} 768w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
+																	<a href="{{ route('getTablet',$item->id) }}">
+																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->imagesurl) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->imagesurl) }} 300w, {{ asset($element->imagesurl) }} 510w, {{ asset($element->imagesurl) }} 100w, {{ asset($element->imagesurl) }} 150w, {{ asset($element->imagesurl) }} 768w, {{ asset($element->imagesurl) }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
 																	</a>
 																</div>
 																<div class="image-tools top right show-on-hover"></div>
@@ -1062,17 +563,24 @@
 															<div class="box-text text-center">
 																<div class="title-wrapper">
 																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                                    HÃNG SẢN XUẤT </p>
+	                                                                    {{ $element->productType }} </p>
 																	<p class="name product-title">
-																		<a href="http://localhost/TGDD/cua-hang/may-tinh-bang-samsung-galaxy-tab-a-8-0-2017/">Máy tính bảng Samsung Galaxy Tab A 8.0 (2017)</a>
+																		<a href="{{ route('getTablet',$item->id) }}">{{ $element->productName }}</a>
 																	</p>
 																</div>
 																<div class="price-wrapper">
 																	<span class="price">
-																		<span class="woocommerce-Price-amount amount">5.490.000
-																			<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																		</span>
-																	</span>
+															<del>
+																{{-- <span class="woocommerce-Price-amount amount">32.000.000
+																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+																</span> --}}
+															</del>
+															<ins>
+																<span class="woocommerce-Price-amount amount">{{ $element->price }}
+																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+																</span>
+															</ins>
+														</span>
 																</div>
 															</div>
 															<!-- box-text -->
@@ -1082,185 +590,7 @@
 													<!-- .col-inner -->
 												</div>
 												<!-- col -->
-												<div class="col">
-													<div class="col-inner">
-														<div class="badge-container absolute left top z-1">
-															<div class="callout badge badge-circle">
-																<div class="badge-inner secondary on-sale">
-																	<span class="onsale">-1%</span>
-																</div>
-															</div>
-														</div>
-														<div class="product-small box has-hover box-normal box-text-bottom">
-															<div class="box-image">
-																<div class="image-zoom">
-																	<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">
-																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }} 300w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-510x510.jpg') }} 510w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-100x100.jpg') }} 100w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-150x150.jpg') }} 150w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-768x768.jpg') }} 768w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</a>
-																</div>
-																<div class="image-tools top right show-on-hover"></div>
-																<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-															</div>
-															<!-- box-image -->
-															<div class="box-text text-center">
-																<div class="title-wrapper">
-																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                                    Apple </p>
-																	<p class="name product-title">
-																		<a href="http://localhost/TGDD/cua-hang/ipad-mini-4-16gb-wifi-4g/">iPad Mini 4 16GB Wifi &#038; 4G</a>
-																	</p>
-																</div>
-																<div class="price-wrapper">
-																	<span class="price">
-																		<del>
-																			<span class="woocommerce-Price-amount amount">7.879.000
-																				<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																			</span>
-																		</del>
-																		<ins>
-																			<span class="woocommerce-Price-amount amount">7.779.000
-																				<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																			</span>
-																		</ins>
-																	</span>
-																</div>
-															</div>
-															<!-- box-text -->
-														</div>
-														<!-- box -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- col -->
-												<div class="col">
-													<div class="col-inner">
-														<div class="badge-container absolute left top z-1">
-															<div class="callout badge badge-circle">
-																<div class="badge-inner secondary on-sale">
-																	<span class="onsale">-2%</span>
-																</div>
-															</div>
-														</div>
-														<div class="product-small box has-hover box-normal box-text-bottom">
-															<div class="box-image">
-																<div class="image-zoom">
-																	<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">
-																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }} 300w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-510x510.jpg') }} 510w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-100x100.jpg') }} 100w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-150x150.jpg') }} 150w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-768x768.jpg') }} 768w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</a>
-																</div>
-																<div class="image-tools top right show-on-hover"></div>
-																<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-															</div>
-															<!-- box-image -->
-															<div class="box-text text-center">
-																<div class="title-wrapper">
-																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                                    Apple </p>
-																	<p class="name product-title">
-																		<a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-																	</p>
-																</div>
-																<div class="price-wrapper">
-																	<span class="price">
-																		<del>
-																			<span class="woocommerce-Price-amount amount">5.979.000
-																				<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																			</span>
-																		</del>
-																		<ins>
-																			<span class="woocommerce-Price-amount amount">5.879.000
-																				<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																			</span>
-																		</ins>
-																	</span>
-																</div>
-															</div>
-															<!-- box-text -->
-														</div>
-														<!-- box -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- col -->
-												<div class="col">
-													<div class="col-inner">
-														<div class="badge-container absolute left top z-1"></div>
-														<div class="product-small box has-hover box-normal box-text-bottom">
-															<div class="box-image">
-																<div class="image-zoom">
-																	<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">
-																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }} 300w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-510x510.jpg') }} 510w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-100x100.jpg') }} 100w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-150x150.jpg') }} 150w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-768x768.jpg') }} 768w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</a>
-																</div>
-																<div class="image-tools top right show-on-hover"></div>
-																<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-															</div>
-															<!-- box-image -->
-															<div class="box-text text-center">
-																<div class="title-wrapper">
-																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                                    Apple </p>
-																	<p class="name product-title">
-																		<a href="http://localhost/TGDD/cua-hang/ipad-air-16gb-wifi-4g/">iPad Air 16GB Wifi &#038; 4G</a>
-																	</p>
-																</div>
-																<div class="price-wrapper">
-																	<div class="star-rating">
-																		<span style="width:80%">Được xếp hạng 
-																			<strong class="rating">4.00</strong> 5 sao
-																		</span>
-																	</div>
-																	<span class="price">
-																		<span class="woocommerce-Price-amount amount">5.879.000
-																			<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																		</span>
-																	</span>
-																</div>
-															</div>
-															<!-- box-text -->
-														</div>
-														<!-- box -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- col -->
-												<div class="col">
-													<div class="col-inner">
-														<div class="badge-container absolute left top z-1"></div>
-														<div class="product-small box has-hover box-normal box-text-bottom">
-															<div class="box-image">
-																<div class="image-zoom">
-																	<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">
-																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-300x300.jpg') }} 300w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-510x510.jpg') }} 510w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-100x100.jpg') }} 100w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-150x150.jpg') }} 150w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1-768x768.jpg') }} 768w, {{ asset('uploads/ipad-pro-9-7-inch-32gb-wifi-4g-vang-didongviet_1_1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</a>
-																</div>
-																<div class="image-tools top right show-on-hover"></div>
-																<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-															</div>
-															<!-- box-image -->
-															<div class="box-text text-center">
-																<div class="title-wrapper">
-																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                                    Apple </p>
-																	<p class="name product-title">
-																		<a href="http://localhost/TGDD/cua-hang/ipad-pro-97inch-32gb-wifi-4g/">iPad Pro 9,7inch 32GB Wifi &#038; 4G</a>
-																	</p>
-																</div>
-																<div class="price-wrapper">
-																	<span class="price">
-																		<span class="woocommerce-Price-amount amount">10.779.000
-																			<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																		</span>
-																	</span>
-																</div>
-															</div>
-															<!-- box-text -->
-														</div>
-														<!-- box -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- col -->
+												@endforeach
 											</div>
 										</div>
 									</div>
@@ -1290,62 +620,26 @@
 							<div class="col-inner" style="background-color:rgb(255, 255, 255);">
 								<div class="row large-columns-4 medium-columns- small-columns-2 row-small has-shadow row-box-shadow-1 row-box-shadow-2-hover slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'></div>
 								<div class="row large-columns-5 medium-columns-3 small-columns-3 row-normal">
+									@foreach ($accessorys as $item)
+									@php
+										$element=$item->isProduct;
+									@endphp
 									<div class="col">
 										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">Điện thoại iPhone 8 64GB</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<div class="star-rating">
-															<span style="width:100%">Được xếp hạng 
-																<strong class="rating">5.00</strong> 5 sao
-															</span>
-														</div>
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">20.990.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
+											@if ($element->discountPercent>0)
 											<div class="badge-container absolute left top z-1">
 												<div class="callout badge badge-circle">
 													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-7%</span>
+														<span class="onsale">-{{ $element->discountPercent }}%</span>
 													</div>
 												</div>
 											</div>
+											@endif
 											<div class="product-small box has-hover box-normal box-text-bottom">
 												<div class="box-image">
 													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
+														<a href="{{ route('getAccessory',$item->id) }}">
+															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->imagesurl) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->imagesurl) }} 300w, {{ asset($element->imagesurl) }} 510w, {{ asset($element->imagesurl) }} 100w, {{ asset($element->imagesurl) }} 150w, {{ asset($element->imagesurl) }} 768w, {{ asset($element->imagesurl) }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
 														</a>
 													</div>
 													<div class="image-tools top right show-on-hover"></div>
@@ -1355,20 +649,20 @@
 												<div class="box-text text-center">
 													<div class="title-wrapper">
 														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        IPHONE </p>
+	                                                        {{ $element->productType }} </p>
 														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">Điện thoại iPhone X 64GB</a>
+															<a href="{{ route('getAccessory',$item->id) }}">{{ $element->productName }}</a>
 														</p>
 													</div>
 													<div class="price-wrapper">
 														<span class="price">
-															<del>
+															{{-- <del>
 																<span class="woocommerce-Price-amount amount">32.000.000
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
 																</span>
-															</del>
+															</del> --}}
 															<ins>
-																<span class="woocommerce-Price-amount amount">29.900.000
+																<span class="woocommerce-Price-amount amount">{{ $element->price }}
 																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
 																</span>
 															</ins>
@@ -1382,328 +676,7 @@
 										<!-- .col-inner -->
 									</div>
 									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-7-32gb-lock-my-like-new/">iPhone 7 32GB Lock Mỹ (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">8.279.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-64gb-lock-my-new/">iPhone 6S 64GB Lock Mỹ (New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">7.979.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-plus-16gb-quoc-te-like-new/">iPhone 6S Plus 16GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">7.879.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-25%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-64gb-quoc-te-like-new-khong-van-tay/">iPhone 6S 64GB Quốc Tế (Like New) &#8211; Không Vân Tay</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">5.979.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">4.500.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1">
-												<div class="callout badge badge-circle">
-													<div class="badge-inner secondary on-sale">
-														<span class="onsale">-4%</span>
-													</div>
-												</div>
-											</div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6s-16gb-lock-my-like-new/">iPhone 6S 16GB Lock Mỹ (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<del>
-																<span class="woocommerce-Price-amount amount">4.700.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</del>
-															<ins>
-																<span class="woocommerce-Price-amount amount">4.500.000
-																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-																</span>
-															</ins>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-plus-128gb-quoc-te-like-new/">iPhone 6 Plus 128GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">8.579.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-16gb-quoc-te-like-new/">iPhone 6 16GB Quốc Tế (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">4.679.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
-									<div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-7-32gb-lock-my-like-new-vang-didongviet_1-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/iphone-6-16gb-lock-nhat-like-new/">iPhone 6 16GB Lock Nhật (Like New)</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">3.279.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- col -->
+									@endforeach
 								</div>
 								<div class="gap-element" style="display:block; height:auto; padding-top:30px" class="clearfix"></div>
 								<div class="row" id="row-1678221457">
@@ -1766,19 +739,20 @@
 								</div>
 								<!-- .section-title -->
 								<div class="row large-columns-3 medium-columns-1 small-columns-1">
+									@foreach ($news as $element)
 									<div class="col post-item">
 										<div class="col-inner">
 											<a href="http://localhost/TGDD/huong-dan-cach-thoat-xoa-tai-khoan-icloud-tren-iphone-ipad/" class="plain">
 												<div class="box box-normal box-text-bottom box-blog-post has-hover">
 													<div class="box-image">
 														<div class="image-cover" style="padding-top:100%;">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
+															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->logo) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->logo) }} 300w, {{ asset($element->logo) }} 510w, {{ asset($element->logo) }} 100w, {{ asset($element->logo) }} 150w, {{ asset($element->logo) }} 768w, {{ asset($element->logo) }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
 														</div>
 													</div>
 													<!-- .box-image -->
 													<div class="box-text text-center is-small">
 														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Hướng dẫn cách thoát, xóa tài khoản iCloud trên iPhone iPad</h5>
+															<h5 class="post-title is-large ">{{ $element->title }}</h5>
 															<div class="is-divider"></div>
 														</div>
 														<!-- .box-text-inner -->
@@ -1792,58 +766,7 @@
 										<!-- .col-inner -->
 									</div>
 									<!-- .col -->
-									<div class="col post-item">
-										<div class="col-inner">
-											<a href="http://localhost/TGDD/dang-nhapxuat-cac-tai-khoan-apple-tren-cac-thiet-bi-ios/" class="plain">
-												<div class="box box-normal box-text-bottom box-blog-post has-hover">
-													<div class="box-image">
-														<div class="image-cover" style="padding-top:100%;">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</div>
-													</div>
-													<!-- .box-image -->
-													<div class="box-text text-center is-small">
-														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Đăng nhập/xuất các tài khoản Apple trên các thiết bị iOS</h5>
-															<div class="is-divider"></div>
-														</div>
-														<!-- .box-text-inner -->
-													</div>
-													<!-- .box-text -->
-												</div>
-												<!-- .box -->
-											</a>
-											<!-- .link -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- .col -->
-									<div class="col post-item">
-										<div class="col-inner">
-											<a href="http://localhost/TGDD/huong-dan-xoa-tai-khoan-icloud-khong-can-mat-khau/" class="plain">
-												<div class="box box-normal box-text-bottom box-blog-post has-hover">
-													<div class="box-image">
-														<div class="image-cover" style="padding-top:100%;">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-1.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</div>
-													</div>
-													<!-- .box-image -->
-													<div class="box-text text-center is-small">
-														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Hướng dẫn xoá tài khoản icloud không cần mật khẩu !</h5>
-															<div class="is-divider"></div>
-														</div>
-														<!-- .box-text-inner -->
-													</div>
-													<!-- .box-text -->
-												</div>
-												<!-- .box -->
-											</a>
-											<!-- .link -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- .col -->
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -1858,19 +781,20 @@
 								</div>
 								<!-- .section-title -->
 								<div class="row large-columns-1 medium-columns-1 small-columns-1 row-collapse">
+									@foreach ($news1 as $element)
 									<div class="col post-item">
 										<div class="col-inner">
 											<a href="http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/" class="plain">
 												<div class="box box-vertical box-text-bottom box-blog-post has-hover">
 													<div class="box-image" style="width:35%;">
 														<div class="image-cover" style="padding-top:75%;">
-															<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
+															<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->logo) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->logo) }} 300w, {{ asset($element->logo) }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
 														</div>
 													</div>
 													<!-- .box-image -->
 													<div class="box-text text-left is-small">
 														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Tải Hình Nền Ý Nghĩa Cho Máy Tính</h5>
+															<h5 class="post-title is-large ">{{ $element->title }}</h5>
 															<div class="is-divider"></div>
 															<p class="from_the_blog_comments uppercase is-xsmall">
 	                                                            1 Bình luận </p>
@@ -1886,58 +810,7 @@
 										<!-- .col-inner -->
 									</div>
 									<!-- .col -->
-									<div class="col post-item">
-										<div class="col-inner">
-											<a href="http://localhost/TGDD/danh-gia-dien-thoai-infocus-m810t-ngang-hang-dien-thoai-cao-cap-voi-muc-gia-re/" class="plain">
-												<div class="box box-vertical box-text-bottom box-blog-post has-hover">
-													<div class="box-image" style="width:35%;">
-														<div class="image-cover" style="padding-top:75%;">
-															<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
-														</div>
-													</div>
-													<!-- .box-image -->
-													<div class="box-text text-left is-small">
-														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Đánh giá điện thoại Infocus M810T: Ngang hàng điện thoại cao cấp với mức giá rẻ</h5>
-															<div class="is-divider"></div>
-														</div>
-														<!-- .box-text-inner -->
-													</div>
-													<!-- .box-text -->
-												</div>
-												<!-- .box -->
-											</a>
-											<!-- .link -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- .col -->
-									<div class="col post-item">
-										<div class="col-inner">
-											<a href="http://localhost/TGDD/phan-mem-nen-anh-va-video-giup-tiet-kiem-bo-nho-tren-android/" class="plain">
-												<div class="box box-vertical box-text-bottom box-blog-post has-hover">
-													<div class="box-image" style="width:35%;">
-														<div class="image-cover" style="padding-top:75%;">
-															<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
-														</div>
-													</div>
-													<!-- .box-image -->
-													<div class="box-text text-left is-small">
-														<div class="box-text-inner blog-post-inner">
-															<h5 class="post-title is-large ">Phần mềm nén ảnh và video giúp tiết kiệm bộ nhớ trên Android</h5>
-															<div class="is-divider"></div>
-														</div>
-														<!-- .box-text-inner -->
-													</div>
-													<!-- .box-text -->
-												</div>
-												<!-- .box -->
-											</a>
-											<!-- .link -->
-										</div>
-										<!-- .col-inner -->
-									</div>
-									<!-- .col -->
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -1970,19 +843,20 @@
 									<div class="col small-12 large-12">
 										<div class="col-inner">
 											<div class="row large-columns-1 medium-columns-1 small-columns-3 row-collapse">
+												@foreach ($news2 as $element)
 												<div class="col post-item">
 													<div class="col-inner">
 														<a href="http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/" class="plain">
 															<div class="box box-vertical box-text-bottom box-blog-post has-hover">
 																<div class="box-image" style="width:30%;">
 																	<div class="image-cover" style="padding-top:75%;">
-																		<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
+																		<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->logo) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->logo) }} 300w, {{ asset($element->logo) }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
 																	</div>
 																</div>
 																<!-- .box-image -->
 																<div class="box-text text-left is-small">
 																	<div class="box-text-inner blog-post-inner">
-																		<h5 class="post-title is-large ">Tải Hình Nền Ý Nghĩa Cho Máy Tính</h5>
+																		<h5 class="post-title is-large ">{{ $element->title }}</h5>
 																		<div class="is-divider"></div>
 																		<p class="from_the_blog_comments uppercase is-xsmall">
 	                                                                        1 Bình luận </p>
@@ -1998,58 +872,7 @@
 													<!-- .col-inner -->
 												</div>
 												<!-- .col -->
-												<div class="col post-item">
-													<div class="col-inner">
-														<a href="http://localhost/TGDD/danh-gia-dien-thoai-infocus-m810t-ngang-hang-dien-thoai-cao-cap-voi-muc-gia-re/" class="plain">
-															<div class="box box-vertical box-text-bottom box-blog-post has-hover">
-																<div class="box-image" style="width:30%;">
-																	<div class="image-cover" style="padding-top:75%;">
-																		<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</div>
-																</div>
-																<!-- .box-image -->
-																<div class="box-text text-left is-small">
-																	<div class="box-text-inner blog-post-inner">
-																		<h5 class="post-title is-large ">Đánh giá điện thoại Infocus M810T: Ngang hàng điện thoại cao cấp với mức giá rẻ</h5>
-																		<div class="is-divider"></div>
-																	</div>
-																	<!-- .box-text-inner -->
-																</div>
-																<!-- .box-text -->
-															</div>
-															<!-- .box -->
-														</a>
-														<!-- .link -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- .col -->
-												<div class="col post-item">
-													<div class="col-inner">
-														<a href="http://localhost/TGDD/phan-mem-nen-anh-va-video-giup-tiet-kiem-bo-nho-tren-android/" class="plain">
-															<div class="box box-vertical box-text-bottom box-blog-post has-hover">
-																<div class="box-image" style="width:30%;">
-																	<div class="image-cover" style="padding-top:75%;">
-																		<img width="300" height="172" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817-300x172.jpg') }} 300w, {{ asset('uploads/hinh-nen-y-nghia-cho-may-tinh-2_1510719817.jpg') }} 454w" sizes="(max-width: 300px) 100vw, 300px" />
-																	</div>
-																</div>
-																<!-- .box-image -->
-																<div class="box-text text-left is-small">
-																	<div class="box-text-inner blog-post-inner">
-																		<h5 class="post-title is-large ">Phần mềm nén ảnh và video giúp tiết kiệm bộ nhớ trên Android</h5>
-																		<div class="is-divider"></div>
-																	</div>
-																	<!-- .box-text-inner -->
-																</div>
-																<!-- .box-text -->
-															</div>
-															<!-- .box -->
-														</a>
-														<!-- .link -->
-													</div>
-													<!-- .col-inner -->
-												</div>
-												<!-- .col -->
+												@endforeach
 											</div>
 										</div>
 									</div>

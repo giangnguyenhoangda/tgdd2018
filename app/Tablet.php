@@ -48,6 +48,11 @@ class Tablet extends Model
         return $this->belongsTo('App\Product','productid','id');
     }
 
+    public function getSmartDevice()
+    {
+        return $this->belongsTo('App\Smartdevice','smartdeviceid','id');
+    }
+
     public function doDelete($id)
     {
         $tablet=Tablet::find($id);
