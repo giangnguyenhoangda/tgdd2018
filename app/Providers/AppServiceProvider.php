@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Schema;
+use App\Smartphone;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        view()->composer('guest.elements.post-sidebar',function($view)
+        {
+            $smartphones=Smartphone::orderBy('id','desc')->take(5)->get();
+            $view->with('smartphones',$smartphones);
+        });
     }
 
     /**

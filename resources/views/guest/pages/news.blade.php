@@ -29,7 +29,7 @@
   						  				</div><!-- .box-image -->
           								<div class="box-text text-left" >
 											<div class="box-text-inner blog-post-inner">					
-												<h5 class="post-title is-large ">{{ $element->title }}</h5>
+												<h5 class="post-title is-large ">{{ mb_substr($element->title, 0,50,'utf-8') }}...</h5>
 												<div class="is-divider"></div>
 												<p class="from_the_blog_excerpt "></p>
 					                            <p class="from_the_blog_comments uppercase is-xsmall">1 Bình luận</p>
