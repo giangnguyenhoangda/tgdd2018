@@ -165,129 +165,53 @@
 									<div class="row">
 										<div class="col-lg-6">
 											<ul class="media-list content-group">
+												@foreach ($news_left as $new)
 												<li class="media stack-media-on-mobile">
 				                					<div class="media-left">
 														<div class="thumb">
 															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
+																<img src="{{ asset($new->logo) }}" class="img-responsive img-rounded media-preview" alt="">
 																<span class="zoom-image"><i class="icon-play3"></i></span>
 															</a>
 														</div>
 													</div>
 
 				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
+														<h6 class="media-heading"><a href="#">{{ $new->title }}</a></h6>
 							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
+							                    			<li><i class="icon-book-play position-left"></i> {{ $new->type }}</li>
+							                    			<li>{{ date('d/m/y',strtotime($new->postDate)) }}</li>
 							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
+														...
 													</div>
 												</li>
-
-												<li class="media stack-media-on-mobile">
-				                					<div class="media-left">
-														<div class="thumb">
-															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
-																<span class="zoom-image"><i class="icon-play3"></i></span>
-															</a>
-														</div>
-													</div>
-
-				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
-							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
-							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
-													</div>
-												</li>
-
-												<li class="media stack-media-on-mobile">
-				                					<div class="media-left">
-														<div class="thumb">
-															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
-																<span class="zoom-image"><i class="icon-play3"></i></span>
-															</a>
-														</div>
-													</div>
-
-				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
-							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
-							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
-													</div>
-												</li>
+												@endforeach
 											</ul>
 										</div>
 
 										<div class="col-lg-6">
 											<ul class="media-list content-group">
+												@foreach ($news_right as $new)
 												<li class="media stack-media-on-mobile">
 				                					<div class="media-left">
 														<div class="thumb">
 															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
+																<img src="{{ asset($new->logo) }}" class="img-responsive img-rounded media-preview" alt="">
 																<span class="zoom-image"><i class="icon-play3"></i></span>
 															</a>
 														</div>
 													</div>
 
 				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
+														<h6 class="media-heading"><a href="#">{{ $new->title }}</a></h6>
 							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
+							                    			<li><i class="icon-book-play position-left"></i> {{ $new->type }}</li>
+							                    			<li>{{ date('d/m/y',strtotime($new->postDate)) }}</li>
 							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
+														...
 													</div>
 												</li>
-
-												<li class="media stack-media-on-mobile">
-				                					<div class="media-left">
-														<div class="thumb">
-															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
-																<span class="zoom-image"><i class="icon-play3"></i></span>
-															</a>
-														</div>
-													</div>
-
-				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
-							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
-							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
-													</div>
-												</li>
-
-												<li class="media stack-media-on-mobile">
-				                					<div class="media-left">
-														<div class="thumb">
-															<a href="#">
-																<img src="{{ asset('uploads/s_800x449.jpg') }}" class="img-responsive img-rounded media-preview" alt="">
-																<span class="zoom-image"><i class="icon-play3"></i></span>
-															</a>
-														</div>
-													</div>
-
-				                					<div class="media-body">
-														<h6 class="media-heading"><a href="#">Microsoft sẽ cho phép gỡ cài đặt ứng dụng hệ thống trên Windows 10</a></h6>
-							                    		<ul class="list-inline list-inline-separate text-muted mb-5">
-							                    			<li><i class="icon-book-play position-left"></i> Chia sẻ</li>
-							                    			<li>14 phút trước</li>
-							                    		</ul>
-														Bản cập nhật tiếp theo của Windows 10 với tên mã là 19H1, dự kiến ​​phát hành vào khoảng tháng 4/2019...
-													</div>
-												</li>
+												@endforeach
 											</ul>
 										</div>
 									</div>

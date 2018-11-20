@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\News;
 
 class EmployeeController extends Controller
 {
     public function getHome()
     {
-    	return view('employee/pages/home');
+        $news_left=News::orderBy('id','desc')->take(3)->get();
+        $news_right=News::orderBy('id','desc')->skip(3)->take(3)->get();
+    	return view('employee/pages/home',['news_left'=>$news_left,'news_right'=>$news_right]);
     }
 
     public function getLogin()
