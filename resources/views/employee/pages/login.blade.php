@@ -33,7 +33,7 @@
 <body class="login-container">
 
 	<!-- Main navbar -->
-	<div class="navbar navbar-inverse bg-indigo">
+	<div class="navbar navbar-inverse bg-danger-600">
 		<div class="navbar-header">
 			<a class="navbar-brand" href=""><img src="{{ asset('uploads/logo_light.png') }}" alt=""></a>
 
@@ -46,7 +46,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="#">
-						<i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Go to website</span>
+						<i class="icon-display4"></i> <span class="visible-xs-inline-block position-right"> Trở Lại Trang Chính</span>
 					</a>
 				</li>
 
@@ -81,34 +81,39 @@
 				<div class="content">
 
 					<!-- Simple login form -->
-					<form action="{{ route('getEmployeeHome') }}">
+					<form action="{{ route('postLoginE') }}" method="post">
 						<div class="panel panel-body login-form">
 							<div class="text-center">
 								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<h5 class="content-group">Đăng Nhập <small class="display-block"></small></h5>
 							</div>
-
+							@if (session('thong-bao'))
+        <div class="alert alert-warning">
+          {{ session('thong-bao') }}
+        </div>
+        @endif
 							<div class="form-group has-feedback has-feedback-left">
-								<input type="text" class="form-control" placeholder="Username">
+								<input type="text" class="form-control" name="username"  required="" placeholder="Username">
 								<div class="form-control-feedback">
 									<i class="icon-user text-muted"></i>
 								</div>
 							</div>
 
 							<div class="form-group has-feedback has-feedback-left">
-								<input type="password" class="form-control" placeholder="Password">
+								<input type="password" name="password" class="form-control" required="" placeholder="Password">
 								<div class="form-control-feedback">
 									<i class="icon-lock2 text-muted"></i>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<button type="submit" class="btn bg-pink-400 btn-block">Đăng Nhập <i class="icon-circle-right2 position-right"></i></button>
+								<button type="submit" class="btn bg-danger-600 btn-block">Đăng Nhập <i class="icon-circle-right2 position-right"></i></button>
 							</div>
 
-							<div class="text-center">
+							{{-- <div class="text-center">
 								<a href="login_password_recover.html">Quên Mật Khẩu?</a>
-							</div>
+							</div> --}}
 						</div>
 					</form>
 					<!-- /simple login form -->

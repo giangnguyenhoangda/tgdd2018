@@ -223,4 +223,11 @@
 						</div>
 					</div>
 					<!-- /dashboard content -->
+					@section('js3')
+						<script type="text/javascript" src="{{ asset('employee/js/pages/dashboard.js') }}"></script>
+					@endsection
+					@section('js1')
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/moment/moment.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/pickers/daterangepicker.js') }}"></script>
+					@endsection
 @endsection

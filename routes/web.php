@@ -13,6 +13,8 @@
 
 Route::post('dien-thoai/them-vao-gio','SmartPhoneController@postSmartPhoneAddCart')->name('postSmartPhoneAddCart');
 
+Route::post('nhan-vien/dang-nhap','EmployeeController@postLogin')->name('postLoginE');
+
 Route::get('dien-thoai','SmartPhoneController@getAllSmartPhone')->name('getAllSmartPhone');
 
 Route::get('may-tinh','LaptopController@getAllLaptop')->name('getAllLaptop');
@@ -22,6 +24,8 @@ Route::get('may-tinh-bang','TabletController@getAllTablet')->name('getAllTablet'
 Route::get('phu-kien','AccessoryController@getAllAccessory')->name('getAllAccessory');
 
 Route::get('xoa-san-pham/{id}','ProductsController@getDeleteProductInCart')->name('getDeleteProductInCart');
+
+Route::get('nhan-vien/dang-xuat','EmployeeController@getLogout')->name('getLogoutE');
 
 Route::post('may-tinh-bang/them-vao-gio','TabletController@postTabletAddCart')->name('postTabletAddCart');
 
@@ -58,7 +62,7 @@ Route::get('uu-dai',function (){
 });
 
 
-Route::get('nhan-vien/trang-chu','EmployeeController@getHome')->name('getEmployeeHome');
+Route::get('nhan-vien/trang-chu','EmployeeController@getHome')->name('getEmployeeHome')->middleware('employeelogin');
 
 Route::get('nhan-vien/dang-nhap','EmployeeController@getLogin')->name('getLogin');
 

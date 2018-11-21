@@ -171,17 +171,16 @@
 
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="{{ asset('uploads/placeholder.jpg') }}" alt="">
-						<span>Giang Nguyễn</span>
+						<img src="{{ asset(session('nhan-vien')->avatar) }}"  width="30" height="30" alt="">
+						<span>{{ session('nhan-vien')->fullname}}</span>
 						<i class="caret"></i>
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="{{ route('getInfo') }}"><i class="icon-user-plus"></i> Thông tin</a></li>
+						<li><a href="{{ route('getInfo') }}"><i class="icon-user"></i> Thông tin</a></li>
 						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Thông báo</a></li>
 						<li class="divider"></li>
-						<li><a href="#"><i class="icon-cog5"></i> Cài đặt</a></li>
-						<li><a href="{{ route('getLogin') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
+						<li><a href="{{ route('getLogoutE') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
 					</ul>
 				</li>
 			</ul>

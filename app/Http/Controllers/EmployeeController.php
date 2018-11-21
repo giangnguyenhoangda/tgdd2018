@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\News;
+use Session;
 
 class EmployeeController extends Controller
 {
@@ -15,6 +16,20 @@ class EmployeeController extends Controller
     	return view('employee/pages/home',['news_left'=>$news_left,'news_right'=>$news_right]);
     }
 
+    public function postLogin(Request $req)
+    {
+        $username=$req->username;
+        $password=$req->password;
+        $user=User::where('username',$username)->where('password',$password)->get();
+        if (count($user)>0) {
+            Session::put('nhan-vien', $user[0]);
+            return redirect('nhan-vien/trang-chu');
+        } else {
+            return redirect('nhan-vien/dang-nhap')->with('thong-bao','Sai tên đăng nhập hoặc mật khẩu.');
+        }
+        
+    }
+
     public function getLogin()
     {
     	return view('employee/pages/login');
@@ -22,7 +37,7 @@ class EmployeeController extends Controller
 
     public function getInfo()
     {
-        $user=User::find(1);
+        $user=User::find(session('nhan-vien')->id);
     	return view('employee/pages/info',['user'=>$user]);
     }
 
@@ -59,14 +74,22 @@ class EmployeeController extends Controller
         else{
             $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email,$req->old_avatar,false);
         }
-        echo "Sửa thành công";
+        return redirect('nhan-vien/thong-tin')->with('s','true');
+    }
+
+    public function getLogout()
+    {
+        Session::forget('nhan-vien');
+        return redirect('nhan-vien/dang-nhap');
     }
 
     public function postChangePass(Request $req)
     {
         $user=new User;
         $user->changePass($req->id,$req->pass_new);
-        echo "Đã thay đổi mật khẩu";
+        $user=User::find($req->id);
+        Session::put('nhan-vien',$user);
+        return redirect('nhan-vien/thong-tin')->with('s','true');
     }
 
     public function postChangeInfoE(Request $req)
@@ -81,6 +104,8 @@ class EmployeeController extends Controller
         else{
             $user->changeInfo($req->id,$fullname,$phonenumber,$email,$req->old_avatar,false);
         }
+        $user=User::find($req->id);
+        Session::put('nhan-vien',$user);
         
         echo "Đã thay đổi thông tin";
     }

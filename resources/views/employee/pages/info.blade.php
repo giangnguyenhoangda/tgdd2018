@@ -22,7 +22,7 @@
 						</div>
 
 						<div class="media-body">
-				    		<h1>Giang Nguyễn <small class="display-block">Nhân Viên</small></h1>
+				    		<h1>{{ $user->fullname }} <small class="display-block">Nhân Viên</small></h1>
 						</div>
 
 						<div class="media-right media-middle">
@@ -500,7 +500,7 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="{{ route('postChangeInfoE') }}" enctype="multipart/form-data" method="post">
+												<form action="{{ route('postChangeInfoE') }}" id="form1" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
@@ -548,7 +548,7 @@
 							                        </div>
 
 							                        <div class="text-right">
-							                        	<button type="submit" class="btn btn-primary">Lưu <i class="icon-arrow-right14 position-right"></i></button>
+							                        	<button type="button" class="btn btn-danger btn-sm" id="change_info_e" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn thay đổi thông tin?" sw_notice="Thay đổi thành công." sw_form_id="form1">Lưu<i class="position-right icon-sync" ></i></button>
 							                        </div>
 												</form>
 											</div>
@@ -570,7 +570,7 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post">
+												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post" id="form2" class="form-validate-jquery">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
@@ -583,7 +583,7 @@
 															<div class="col-md-6">
 																<label>Mật Khẩu Hiện Tại</label>
 																<input type="hidden" name="cur_pass" value="{{ $user->password }}">
-																<input type="password" placeholder="Mật Khẩu Hiện Tại" class="form-control">
+																<input type="password" name="pass_cur" placeholder="Mật Khẩu Hiện Tại" class="form-control">
 															</div>
 														</div>
 													</div>
@@ -592,12 +592,12 @@
 														<div class="row">
 															<div class="col-md-6">
 																<label>Mật Khẩu Mới</label>
-																<input type="password" name="pass_new" placeholder="Mật Khẩu Mới" class="form-control">
+																<input type="password" name="password" id="password" class="form-control" required="required" placeholder="Mật khẩu có ít nhất 6 kí tự">
 															</div>
 
 															<div class="col-md-6">
 																<label>Nhập Lại Mật Khẩu</label>
-																<input type="password" placeholder="Nhập Lại Mật Khẩu" class="form-control">
+																<input type="password" name="repeat_password" class="form-control" required="required" placeholder="Nhập lại mật khẩu">
 															</div>
 														</div>
 													</div>
@@ -605,8 +605,11 @@
 													
 
 							                        <div class="text-right">
-							                        	<button type="submit" class="btn btn-primary">Lưu <i class="icon-arrow-right14 position-right"></i></button>
+							                        	<button type="button" class="btn btn-danger btn-sm " id="change_pass_e" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn thay đổi mật khẩu?" sw_notice="Thay đổi thành công." sw_form_id="form2">Lưu <i class="position-right icon-sync" ></i></button>
 							                        </div>
+							                        <script type="text/javascript">
+							                        	
+							                        </script>
 						                        </form>
 											</div>
 										</div>
@@ -817,9 +820,25 @@
 				</div>
 				<!-- /content area -->
 
-				<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
-				<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
-				<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/fullcalendar/fullcalendar.min.js') }}"></script>
-			<script type="text/javascript" src="{{ asset('employee/js/plugins/visualization/echarts/echarts.js') }}"></script>
-			<script type="text/javascript" src="{{ asset('employee/js/pages/user_pages_profile.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/fullcalendar/fullcalendar.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/visualization/echarts/echarts.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/pages/user_pages_profile.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
+	@section('js2')
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/validation/validate.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/inputs/touchspin.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switch.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switchery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
+	@endsection
+	@section('js1')
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/moment/moment.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/plugins/pickers/daterangepicker.js') }}"></script>
+	@endsection
+	@section('js3')
+		<script type="text/javascript" src="{{ asset('employee/js/pages/form_validation.js') }}"></script>
+	@endsection
 @endsection
