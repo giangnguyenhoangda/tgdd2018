@@ -40,8 +40,8 @@ class NewsController extends Controller
     public function postPostNews(Request $req)
     {
         $news=new News;
-        $news->add($req->title,$req->logo,$req->type,$req->content,date('Y-m-d'),1);
-        echo "Thêm Xong";
+        $news->add($req->title,$req->logo,$req->type,$req->content,date('Y-m-d'),session('nhan-vien')->id);
+        return redirect('nhan-vien/danh-sach-tin-tuc');;
     }
 
     public function postEditNews(Request $req)
@@ -53,7 +53,7 @@ class NewsController extends Controller
         else{
             $news->doUpdate($req->id,$req->title,$req->old_logo,$req->type,$req->content,date('Y-m-d'),1,false);
         }
-        echo "Sửa xong";
+        return redirect('nhan-vien/danh-sach-tin-tuc');
     }
 
     public function getDeleteNew($id)
@@ -61,5 +61,6 @@ class NewsController extends Controller
        $news=News::find($id);
        $news->delete();
        echo "Xóa xong";
+       return redirect('nhan-vien/danh-sach-tin-tuc');
     }
 }

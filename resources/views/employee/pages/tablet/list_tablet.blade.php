@@ -50,7 +50,7 @@
 
 												<ul class="dropdown-menu dropdown-menu-right">
 													<li><a href="{{ route('getEditTablet',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
-													<li><a href="{{ route('getDeleteTablet',$element->id) }}"><i class="icon-database-remove"></i> Xóa</a></li>
+													<li><a class="deleteTablet" sw_title="Thông báo" sw_contnet="Bạn muốn xóa máy tính bảng này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteTablet',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -65,4 +65,6 @@
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/pages/datatables_sorting.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
 @endsection

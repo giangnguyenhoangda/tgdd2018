@@ -1,11 +1,12 @@
 @extends('employee.elements.master')
 @section('title')
-	Sửa Bài Đăng
+	Sửa Tin Tức
 @endsection
 @section('content')
-	<!-- Basic layout-->
-						<form action="{{ route('postEditNew') }}" method="post" enctype="multipart/form-data">
-							<div class="panel panel-flat">
+	<!-- Wizard with validation -->
+		            <div class="panel panel-white">
+	                	<form enctype="multipart/form-data" action="{{ route('postEditNew') }}" id="form" method="post" class="clPostNew">
+	                		<div class="panel panel-flat">
 								<div class="panel-heading">
 									<h5 class="panel-title">Tin Tức</h5>
 									<div class="heading-elements">
@@ -16,7 +17,6 @@
 					                	</ul>
 				                	</div>
 								</div>
-
 								<div class="panel-body">
 									<div class="form-group">
 											<label class="text-semibold">Ảnh Bìa:</label>
@@ -36,12 +36,12 @@
 										<label>Tiêu Đề:</label>
 										<input type="hidden" name="id" value="{{ $news['id'] }}">
 										<input type="hidden" name="_token" value="{{ csrf_token() }}">
-										<input type="text" class="form-control" name="title" placeholder="Tiêu đề của tin tức" value="{{ $news['title'] }}">
-									</div>									
-												<div class="form-group">
-						                            <label>Loại:</label>
-						                            <select data-placeholder="Chọn loại tin tức" name="type" class="select">
-						                            	<option></option>
+										<input type="text" name="title" id="title" class="form-control" required="required" placeholder="Tiêu đề của tin tức" value="{{ $news['title'] }}">
+									</div>
+									<div class="form-group">
+						                <label>Loại:</label>
+						                <select data-placeholder="Chọn loại tin tức" name="type" class="select form-control" required="required">
+						                    <option></option>
 						                                <option value="tin-tuc-cong-nghe" @if ($news['type']=='tin-tuc-cong-nghe') selected 
 						                                @endif>Tin Tức Công Nghệ</option> 
 						                                <option value="tu-van-mua-hang" @if ($news['type']=='tu-van-mua-hang') selected 
@@ -56,31 +56,28 @@
 						                                @endif>Download Rom</option> 
 						                                <option value="game-ung-dung" @if ($news['type']=='game-ung-dung') selected 
 						                                @endif>Game & Ứng Dụng</option>  
-						                            </select>
-					                            </div>
-
-									
-
+						                </select>
+					                </div>
+					                
 									<div class="form-group">
 										<label>Nội Dung:</label>
 										<!-- Summernote editor -->
-											<div class="panel-body">
-												<textarea id="hidden_content" style="display: none;" name="content"></textarea>
-												<div class="summernote">
-													{!! $news['content'] !!}
-												</div>
+										<div class="panel-body">
+											<textarea id="hidden_content" style="display: none;" name="content"></textarea>
+											<div class="summernote">
+												{!! $news['content'] !!}
 											</div>
+										</div>
 										<!-- /summernote editor -->
-									</div>
-
+									</div>									
 									<div class="text-right">
-										<button type="submit" id="save" class="btn btn-primary">Sửa Tin Tức <i class="icon-arrow-right14 position-right"></i></button>
+										<button type="button" id="btnPostNew" class="btn btn-primary" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn sửa tin tức?" sw_notice="Sửa tin tức thành công." sw_form_id="form">Sửa Tin Tức<i class="icon-check position-right"></i></button>
 									</div>
 								</div>
 							</div>
 						</form>
-						<!-- /basic layout -->
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/editors/summernote/summernote.min.js') }}"></script>
+		            </div>
+		            <script type="text/javascript" src="{{ asset('employee/js/plugins/editors/summernote/summernote.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/pages/editor_summernote.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
@@ -88,10 +85,18 @@
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/nicescroll.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/drilldown.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/fab.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
 					<script type="text/javascript">
 						$('form').submit(function(){
         					var content = $('#content').html();
         					$('#hidden_content').val(content);
 						});
 					</script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/validation/validate.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/inputs/touchspin.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switch.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switchery.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/pages/form_validation.js') }}"></script>
 @endsection

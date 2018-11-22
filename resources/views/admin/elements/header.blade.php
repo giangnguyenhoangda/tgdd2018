@@ -38,14 +38,14 @@
 
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="{{ asset('uploads/placeholder.jpg') }}" alt="">
-						<span>Admin</span>
+						<img src="{{ asset(session('admin')->avatar) }}" alt="" width="30" height="30">
+						<span>{{ session('admin')->fullname }}</span>
 						<i class="caret"></i>
 					</a>
 
 					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-cog5"></i> Đổi mật khẩu</a></li>
-						<li><a href="{{ route('getAdminLogin') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
+						<li><a href="{{ route('getEditPass') }}"><i class="icon-cog5"></i> Đổi mật khẩu</a></li>
+						<li><a href="{{ route('getLogoutA') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
 					</ul>
 				</li>
 			</ul>

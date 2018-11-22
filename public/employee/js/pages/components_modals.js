@@ -344,7 +344,86 @@ $(function() {
             event
             );
         }
+    });   
+
+    $('#btnPostNew').on('click', function( event ) {
+        myvaild(event.target.attributes['sw_form_id'].value);
+        if (!$('#'+event.target.attributes['sw_form_id'].value).valid()) {
+            swal({
+                    title: "Ê",
+                    text: "Chưa điền đủ!",
+                    confirmButtonColor: "#EF5350",
+                    type: "error"
+                });
+        } 
+        else {
+            if ($('#content').html().trim()!='') {
+                $('#'+event.target.attributes['sw_form_id'].value).valid();
+                my_swal($(this).attr('sw_title'),
+                $(this).attr('sw_contnet'),
+                $(this).attr('sw_notice'),
+                event
+            );
+            } else {
+                swal({
+                    title: "Ê",
+                    text: "Chưa có nội dung đăng làm gì!",
+                    confirmButtonColor: "#EF5350",
+                    type: "error"
+                });
+            } 
+        }
     });
+
+    delete_item('deleteAccessory');
+    delete_item('deleteLaptop');
+    delete_item('deleteTablet');
+    delete_item('deleteSmartPhone');
+    delete_item('deleteNew');
+    delete_item('deleteEmployee');
+
+    $('#btnAddE').on('click', function( event ) {
+        if (!$('#form-add-e').valid()) {
+            console.log($('#form-add-e').valid());
+        } 
+        else {
+            $('#form-add-e').valid();
+            my_swal($(this).attr('sw_title'),
+            $(this).attr('sw_contnet'),
+            $(this).attr('sw_notice'),
+            event
+            );
+        }
+    });
+
+    $('#btnEditE').on('click', function( event ) {
+        if (!$('#form-edit-e').valid()) {
+            console.log($('#form-edit-e').valid());
+        } 
+        else {
+            $('#form-edit-e').valid();
+            my_swal($(this).attr('sw_title'),
+            $(this).attr('sw_contnet'),
+            $(this).attr('sw_notice'),
+            event
+            );
+        }
+    }); 
+
+    $('#btnEditPassA').on('click', function( event ) {
+        if (!$('#edit_pass').valid()) {
+            console.log($('#edit_pass').valid());
+        } 
+        else {
+            $('#edit_pass').valid();
+            my_swal($(this).attr('sw_title'),
+            $(this).attr('sw_contnet'),
+            $(this).attr('sw_notice'),
+            event
+            );
+        }
+    }); 
+
 });
 
 function my_swal(title,text,notice,event){
@@ -380,4 +459,58 @@ function my_swal(title,text,notice,event){
             //     });
             // }
         });
+}
+
+function my_swal_2(title,text,notice,form_id){
+    swal({
+            title: title,
+            text: text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#EF5350",
+            confirmButtonText: "Đồng ý!",
+            cancelButtonText: "Hủy bỏ",
+            closeOnConfirm: false
+        },
+        function(isConfirm){
+            if (isConfirm) {
+                swal({
+                    title: "Thông báo",
+                    text: notice,
+                    confirmButtonColor: "#66BB6A",
+                    type: "success"
+                }, function(){
+                    $('#'+form_id).submit();
+                }
+                );
+            }
+        });
+}
+
+function delete_item(name){
+    $('.'+name).on('click', function( event ) {
+            swal({
+            title: $(this).attr('sw_title'),
+            text:  $(this).attr('sw_contnet'),
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#EF5350",
+            confirmButtonText: "Đồng ý!",
+            cancelButtonText: "Hủy bỏ",
+            closeOnConfirm: false
+        },
+        function(isConfirm){
+            if (isConfirm) {
+                swal({
+                    title: "Thông báo",
+                    text: event.target.attributes['sw_notice'].value,
+                    confirmButtonColor: "#66BB6A",
+                    type: "success"
+                }, function(){
+                    window.location.href=event.target.attributes['sw_url'].value;
+                }
+                );
+            }
+        }); 
+    });
 }

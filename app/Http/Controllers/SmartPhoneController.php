@@ -53,7 +53,7 @@ class SmartPhoneController extends Controller
     {
         $smartphone=new Smartphone;
         $smartphone->doDelete($id);
-        echo "Đã xóa xong";
+        return redirect('nhan-vien/dien-thoai');
     }
 
     public function postEditSmartPhone(Request $req)
@@ -95,7 +95,7 @@ class SmartPhoneController extends Controller
             $smartphone->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
         }
         
-        echo "Sửa Điện Thoại Thành Công";
+        return redirect('nhan-vien/dien-thoai');
     }
 
     public function postAddSmartPhone(Request $req)
@@ -131,7 +131,7 @@ class SmartPhoneController extends Controller
     	$smartphone=new Smartphone;
     	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
-    	echo "Thêm Điện Thoại Thành Công";
+    	return redirect('nhan-vien/dien-thoai');
     }
 
     public function getAllSmartPhone()

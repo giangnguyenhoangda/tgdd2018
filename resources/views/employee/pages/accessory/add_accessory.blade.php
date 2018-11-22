@@ -3,30 +3,28 @@
 	Phụ Kiện
 @endsection
 @section('content')
-	<!-- Wizard with validation -->
-		            <div class="panel panel-white">
-						<div class="panel-heading">
-							<h6 class="panel-title">Thêm</h6>
-							<div class="heading-elements">
-								<ul class="icons-list">
-			                		<li><a data-action="collapse"></a></li>
-			                		<li><a data-action="reload"></a></li>
-			                		<li><a data-action="close"></a></li>
-			                	</ul>
-		                	</div>
-						</div>
-
-	                	<form class="stepy-validation" method="post" action="{{ route('postAddAccessory') }}" enctype="multipart/form-data">
-							<fieldset title="1">
-								<legend class="text-semibold">Bước 1</legend>
-
-								<div class="row">
+	<div class="panel panel-white">
+		<div class="panel-heading">
+			<h6 class="panel-title">Thêm</h6>
+			<div class="heading-elements">
+				<ul class="icons-list">
+			        <li><a data-action="collapse"></a></li>
+			        <li><a data-action="reload"></a></li>
+			        <li><a data-action="close"></a></li>
+			    </ul>
+		    </div>
+		</div>
+		<form class="steps-validation" method="post" action="{{ route('postAddAccessory') }}" enctype="multipart/form-data" id="addAccessory">
+			<h6>Bước 1</h6>
+			<fieldset>
+				<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label class="display-block">Logo:</label>
+											<label class="display-block">Logo:<span class="text-danger">*</span></label>
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		                                    <input name="imagesurl" type="file" class="file-styled">
+		                                    <input name="imagesurl" type="file" class="file-styled required">
 		                                    <span class="help-block"><!-- Accepted formats: pdf, doc. Max file size 2Mb --></span>
+		                                    <input type="hidden" id="c" sw_title="Nhắc nhở" sw_contnet="Bạn muốn thêm phụ kiện?" sw_notice="Thêm thành công" sw_form_id="addAccessory">
 										</div>
 									</div>
 
@@ -73,21 +71,20 @@
 								</div>
 							</fieldset>
 
-							<fieldset title="2">
-								<legend class="text-semibold">Bước 2</legend>
-
+							<h6>Bước 2</h6>
+							<fieldset>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Giá Mua:</label>
-											<input type="number" name="purchase" class="form-control" placeholder="20000000 VND">
+											<label>Giá Mua:<span class="text-danger">*</span></label>
+											<input type="number" name="purchase" class="form-control required" placeholder="20000000 VND">
 		                                </div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Giá Bán:</label>
-											<input type="number" name="price" class="form-control" placeholder="20000000 VND">
+											<label>Giá Bán:<span class="text-danger">*</span></label>
+											<input type="number" name="price" class="form-control required" placeholder="20000000 VND">
 	                                    </div>
 									</div>
 								</div>
@@ -95,8 +92,8 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label>Giảm Giá:</label>
-											<input type="number" name="discountPercent" class="form-control" placeholder="5%">
+											<label>Giảm Giá:<span class="text-danger">*</span></label>
+											<input type="number" name="discountPercent" class="form-control required" placeholder="5%">
 		                                </div>
 
 										<div class="form-group">
@@ -118,8 +115,8 @@
 									<div class="col-md-6">
 										<div class="form-group">
 									
-												<label>Số Lượng:</label>
-											<input type="number" name="quantity" class="form-control" placeholder="20000000" >
+												<label>Số Lượng:<span class="text-danger">*</span></label>
+											<input type="number" name="quantity" class="form-control required" placeholder="20000000" >
 										
 										</div>
 
@@ -128,11 +125,8 @@
 								</div>
 							</fieldset>
 
-							
-
-							<fieldset title="3">
-								<legend class="text-semibold">Bước 3</legend>
-
+							<h6>Bước 3</h6>
+							<fieldset>
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
@@ -157,27 +151,25 @@
 										</div>
 								</div>
 							</fieldset>
-
-							<button type="submit" class="btn btn-primary stepy-finish">Hoàn Thành <i class="icon-check position-right"></i></button>
 						</form>
-		            </div>
-		            <!-- /wizard with validation -->
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/editors/summernote/summernote.min.js') }}"></script>
+	</div>
+@endsection
+
+@section('js1')
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/wizards/steps.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/core/libraries/jasny_bootstrap.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/validation/validate.min.js') }}"></script>
+@endsection
+
+@section('js3')
+	<script type="text/javascript" src="{{ asset('employee/js/pages/wizard_steps.js') }}"></script>
+@endsection
+
+@section('js4')
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/editors/summernote/summernote.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/pages/editor_summernote.js') }}"></script>
-					
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/nicescroll.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/drilldown.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/fab.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/wizards/stepy.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/core/libraries/jasny_bootstrap.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/validation/validate.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/pages/wizard_stepy.js') }}"></script>
-					<script type="text/javascript">
-						$('form').submit(function(){
-        					var content = $('#content').html();
-        					$('#hidden_content').val(content);
-						});
-					</script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
 @endsection

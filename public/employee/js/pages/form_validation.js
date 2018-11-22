@@ -63,6 +63,9 @@ $(function() {
     // ------------------------------
     myvaild("form-change-pass-e");
     myvaild("form-change-info-e");
+    myvaild('form-add-e');
+    myvaild('form-edit-e');
+    myvaild('edit_pass');
 
 });
 
@@ -189,6 +192,18 @@ function myvaild(form_name){
                 number: true,
                 minlength: 10,
                 maxlength: 10
+            },
+            title: {
+                required: true
+            },
+            type: {
+                required: true
+            },
+            fullname: {
+                required: true
+            },
+            username: {
+                required: true
             }
         },
         messages: {

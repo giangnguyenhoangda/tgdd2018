@@ -51,8 +51,8 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="{{ route('getEditEmployee',$element->id) }}"><i class="icon-file-pdf"></i> Sửa</a></li>
-													<li><a href="#"><i class="icon-file-excel"></i> Xóa</a></li>
+													<li><a href="{{ route('getEditEmployee',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
+													<li><a class="deleteEmployee" sw_title="Thông báo" sw_contnet="Bạn muốn xóa nhân viên này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteEmployee',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>
 											</li>
 										</ul>
@@ -67,4 +67,6 @@
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/tables/datatables/datatables.min.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/pages/datatables_sorting.js') }}"></script>
 					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+					<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
 @endsection

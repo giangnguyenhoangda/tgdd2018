@@ -71,7 +71,7 @@ class LaptopController extends Controller
     	$smartphone=new Laptop;
     	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description);
 
-    	echo "Thêm Laptop Thành Công";
+    	return redirect('nhan-vien/laptop');
     }
 
     public function getEditLaptop($id)
@@ -118,14 +118,14 @@ class LaptopController extends Controller
             $laptop->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,false);
         }
         
-        echo "Sửa Laptop Thành Công";
+        return redirect('nhan-vien/laptop');
     }
 
     public function getDeleteLaptop($id)
     {
     	$laptop=new Laptop;
         $laptop->doDelete($id);
-        echo "Đã xóa xong";
+        return redirect('nhan-vien/laptop');
     }
 
     public function getListLaptop()

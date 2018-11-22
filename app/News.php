@@ -58,4 +58,9 @@ class News extends Model
         }
         return $listComment;
     }
+
+    public function getPostEmp()
+    {
+        return $this->belongsTo('App\User','postEmpid','id');
+    }
 }

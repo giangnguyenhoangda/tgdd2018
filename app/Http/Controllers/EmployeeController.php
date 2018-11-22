@@ -20,7 +20,7 @@ class EmployeeController extends Controller
     {
         $username=$req->username;
         $password=$req->password;
-        $user=User::where('username',$username)->where('password',$password)->get();
+        $user=User::where('username',$username)->where('password',$password)->where('role',0)->get();
         if (count($user)>0) {
             Session::put('nhan-vien', $user[0]);
             return redirect('nhan-vien/trang-chu');
@@ -33,6 +33,13 @@ class EmployeeController extends Controller
     public function getLogin()
     {
     	return view('employee/pages/login');
+    }
+
+    public function getDeleteEmployee($id)
+    {
+        $user=User::find($id);
+        $user->delete();
+        return redirect('admin/nhan-vien');
     }
 
     public function getInfo()
@@ -55,8 +62,8 @@ class EmployeeController extends Controller
     public function postAddEmployee(Request $req)
     {
         $user = new User;
-        $user->add($req->username,$req->password,$req->fullname,$req->phonenumber,$req->email,$req->avatar);
-        echo "Đã thêm";
+        $user->add($req->username,$req->password,$req->fullname,$req->digits,$req->email,$req->styled_file);
+        return redirect('admin/nhan-vien');
     }
 
     public function getEditEmployee($id)
@@ -69,12 +76,12 @@ class EmployeeController extends Controller
     {
         $user=User::find($req->id);
         if ($req->hasFile('avatar_new')) {
-            $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email,$req->avatar_new,true);
+            $user->edit($req->password,$req->fullname,$req->digits,$req->email,$req->avatar_new,true);
         }
         else{
-            $user->edit($req->password,$req->fullname,$req->phonenumber,$req->email,$req->old_avatar,false);
+            $user->edit($req->password,$req->fullname,$req->digits,$req->email,$req->old_avatar,false);
         }
-        return redirect('nhan-vien/thong-tin')->with('s','true');
+        return redirect('admin/nhan-vien');
     }
 
     public function getLogout()

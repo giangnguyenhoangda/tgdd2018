@@ -30,6 +30,7 @@
 	<script type="text/javascript" src="{{ asset('employee/js/core/app.js') }}"></script>
 	@yield('js3')
 	<script type="text/javascript" src="{{ asset('employee//js/plugins/ui/ripple.min.js') }}"></script>
+	@yield('js4')
 
 	<!-- /theme JS files -->
 </head>

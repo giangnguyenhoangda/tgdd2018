@@ -23,10 +23,18 @@
 	<script type="text/javascript" src="{{ asset('employee/js/plugins/loaders/blockui.min.js') }}"></script>
 	<!-- /core JS files -->
 
-
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/validation/validate.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/bootstrap_multiselect.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/inputs/touchspin.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switch.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/switchery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/notifications/sweet_alert.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/pages/components_modals.js') }}"></script>
 	<!-- Theme JS files -->
 	<script type="text/javascript" src="{{ asset('employee/js/core/app.js') }}"></script>
-
+	<script type="text/javascript" src="{{ asset('employee/js/pages/form_validation.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('employee//js/plugins/ui/ripple.min.js') }}"></script>
 	<!-- /theme JS files -->
 </head>
@@ -81,34 +89,42 @@
 				<div class="content">
 
 					<!-- Simple login form -->
-					<form action="{{ route('postLoginA') }}" method="post">
+					<form action="{{ route('postEditPassA') }}" method="post" id="edit_pass" class="edit_pass">
 						<div class="panel panel-body login-form">
 							<div class="text-center">
-								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+								<div class="icon-object border-slate-300 text-slate-300"><i class="icon-key"></i></div>
 								<input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<h5 class="content-group">Đăng Nhập <small class="display-block"></small></h5>
 							</div>
 							@if (session('thong-bao'))
-        <div class="alert alert-warning">
-          {{ session('thong-bao') }}
-        </div>
-        @endif
+						        <div class="alert alert-warning">
+						          {{ session('thong-bao') }}
+						        </div>
+						        @endif
 							<div class="form-group has-feedback has-feedback-left">
-								<input type="text" class="form-control" name="username"  required="" placeholder="Username">
+								<input type="hidden" name="cur_pass" id="cur_pass" value="{{ session('admin')->password }}">
+								<input type="password" name="repeat_old_password" class="form-control" required="" placeholder="Mật khẩu hiện tại">
 								<div class="form-control-feedback">
-									<i class="icon-user text-muted"></i>
+									<i class="icon-lock2 text-muted"></i>
 								</div>
 							</div>
 
 							<div class="form-group has-feedback has-feedback-left">
-								<input type="password" name="password" class="form-control" required="" placeholder="Password">
+								<input type="password" name="password" id="password" class="form-control" required="" placeholder="Mật khẩu mới">
+								<div class="form-control-feedback">
+									<i class="icon-lock2 text-muted"></i>
+								</div>
+							</div>
+
+							<div class="form-group has-feedback has-feedback-left">
+								<input type="password" name="repeat_password" class="form-control" required="required" placeholder="Nhập lại mật khẩu">
 								<div class="form-control-feedback">
 									<i class="icon-lock2 text-muted"></i>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<button type="submit" class="btn bg-danger-600 btn-block">Đăng Nhập <i class="icon-circle-right2 position-right"></i></button>
+								<button type="button" class="btn bg-danger-600 btn-block" id="btnEditPassA" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn thay đổi mật khẩu?" sw_notice="Thay đổi thành công." sw_form_id="edit_pass">Thay Đổi Mật Khẩu <i class="icon-circle-right2 position-right"></i></button>
 							</div>
 
 							{{-- <div class="text-center">

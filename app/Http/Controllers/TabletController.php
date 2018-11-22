@@ -59,7 +59,7 @@ class TabletController extends Controller
     {
         $tablet=new Tablet;
         $tablet->doDelete($id);
-        echo "Đã xóa xong";
+        return redirect('nhan-vien/may-tinh-bang');
     }
 
     public function postEditTablet(Request $req)
@@ -101,7 +101,7 @@ class TabletController extends Controller
             $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
         }
         
-        echo "Sửa Máy Tính Bảng Thành Công";
+        return redirect('nhan-vien/may-tinh-bang');
     }
 
     public function postAddTablet(Request $req)
@@ -137,6 +137,6 @@ class TabletController extends Controller
     	$tablet=new Tablet;
     	$tablet->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
-    	echo "Thêm Máy Tính Bảng Thành Công";
+    	return redirect('nhan-vien/may-tinh-bang');
     }
 }

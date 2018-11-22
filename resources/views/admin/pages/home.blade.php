@@ -179,3 +179,11 @@
 <script type="text/javascript" src="{{ asset('employee/js/plugins/visualization/c3/c3.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('employee/js/charts/c3/c3_advanced.js') }}"></script>
 @endsection
+@section('js3')
+	<script type="text/javascript" src="{{ asset('employee/js/pages/dashboard.js') }}"></script>
+@endsection
+
+@section('js2')
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/moment/moment.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/pickers/daterangepicker.js') }}"></script>
+@endsection
