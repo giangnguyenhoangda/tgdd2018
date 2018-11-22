@@ -319,27 +319,31 @@ $(function() {
 
     // Alert combination
     $('#change_info_e').on('click', function( event ) {
-        my_swal($(this).attr('sw_title'),
+        if (!$('#form1').valid()) {
+            console.log($('#form1').valid());
+        } 
+        else {
+            $('#form1').valid();
+            my_swal($(this).attr('sw_title'),
             $(this).attr('sw_contnet'),
-            $(this).attr('notice'),
+            $(this).attr('sw_notice'),
             event
             );
+        }
     });
 
     $('#change_pass_e').on('click', function( event ) {
-        var cur_pass=$('input[name=cur_pass]').val();
-        var pass_cur=$('input[name=pass_cur]').val();
-        var pass_new=$('input[name=pass_new]').val();
-        var pass_new_1=$('input[name=pass_new_1]').val();
-        console.log(cur_pass);
-        console.log(pass_cur);
-        console.log(pass_new);
-        console.log(pass_new_1);
-        // my_swal($(this).attr('sw_title'),
-        //     $(this).attr('sw_contnet'),
-        //     $(this).attr('notice'),
-        //     event
-        //     );
+        if (!$('#form2').valid()) {
+            console.log($('#form2').valid());
+        } 
+        else {
+            $('#form2').valid();
+            my_swal($(this).attr('sw_title'),
+            $(this).attr('sw_contnet'),
+            $(this).attr('sw_notice'),
+            event
+            );
+        }
     });
 });
 

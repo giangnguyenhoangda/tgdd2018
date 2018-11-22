@@ -86,10 +86,10 @@ class EmployeeController extends Controller
     public function postChangePass(Request $req)
     {
         $user=new User;
-        $user->changePass($req->id,$req->pass_new);
+        $user->changePass($req->id,$req->password);
         $user=User::find($req->id);
         Session::put('nhan-vien',$user);
-        return redirect('nhan-vien/thong-tin')->with('s','true');
+        return redirect('nhan-vien/thong-tin');
     }
 
     public function postChangeInfoE(Request $req)
@@ -107,7 +107,7 @@ class EmployeeController extends Controller
         $user=User::find($req->id);
         Session::put('nhan-vien',$user);
         
-        echo "Đã thay đổi thông tin";
+        return redirect('nhan-vien/thong-tin');
     }
 
     

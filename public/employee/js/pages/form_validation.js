@@ -61,9 +61,14 @@ $(function() {
 
     // Setup validation
     // ------------------------------
+    myvaild("form-change-pass-e");
+    myvaild("form-change-info-e");
 
+});
+
+function myvaild(form_name){
     // Initialize
-    var validator = $(".form-validate-jquery").validate({
+    var validator = $("."+form_name).validate({
         ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
         errorClass: 'validation-error-label',
         successClass: 'validation-valid-label',
@@ -117,10 +122,16 @@ $(function() {
         },
         rules: {
             password: {
-                minlength: 6
+                minlength: 6,
+                required: true
             },
             repeat_password: {
-                equalTo: "#password"
+                equalTo: "#password",
+                required: true
+            },
+            repeat_old_password: {
+                equalTo: "#cur_pass",
+                required: true
             },
             email: {
                 email: true
@@ -172,6 +183,12 @@ $(function() {
             },
             switch_group: {
                 minlength: 2
+            },
+            phonenumber: {
+                required: true,
+                number: true,
+                minlength: 10,
+                maxlength: 10
             }
         },
         messages: {
@@ -187,5 +204,4 @@ $(function() {
     $('#reset').on('click', function() {
         validator.resetForm();
     });
-
-});
+}

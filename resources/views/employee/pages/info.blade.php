@@ -500,7 +500,7 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="{{ route('postChangeInfoE') }}" id="form1" enctype="multipart/form-data" method="post">
+												<form action="{{ route('postChangeInfoE') }}" class="form-change-info-e" id="form1" enctype="multipart/form-data" method="post">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
@@ -521,11 +521,12 @@
 														<div class="row">
 															<div class="col-md-6">
 																<label>Số Điện Thoại</label>
-																<input type="text" name="phonenumber" placeholder="09........" value="{{ $user->phonenumber }}" class="form-control">
+																
+																	<input type="text" name="phonenumber" class="form-control" required="required" placeholder="09........" value="{{ $user->phonenumber }}">
 															</div>
 															<div class="col-md-6">
 																<label>Email</label>
-																<input type="text" name="email" value="{{ $user->email }}" placeholder="abc@xyz.t" class="form-control">
+																<input type="email" name="email" class="form-control" id="email" required="required" placeholder="abc@xyz.t" value="{{ $user->email }}">
 															</div>
 														</div>
 													</div>
@@ -570,7 +571,7 @@
 											</div>
 
 											<div class="panel-body">
-												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post" id="form2" class="form-validate-jquery">
+												<form action="{{ route('postChangePass') }}" enctype="multipart/form-data" method="post" id="form2" class="form-change-pass-e">
 													<div class="form-group">
 														<div class="row">
 															<div class="col-md-6">
@@ -582,8 +583,8 @@
 
 															<div class="col-md-6">
 																<label>Mật Khẩu Hiện Tại</label>
-																<input type="hidden" name="cur_pass" value="{{ $user->password }}">
-																<input type="password" name="pass_cur" placeholder="Mật Khẩu Hiện Tại" class="form-control">
+																<input type="hidden" name="cur_pass" value="{{ $user->password }}" id="cur_pass">
+																<input type="password" name="repeat_old_password" class="form-control" required="required" placeholder="Mật Khẩu Hiện Tại">
 															</div>
 														</div>
 													</div>
