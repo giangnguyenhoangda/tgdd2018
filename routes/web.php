@@ -13,6 +13,8 @@
 
 Route::get('thanh-toan','BillController@request')->name('request');
 
+Route::get('huong-dan','GuestController@getHelp')->name('getHelp');
+
 Route::get('thanh-toan/phan-hoi','BillController@response')->name('response');
 
 Route::post('dien-thoai/them-vao-gio','SmartPhoneController@postSmartPhoneAddCart')->name('postSmartPhoneAddCart');

@@ -29,4 +29,9 @@ class GuestController extends Controller
     {
     	return view('guest.pages.developing-pages');
     }
+
+    public function getHelp()
+    {
+        return view('guest.pages.huong-dan');
+    }
 }
