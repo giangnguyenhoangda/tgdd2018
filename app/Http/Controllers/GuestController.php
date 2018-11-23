@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\SmartPhone;
+use App\Smartphone;
 use Illuminate\Support\Facades\DB;
 use App\News;
 use App\Tablet;
