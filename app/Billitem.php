@@ -9,4 +9,12 @@ class Billitem extends Model
     protected $table='billitem';
     public $timestamps=false;
     protected $primaryKey='id';
+
+    public function add($productid,$billid,$quantity)
+    {
+    	$this->productid=$productid;
+    	$this->billid=$billid;
+    	$this->quantity=$quantity;
+    	$this->save();
+    }
 }

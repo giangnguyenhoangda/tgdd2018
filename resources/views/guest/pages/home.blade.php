@@ -234,7 +234,7 @@
 											<a href="/danh-muc/dien-thoai/">KHUYẾN MÃI HOT NHẤT</a>
 										</h3>
 										<div class="vi-right-link pull-right" style="font-weight: bold;">
-											<a class="vi-more" href="https://thietbidienpanasonic.com/danh-muc/cong-tac-o-cam/">Xem tất cả</a>
+											<a class="vi-more" href="">Xem tất cả</a>
 										</div>
 									</div>
 								</div>
@@ -959,7 +959,7 @@
 																</span>
 															</p>
 															<p style="text-align: center;">
-																<span style="color: #000000; font-size: 85%;">Sau nhiều năm sử dụng dịch vụ Sửa Chữa Điện Thoại và mua rất nhiều Điện Thoại tại TrueSmart. Việt Anh cảm thấy hài lòng và tin tưởng &#8230; TÔI TIN TƯỞNG VÀ CHỌN TRUE SMART!!</span>
+																<span style="color: #000000; font-size: 85%;">Sau nhiều năm sử dụng dịch vụ Sửa Chữa Điện Thoại và mua rất nhiều Điện Thoại tại TrueSmart. Việt Anh cảm thấy hài lòng và tin tưởng &#8230; TÔI TIN TƯỞNG VÀ CHỌN BK Tech!!</span>
 															</p>
 														</div>
 													</div>
@@ -1021,7 +1021,7 @@
 																</span>
 															</p>
 															<p style="text-align: center;">
-																<span style="color: #000000; font-size: 85%;">Sau nhiều năm sử dụng dịch vụ Sửa Chữa Điện Thoại và mua rất nhiều Điện Thoại tại TrueSmart. Việt Anh cảm thấy hài lòng và tin tưởng &#8230; TÔI TIN TƯỞNG VÀ CHỌN TRUE SMART!!</span>
+																<span style="color: #000000; font-size: 85%;">Sau nhiều năm sử dụng dịch vụ Sửa Chữa Điện Thoại và mua rất nhiều Điện Thoại tại BK Tech. Việt Anh cảm thấy hài lòng và tin tưởng &#8230; TÔI TIN TƯỞNG VÀ CHỌN BK Tech!!</span>
 															</p>
 														</div>
 													</div>

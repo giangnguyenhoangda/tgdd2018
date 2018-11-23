@@ -62,7 +62,7 @@
                 <div class="container clearfix">
                     <div class="footer-primary pull-left">
                         <div class="copyright-footer">
-                            <p style="text-align: center;"><em>Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 18001060. Email: cskh@thegioididong.com</em></p>
+                            <p style="text-align: center;"><em>Địa chỉ: Bách Khoa - Hai Bà Trưng - Hà Nội. Điện thoại: 0358215007. Email: giangnguyenhoangda@gmail.com</em></p>
                         </div>
                     </div>
                     <!-- .left -->

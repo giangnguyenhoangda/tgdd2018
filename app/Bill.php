@@ -9,4 +9,14 @@ class Bill extends Model
     protected $table='bill';
     public $timestamps=false;
     protected $primaryKey='id';
+    
+    public function add($datetime,$customername,$customeremail,$customeraddress,$customernumber){
+    	$this->datetime=$datetime;
+    	$this->customername=$customername;
+    	$this->customeremail=$customeremail;
+    	$this->customeraddress=$customeraddress;
+    	$this->customernumber=$customernumber;
+    	$this->save();
+    }
+
 }

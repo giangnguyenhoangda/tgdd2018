@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('thanh-toan','BillController@request')->name('request');
+
+Route::get('thanh-toan/phan-hoi','BillController@response')->name('response');
+
 Route::post('dien-thoai/them-vao-gio','SmartPhoneController@postSmartPhoneAddCart')->name('postSmartPhoneAddCart');
 
 Route::get('admin/xoa-nhan-vien/{id}','EmployeeController@getDeleteEmployee')->name('getDeleteEmployee')->middleware('adminLogin');

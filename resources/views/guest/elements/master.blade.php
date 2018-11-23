@@ -6,14 +6,14 @@
     <link rel="icon" href="{{ asset('uploads/46494632_325816944906945_3298964650640539648_n.png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <link rel="pingback" href="http://localhost/TGDD/xmlrpc.php" />
+    <link rel="pingback" href="" />
     <script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
     <link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
     <link rel='dns-prefetch' href='//s.w.org' />
-    <link rel="alternate" type="application/rss+xml" title="Dòng thông tin Demo thegioidiong flatsome &raquo;" href="http://localhost/TGDD/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Dòng phản hồi Demo thegioidiong flatsome &raquo;" href="http://localhost/TGDD/comments/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="" href="" />
+    <link rel="alternate" type="application/rss+xml" title="" href="" />
     <script type="text/javascript">
-            window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/localhost\/TGDD\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+            window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"{{ asset('js/wp-emoji-release.min.js?ver=4.9.8') }}"}};
             !function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
     </script>
     <style type="text/css">
@@ -46,12 +46,12 @@
     <link rel='stylesheet' id='flatsome-main-css'  href='{{ asset('themes/flatsome/assets/css/flatsome.css?ver=3.5.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='flatsome-shop-css'  href='{{ asset('themes/flatsome/assets/css/flatsome-shop.css?ver=3.5.3') }}' type='text/css' media='all' />
     <link rel='stylesheet' id='flatsome-style-css'  href='{{ asset('themes/o-du/style.css?ver=3.5.3') }}' type='text/css' media='all' />
-    <script type='text/javascript' src='{{ asset('js/jquery/jquery.js?ver=1.12.4') }}'></script>
+    <script type='text/javascript' src='{{ asset('js/jquery/jquery.min.js') }}'></script>
     <script type='text/javascript' src='{{ asset('js/jquery/jquery-migrate.min.js?ver=1.4.1') }}'></script>
     <script type='text/javascript' src='{{ asset('plugins/easy-call-now/public/js/easy-callnow-public.js?ver=1.0.0') }}'></script>
-    <link rel='https://api.w.org/' href='http://localhost/TGDD/wp-json/' />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://localhost/TGDD/xmlrpc.php?rsd" />
-    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://localhost/TGDD/wp-includes/wlwmanifest.xml" />
+    <link rel='https://api.w.org/' href='' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="" />
     <meta name="generator" content="WordPress 4.9.8" />
     <meta name="generator" content="WooCommerce 3.3.4" />
 
@@ -101,7 +101,7 @@
                 left: 5px;                          
             }
     </style>
-    <style>.bg{opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s;} .bg-loaded{opacity: 1;}</style><!--[if IE]><link rel="stylesheet" type="text/css" href="http://localhost/TGDD/wp-content/themes/flatsome/assets/css/ie-fallback.css"><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script><script>var head = document.getElementsByTagName('head')[0],style = document.createElement('style');style.type = 'text/css';style.styleSheet.cssText = ':before,:after{content:none !important';head.appendChild(style);setTimeout(function(){head.removeChild(style);}, 0);</script><script src="http://localhost/TGDD/wp-content/themes/flatsome/assets/libs/ie-flexibility.js"></script><![endif]-->
+    <style>.bg{opacity: 0; transition: opacity 1s; -webkit-transition: opacity 1s;} .bg-loaded{opacity: 1;}</style>
     <script type="text/javascript">
         WebFontConfig = {
           google: { families: [ "Roboto:regular,700","Roboto:regular,regular","Roboto:regular,regular","-apple-system,+BlinkMacSystemFont,+&quot;Segoe+UI&quot;,+Roboto,+Oxygen-Sans,+Ubuntu,+Cantarell,+&quot;Helvetica+Neue&quot;,+sans-serif:regular,regular", ] }
@@ -118,10 +118,6 @@
     <style>.product-gallery img.lazy-load, .product-small img.lazy-load, .product-small img[data-lazy-srcset]:not(.lazyloaded){ padding-top: 119.83805668016%;}
     </style>
     <noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
-    <link rel="icon" href="http://localhost/TGDD/wp-content/uploads/2017/10/cropped-22554267_1984483631827582_764971073_n-32x32.png" sizes="32x32" />
-    <link rel="icon" href="http://localhost/TGDD/wp-content/uploads/2017/10/cropped-22554267_1984483631827582_764971073_n-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="http://localhost/TGDD/wp-content/uploads/2017/10/cropped-22554267_1984483631827582_764971073_n-180x180.png" />
-    <meta name="msapplication-TileImage" content="http://localhost/TGDD/wp-content/uploads/2017/10/cropped-22554267_1984483631827582_764971073_n-270x270.png" />
     <style id="custom-css" type="text/css">:root {--primary-color: #DD3333;}/* Site Width */.full-width .ubermenu-nav, .container, .row{max-width: 1220px}.row.row-collapse{max-width: 1190px}.row.row-small{max-width: 1212.5px}.row.row-large{max-width: 1250px}.header-main{height: 63px}#logo img{max-height: 63px}#logo{width:120px;}#logo img{padding:5px 0;}.header-top{min-height: 30px}.transparent .header-main{height: 30px}.transparent #logo img{max-height: 30px}.has-transparent + .page-title:first-of-type,.has-transparent + #main > .page-title,.has-transparent + #main > div > .page-title,.has-transparent + #main .page-header-wrapper:first-of-type .page-title{padding-top: 30px;}.header.show-on-scroll,.stuck .header-main{height:60px!important}.stuck #logo img{max-height: 60px!important}.search-form{ width: 68%;}.header-bg-color, .header-wrapper {background-color: #eee}.header-bottom {background-color: #F1F1F1}.header-main .nav > li > a{line-height: 30px }.stuck .header-main .nav > li > a{line-height: 42px }.header-bottom-nav > li > a{line-height: 16px }@media (max-width: 549px) {.header-main{height: 70px}#logo img{max-height: 70px}}.nav-dropdown-has-arrow li.has-dropdown:before{border-bottom-color: #000000;}.nav .nav-dropdown{border-color: #252525 }.nav-dropdown{border-radius:3px}.nav-dropdown{font-size:107%}.nav-dropdown-has-arrow li.has-dropdown:after{border-bottom-color: #000000;}.nav .nav-dropdown{background-color: #eee}/* Color */.accordion-title.active, .has-icon-bg .icon .icon-inner,.logo a, .primary.is-underline, .primary.is-link, .badge-outline .badge-inner, .nav-outline > li.active> a,.nav-outline >li.active > a, .cart-icon strong,[data-color='primary'], .is-outline.primary{color: #DD3333;}/* Color !important */[data-text-color="primary"]{color: #DD3333!important;}/* Background */.scroll-to-bullets a,.featured-title, .label-new.menu-item > a:after, .nav-pagination > li > .current,.nav-pagination > li > span:hover,.nav-pagination > li > a:hover,.has-hover:hover .badge-outline .badge-inner,button[type="submit"], .button.wc-forward:not(.checkout):not(.checkout-button), .button.submit-button, .button.primary:not(.is-outline),.featured-table .title,.is-outline:hover, .has-icon:hover .icon-label,.nav-dropdown-bold .nav-column li > a:hover, .nav-dropdown.nav-dropdown-bold > li > a:hover, .nav-dropdown-bold.dark .nav-column li > a:hover, .nav-dropdown.nav-dropdown-bold.dark > li > a:hover, .is-outline:hover, .tagcloud a:hover,.grid-tools a, input[type='submit']:not(.is-form), .box-badge:hover .box-text, input.button.alt,.nav-box > li > a:hover,.nav-box > li.active > a,.nav-pills > li.active > a ,.current-dropdown .cart-icon strong, .cart-icon:hover strong, .nav-line-bottom > li > a:before, .nav-line-grow > li > a:before, .nav-line > li > a:before,.banner, .header-top, .slider-nav-circle .flickity-prev-next-button:hover svg, .slider-nav-circle .flickity-prev-next-button:hover .arrow, .primary.is-outline:hover, .button.primary:not(.is-outline), input[type='submit'].primary, input[type='submit'].primary, input[type='reset'].button, input[type='button'].primary, .badge-inner{background-color: #DD3333;}/* Border */.nav-vertical.nav-tabs > li.active > a,.scroll-to-bullets a.active,.nav-pagination > li > .current,.nav-pagination > li > span:hover,.nav-pagination > li > a:hover,.has-hover:hover .badge-outline .badge-inner,.accordion-title.active,.featured-table,.is-outline:hover, .tagcloud a:hover,blockquote, .has-border, .cart-icon strong:after,.cart-icon strong,.blockUI:before, .processing:before,.loading-spin, .slider-nav-circle .flickity-prev-next-button:hover svg, .slider-nav-circle .flickity-prev-next-button:hover .arrow, .primary.is-outline:hover{border-color: #DD3333}.nav-tabs > li.active > a{border-top-color: #DD3333}.widget_shopping_cart_content .blockUI.blockOverlay:before { border-left-color: #DD3333 }.woocommerce-checkout-review-order .blockUI.blockOverlay:before { border-left-color: #DD3333 }/* Fill */.slider .flickity-prev-next-button:hover svg,.slider .flickity-prev-next-button:hover .arrow{fill: #DD3333;}/* Background Color */[data-icon-label]:after, .secondary.is-underline:hover,.secondary.is-outline:hover,.icon-label,.button.secondary:not(.is-outline),.button.alt:not(.is-outline), .badge-inner.on-sale, .button.checkout, .single_add_to_cart_button{ background-color:#041133; }/* Color */.secondary.is-underline,.secondary.is-link, .secondary.is-outline,.stars a.active, .star-rating:before, .woocommerce-page .star-rating:before,.star-rating span:before, .color-secondary{color: #041133}/* Color !important */[data-text-color="secondary"]{color: #041133!important;}/* Border */.secondary.is-outline:hover{border-color:#041133}.success.is-underline:hover,.success.is-outline:hover,.success{background-color: #1F7CC4}.success-color, .success.is-link, .success.is-outline{color: #1F7CC4;}.success-border{border-color: #1F7CC4!important;}.alert.is-underline:hover,.alert.is-outline:hover,.alert{background-color: #DD3333}.alert.is-link, .alert.is-outline, .color-alert{color: #DD3333;}body{font-size: 100%;}@media screen and (max-width: 549px){body{font-size: 100%;}}body{font-family:"Roboto", sans-serif}body{font-weight: 0}body{color: #383838}.nav > li > a {font-family:"Roboto", sans-serif;}.nav > li > a {font-weight: 0;}h1,h2,h3,h4,h5,h6,.heading-font, .off-canvas-center .nav-sidebar.nav-vertical > li > a{font-family: "Roboto", sans-serif;}h1,h2,h3,h4,h5,h6,.heading-font,.banner h1,.banner h2{font-weight: 700;}h1,h2,h3,h4,h5,h6,.heading-font{color: #2B2B2B;}button,.button{text-transform: none;}.nav > li > a, .links > li > a{text-transform: none;}.section-title span{text-transform: none;}h3.widget-title,span.widget-title{text-transform: none;}.alt-font{font-family: "-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif", sans-serif;}.alt-font{font-weight: 0!important;}.header:not(.transparent) .header-nav.nav > li > a {color: #0A0A0A;}.header:not(.transparent) .header-nav.nav > li > a:hover,.header:not(.transparent) .header-nav.nav > li.active > a,.header:not(.transparent) .header-nav.nav > li.current > a,.header:not(.transparent) .header-nav.nav > li > a.active,.header:not(.transparent) .header-nav.nav > li > a.current{color: #7A7A7A;}.header-nav.nav-line-bottom > li > a:before,.header-nav.nav-line-grow > li > a:before,.header-nav.nav-line > li > a:before,.header-nav.nav-box > li > a:hover,.header-nav.nav-box > li.active > a,.header-nav.nav-pills > li > a:hover,.header-nav.nav-pills > li.active > a{color:#FFF!important;background-color: #7A7A7A;}a{color: #1E73BE;}a:hover{color: #1E73BE;}.tagcloud a:hover{border-color: #1E73BE;background-color: #1E73BE;}.widget a{color: #000000;}.widget a:hover{color: #DD3333;}.widget .tagcloud a:hover{border-color: #DD3333; background-color: #DD3333;}.products.has-equal-box-heights .box-image {padding-top: 100%;}@media screen and (min-width: 550px){.products .box-vertical .box-image{min-width: 247px!important;width: 247px!important;}}.header-main .social-icons,.header-main .cart-icon strong,.header-main .menu-title,.header-main .header-button > .button.is-outline,.header-main .nav > li > a > i:not(.icon-angle-down){color: #8C8C8C!important;}.header-main .header-button > .button.is-outline,.header-main .cart-icon strong:after,.header-main .cart-icon strong{border-color: #8C8C8C!important;}.header-main .header-button > .button:not(.is-outline){background-color: #8C8C8C!important;}.header-main .current-dropdown .cart-icon strong,.header-main .header-button > .button:hover,.header-main .header-button > .button:hover i,.header-main .header-button > .button:hover span{color:#FFF!important;}.header-main .menu-title:hover,.header-main .social-icons a:hover,.header-main .header-button > .button.is-outline:hover,.header-main .nav > li > a:hover > i:not(.icon-angle-down){color: #9B9B9B!important;}.header-main .current-dropdown .cart-icon strong,.header-main .header-button > .button:hover{background-color: #9B9B9B!important;}.header-main .current-dropdown .cart-icon strong:after,.header-main .current-dropdown .cart-icon strong,.header-main .header-button > .button:hover{border-color: #9B9B9B!important;}.absolute-footer, html{background-color: #f8f8f8}.page-title-small + main .product-container > .row{padding-top:0;}@media (max-width: 949px){.menu-item a.menu-image-title-below.menu-image-not-hovered img, .menu-item a.menu-image-hovered.menu-image-title-below .menu-image-hover-wrapper {display: block;padding-bottom: 12px;margin: 0 auto;margin: auto;max-height: 30px;display: none;display: none !important;} .flex-left {margin-right: auto;background: #ffffff00 !important;height: 74px;padding-top: 10px;padding-left: 10px;margin-right: 40px;}#logo { background: transparent !important;padding-top: 5px !important;padding-left: 0px!important;}.header-main {height: 63px;background: black;}}.vi-header {border-bottom: solid 1px #ffffff !important;}.pull-right {float: right;font-size: 18px;padding-right: 15px;font-weight: normal !important;}.vi-header {border-bottom: solid 0px #0056a8;background: white;}.vi-left-title {width: auto;background: #000000 !important;color: #fff;padding: 3px 10px;font-size: 18px;position: relative;margin: 0;}.vi-left-title:after {border: 17px solid transparent;border-left-color: #000000;position: absolute;top: 0;left: 100%;content: "";}.pull-left {float: left;}.vi-right-link a.vi-more, .vi-right-link a:hover {color: #0056a8;}.vi-right-link a:first-child {margin-left: 0;}.pull-right {float: right;}.star-rating:before{ color:#FFDB00 !important;}@media (max-width: 849px){.menu-item a.menu-image-title-above, .menu-item a.menu-image-title-below {text-align: left;}.menu-item a.menu-image-title-below.menu-image-not-hovered img, .menu-item a.menu-image-hovered.menu-image-title-below .menu-image-hover-wrapper {display: block;padding-bottom: 12px;margin: 0 auto;margin: auto;max-height: 30px;display: none;}}@media (max-width: 549px){.menu-item a.menu-image-title-above, .menu-item a.menu-image-title-below {text-align: left;}.menu-item a.menu-image-title-below.menu-image-not-hovered img, .menu-item a.menu-image-hovered.menu-image-title-below .menu-image-hover-wrapper {display: block;padding-bottom: 12px;margin: 0 auto;margin: auto;max-height: 30px;display: none;}.vi-right-link a {color: #555;font-size: 14px;margin-left: 15px;display: none;}}.label-new.menu-item > a:after{content:"New";}.label-hot.menu-item > a:after{content:"Hot";}.label-sale.menu-item > a:after{content:"Sale";}.label-popular.menu-item > a:after{content:"Popular";}
     </style>
     <style type="text/css" id="wp-custom-css">
@@ -679,74 +675,11 @@
             var fl_icons_insert = document.getElementsByTagName('link')[0];
                 fl_icons_insert.parentNode.insertBefore(fl_icons, fl_icons_insert);
     </script>
-    <div id="login-form-popup" class="lightbox-content mfp-hide">          
-        <div class="account-container lightbox-inner">    
-            <div class="col2-set row row-divided row-large" id="customer_login">
-                <div class="col-1 large-6 col pb-0">   
-                    <div class="account-login-inner">
-                        <h3 class="uppercase">Đăng nhập</h3>
-                        <form class="woocommerce-form woocommerce-form-login login" method="post">                
-                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                <label for="username">Tên tài khoản hoặc địa chỉ email <span class="required">*</span></label>
-                                <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="" />               
-                            </p>
-                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                <label for="password">Mật khẩu <span class="required">*</span></label>
-                                <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
-                            </p>               
-                            <p class="form-row">
-                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="a399fd4d92" />
-                                <input type="hidden" name="_wp_http_referer" value="/TGDD/" />                    
-                                <button type="submit" class="woocommerce-Button button" name="login" value="Đăng nhập">Đăng nhập</button>
-                                <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Ghi nhớ mật khẩu</span>
-                                </label>
-                            </p>
-                            <p class="woocommerce-LostPassword lost_password">
-                                <a href="http://localhost/TGDD/tai-khoan/lost-password/">Quên mật khẩu?</a>
-                            </p>               
-                        </form>
-                    </div><!-- .login-inner -->
-                </div>
-                <div class="col-2 large-6 col pb-0">
-                    <div class="account-register-inner">
-                        <h3 class="uppercase">Đăng ký</h3>
-                        <form method="post" class="register">                    
-                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                <label for="reg_email">Địa chỉ email <span class="required">*</span></label>
-                                <input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="" />                    
-                            </p>                   
-                            <p class="woocommerce-FormRow form-row">
-                                <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="308899e169" />
-                                <input type="hidden" name="_wp_http_referer" value="/TGDD/" />
-                                <button type="submit" class="woocommerce-Button button" name="register" value="Đăng ký">Đăng ký</button>
-                            </p>                    
-                        </form>
-                    </div><!-- .register-inner -->
-                </div><!-- .large-6 -->
-            </div> <!-- .row -->
-        </div><!-- .account-login-container -->
-    </div>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-            var wpcf7 = {"apiSettings":{"root":"http:\/\/localhost\/TGDD\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"H\u00e3y x\u00e1c nh\u1eadn r\u1eb1ng b\u1ea1n kh\u00f4ng ph\u1ea3i l\u00e0 robot."}}};
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='{{ asset('plugins/contact-form-7/includes/js/scripts.js?ver=5.0.1') }}'></script>
     <script type='text/javascript' src='{{ asset('plugins/muahangnhanh/js/myscript.js?ver=4.9.8') }}'></script>
     <script type='text/javascript' src='{{ asset('plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.70') }}'></script>
     <script type='text/javascript' src='{{ asset('plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4') }}'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-            var woocommerce_params = {"ajax_url":"\/TGDD\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/TGDD\/?wc-ajax=%%endpoint%%"};
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='{{ asset('plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=3.3.4') }}'></script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-            var wc_cart_fragments_params = {"ajax_url":"\/TGDD\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/TGDD\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_113909c5faec25dbf7c8839843a8b52a","fragment_name":"wc_fragments_113909c5faec25dbf7c8839843a8b52a"};
-        /* ]]> */
-    </script>
     <script type='text/javascript' src='{{ asset('plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=3.3.4') }}'></script>
     <script type='text/javascript' src='{{ asset('plugins/wpfront-scroll-top/js/wpfront-scroll-top.min.js?ver=1.6.2') }}'></script>
     <script type='text/javascript' src='{{ asset('themes/flatsome/inc/extensions/flatsome-live-search/flatsome-live-search.js?ver=3.5.3') }}'></script>
@@ -762,7 +695,7 @@
     <script type='text/javascript' src='{{ asset('js/wp-embed.min.js?ver=4.9.8') }}'></script>
     <script type='text/javascript'>
         /* <![CDATA[ */
-            var _zxcvbnSettings = {"src":"http:\/\/localhost\/TGDD\/wp-includes\/js\/zxcvbn.min.js"};
+            var _zxcvbnSettings = {"src":"{{ asset('js/zxcvbn.min.js') }}"};
         /* ]]> */
     </script>
     <script type='text/javascript' src='{{ asset('js/zxcvbn-async.min.js?ver=1.0') }}'></script>
@@ -771,7 +704,7 @@
             var pwsL10n = {"unknown":"M\u1eadt kh\u1ea9u m\u1ea1nh kh\u00f4ng x\u00e1c \u0111\u1ecbnh","short":"R\u1ea5t y\u1ebfu","bad":"Y\u1ebfu","good":"Trung b\u00ecnh","strong":"M\u1ea1nh","mismatch":"M\u1eadt kh\u1ea9u kh\u00f4ng kh\u1edbp"};
         /* ]]> */
     </script>
-    <script type='text/javascript' src='http://localhost/TGDD/wp-admin/js/password-strength-meter.min.js?ver=4.9.8'></script>
+    <script type='text/javascript' src='{{ asset('js/password-strength-meter.min.js?ver=4.9.8') }}'></script>
     <script type='text/javascript'>
         /* <![CDATA[ */
             var wc_password_strength_meter_params = {"min_password_strength":"3","i18n_password_error":"Vui l\u00f2ng nh\u1eadp m\u1eadt kh\u1ea9u kh\u00f3 h\u01a1n.","i18n_password_hint":"G\u1ee3i \u00fd: M\u1eadt kh\u1ea9u ph\u1ea3i c\u00f3 \u00edt nh\u1ea5t 12 k\u00fd t\u1ef1. \u0110\u1ec3 n\u00e2ng cao \u0111\u1ed9 b\u1ea3o m\u1eadt, s\u1eed d\u1ee5ng ch\u1eef in hoa, in th\u01b0\u1eddng, ch\u1eef s\u1ed1 v\u00e0 c\u00e1c k\u00fd t\u1ef1 \u0111\u1eb7c bi\u1ec7t nh\u01b0 ! \" ? $ % ^ & )."};
