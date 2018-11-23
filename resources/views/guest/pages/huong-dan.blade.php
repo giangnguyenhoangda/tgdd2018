@@ -38,6 +38,16 @@
 				<li>Nếu tài khoản bị đổi, xin liên hệ: facebook.com/giang997</li>
 			</ol>
 		</li>
+		<li>III. Thẻ ngân hàng:
+			<ul>Thẻ VCB:
+				<ul>
+					<li>Tên: NGUYEN HONG NHUNG</li>
+					<li>Số thẻ: 6868682607535021 </li>
+					<li>Tháng/Năm phát hành: 12/08</li>
+					<li>Mã OTP: 123456</li>
+				</ul>
+			</ul>
+		</li>
 	</ul>
 </body>
 </html>
