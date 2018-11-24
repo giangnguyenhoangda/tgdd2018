@@ -19,7 +19,7 @@ class LaptopController extends Controller
     public function getAllLaptop()
     {
         $list=Laptop::all();
-        return view('guest.pages.laptops',['list'=>$list]);
+        return view('guest.pages.laptop.laptops',['list'=>$list]);
     }
 
     public function getLaptopByManufacturer($hang)
@@ -46,7 +46,7 @@ class LaptopController extends Controller
         $laptop=Laptop::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
         $listComment=($laptop->isProduct)->getListComment();
-        return view('guest.pages.laptop-info',['laptop'=>$laptop,'news'=>$news,'listComment'=>$listComment]);
+        return view('guest.pages.laptop.laptop-info',['laptop'=>$laptop,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function postAddLaptop(Request $req)
@@ -141,5 +141,12 @@ class LaptopController extends Controller
     {
     	$list=Laptop::all();
         return view('employee.pages.laptop.list_laptop',['list'=>$list]);
+    }
+
+    public function getLaptopByHang($name)
+    {
+        $laptop=new Laptop;
+        $list=$laptop->doWhere('manufacturer','=',$name);
+        return view('guest.pages.laptop.laptopbyhang',['list'=>$list,'hang'=>$name]);
     }
 }

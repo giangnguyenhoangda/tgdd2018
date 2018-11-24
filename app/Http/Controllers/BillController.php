@@ -227,7 +227,7 @@ class BillController extends Controller
 				$billitem->add($value['item']->isProduct->id,$bill->id,$value['qty']);
 			}
 
-			return view('guest.pages.checkout-notice',['transStatus'=>'Thành Công','isComplete'=>true,'notice'=>$this->getResponseDescription($txnResponseCode)]);
+			return view('guest.pages.checkout-notice',['transStatus'=>'Thành Công','isComplete'=>true,'notice'=>$this->getResponseDescription($txnResponseCode),'bill'=>$bill]);
 
 		}elseif ($hashValidated=="INVALID HASH" && $txnResponseCode=="0"){
 			$transStatus = "Giao dịch Pendding";

@@ -14,7 +14,7 @@ class GuestController extends Controller
     public function getHome()
     {
         $s=new Smartphone;
-    	$smartphones=$s->doWhere('productType','=','iphone');
+    	$smartphones=$s->doWhere('manufacturer','=','iphone');
         $smartphones1=$s->doWhere('product.discountPercent','>',0);
     	$tablets=Tablet::all();
     	$accessorys=Accessory::all();

@@ -1,9 +1,5 @@
 @extends('guest.elements.master')
 
-@section('head')
-	<link rel="alternate" type="application/rss+xml" title="Dòng thông tin chuyên mục Demo thegioidiong flatsome &raquo; TIN TỨC" href="http://localhost/TGDD/category/tin-tuc-2/feed/" />
-@endsection
-
 @section('title')
 	Tin tức
 @endsection

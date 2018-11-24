@@ -10,7 +10,13 @@ class NewsController extends Controller
     public function getNews()
     {
         $news= News::all();
-    	return view('guest.pages.news',['news'=>$news]);
+    	return view('guest.pages.new.news',['news'=>$news]);
+    }
+
+    public function getNewByLoai($name)
+    {
+        $news=News::where('type',$name)->get();
+        return view('guest.pages.new.newbytheloai',['news'=>$news,'loai'=>$name]);
     }
 
     public function getListNews()
@@ -29,7 +35,7 @@ class NewsController extends Controller
         $news=News::find($id);
         $listComment=$news->getListComment();
         $news=$news->toArray();
-        return view('guest.pages.new',['news'=>$news,'listComment'=>$listComment]);
+        return view('guest.pages.new.new',['news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getPostNews()

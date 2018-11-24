@@ -21,7 +21,7 @@ class AccessoryController extends Controller
     public function getAllAccessory()
     {
         $list=Accessory::all();
-        return view('guest.pages.accessorys',['list'=>$list]);
+        return view('guest.pages.accessory.accessorys',['list'=>$list]);
     }
 
     public function postAccessoryAddCart(Request $req)
@@ -47,7 +47,7 @@ class AccessoryController extends Controller
         $accessory=Accessory::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
         $listComment=($accessory->isProduct)->getListComment();
-        return view('guest.pages.accessory-info',['accessory'=>$accessory,'news'=>$news,'listComment'=>$listComment]);
+        return view('guest.pages.accessory.accessory-info',['accessory'=>$accessory,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getEditAccessory($id)
@@ -117,5 +117,12 @@ class AccessoryController extends Controller
     	$accessory->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
 
     	return redirect('nhan-vien/phu-kien');
+    }
+
+    public function getAccessoryByLoai($name)
+    {
+        $accessory=new Accessory;
+        $list=$accessory->doWhere('productType','=',$name);
+        return view('guest.pages.accessory.accessorybyloai',['list'=>$list,'loai'=>$name]);
     }
 }

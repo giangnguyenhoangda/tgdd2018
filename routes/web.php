@@ -205,3 +205,13 @@ Route::post('admin/sua-nhan-vien','EmployeeController@postEditEmployee')->name('
 Route::post('tin-tuc/them-binh-luan','CommentController@postAddCommentNew')->name('postAddCommentNew');
 
 Route::post('san-pham/them-binh-luan','CommentController@postAddCommentProduct')->name('postAddCommentProduct');
+
+Route::get('dien-thoai/hang-san-xuat/{name}','SmartPhoneController@getSmartPhoneByHang')->name('getSmartPhoneByHang');
+
+Route::get('may-tinh/hang-san-xuat/{name}','LaptopController@getLaptopByHang')->name('getLaptopByHang');
+
+Route::get('may-tinh-bang/hang-san-xuat/{name}','TabletController@getTabletByHang')->name('getTabletByHang');
+
+Route::get('phu-kien/loai-phu-kien/{name}','AccessoryController@getAccessoryByLoai')->name('getAccessoryByLoai');
+
+Route::get('tin-tuc/loai-tin/{name}','NewsController@getNewByLoai')->name('getNewByLoai');

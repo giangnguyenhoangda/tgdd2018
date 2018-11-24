@@ -168,7 +168,7 @@
 																	echo date ( 'YmdHis' ) . rand ();
 																	?>" size="20"
 																	maxlength="40" />
-																<input type="hidden" name="vpc_OrderInfo" value="Order01"
+																<input type="hidden" name="vpc_OrderInfo" value="Order{{ $lastID }}"
 																size="20" maxlength="34" />
 																<input type="hidden" name="vpc_Amount" value="{{ ($cart->totalPrice)*100 }}" size="20"
 																maxlength="10" />

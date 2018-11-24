@@ -33,7 +33,7 @@ class SmartPhoneController extends Controller
         $smartphone=Smartphone::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
         $listComment=($smartphone->isProduct)->getListComment();
-        return view('guest.pages.smartphone-info',['smartphone'=>$smartphone,'news'=>$news,'listComment'=>$listComment]);
+        return view('guest.pages.smartphone.smartphone-info',['smartphone'=>$smartphone,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getEditSmartPhone($id)
@@ -144,6 +144,13 @@ class SmartPhoneController extends Controller
     public function getAllSmartPhone()
     {
         $list=Smartphone::all();
-        return view('guest.pages.smartphones',['list'=>$list]);
+        return view('guest.pages.smartphone.smartphones',['list'=>$list]);
+    }
+
+    public function getSmartPhoneByHang($name)
+    {
+        $smartphone=new Smartphone;
+        $list=$smartphone->doWhere('manufacturer','=',$name);
+        return view('guest.pages.smartphone.smartphonebyhang',['list'=>$list,'hang'=>$name]);
     }
 }

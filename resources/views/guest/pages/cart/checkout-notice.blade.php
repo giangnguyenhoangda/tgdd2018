@@ -94,7 +94,7 @@
 														
 														<tr>
 															<td style="text-align: left;"><strong>Mã Đặt Hàng</strong></td>
-															<td style="text-align: left;">Order01</td>
+															<td style="text-align: left;">Order{{ $bill->id }}</td>
 														</tr>
 														<tr>
 															<td style="text-align: left;"><strong>Tên Khách Hàng</strong></td>

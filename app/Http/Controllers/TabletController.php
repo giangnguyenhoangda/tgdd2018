@@ -21,7 +21,7 @@ class TabletController extends Controller
     public function getAllTablet()
     {
         $list=Tablet::all();
-        return view('guest.pages.tablets',['list'=>$list]);
+        return view('guest.pages.tablet.tablets',['list'=>$list]);
     }
 
     public function postTabletAddCart(Request $req)
@@ -54,7 +54,7 @@ class TabletController extends Controller
         $tablet=Tablet::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
         $listComment=($tablet->isProduct)->getListComment();
-        return view('guest.pages.tablet-info',['tablet'=>$tablet,'news'=>$news,'listComment'=>$listComment]);
+        return view('guest.pages.tablet.tablet-info',['tablet'=>$tablet,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getListTablet()
@@ -146,5 +146,12 @@ class TabletController extends Controller
     	$tablet->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
     	return redirect('nhan-vien/may-tinh-bang');
+    }
+
+    public function getTabletByHang($name)
+    {
+        $tablet=new Tablet;
+        $list=$tablet->doWhere('manufacturer','=',$name);
+        return view('guest.pages.tablet.tabletbyhang',['list'=>$list,'hang'=>$name]);
     }
 }
