@@ -17,7 +17,7 @@ class CartController extends Controller
             $lastID=DB::table('bill')->select('id')->orderBy('id','desc')->get()->toArray();
             $lastID=($lastID[0]->id) +1;
         }
-        return view('guest.pages.cart',['lastID'=>$lastID]);
+        return view('guest.pages.cart.cart',['lastID'=>$lastID]);
         
     }
 
