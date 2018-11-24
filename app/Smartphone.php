@@ -13,25 +13,25 @@ class Smartphone extends Model
     public $timestamps=false;
     protected $primaryKey='id';
 
-    public function add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description)
+    public function add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description)
     {
     	$smartdevice=new Smartdevice;
     	$product=new Product;
 
     	$smartphone=new Smartphone;
-    	$smartphone->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
+    	$smartphone->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,'smartphone',$weight,$madein,$status,$imagesurl,$gift,$description);
     	$smartphone->smartdeviceid=$smartdevice->add($firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen);
         $smartphone->sim=$sim;
     	$smartphone->save();
     }
 
-    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,$isLogoNew)
+    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,$isLogoNew)
     {
         $smartdevice=new Smartdevice;
         $product=new Product;
 
         $smartphone=Smartphone::find($id);
-        $product->edit($smartphone->productid,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
+        $product->edit($smartphone->productid,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,'smartphone',$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
         $smartdevice->edit($smartphone->smartdeviceid,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen);
         $smartphone->sim=$sim;
         $smartphone->save();
@@ -68,6 +68,10 @@ class Smartphone extends Model
 
     public function doWhere($x1,$x2,$x3)
     {
-        return DB::table('smartphone')->join('product','productid','=','product.id')->where($x1,$x2,$x3)->get();
+        return DB::table('smartphone')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('smartphone.id as smartphoneid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->get();
     }
 }

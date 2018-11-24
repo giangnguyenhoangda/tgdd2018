@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class Accessory extends Model
 {
@@ -17,7 +18,7 @@ class Accessory extends Model
     	$product=new Product;
 
     	$accessory=new Accessory;
-    	$accessory->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
+    	$accessory->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,null,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
     	$accessory->save();
     }
 
@@ -27,7 +28,7 @@ class Accessory extends Model
         $product=new Product;
 
         $accessory=Accessory::find($id);
-        $product->edit($accessory->productid,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
+        $product->edit($accessory->productid,$productName,$quantity,$purchase,$price,$discountPercent,null,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
      
         $accessory->save();
     }
@@ -54,5 +55,14 @@ class Accessory extends Model
         $accessory->delete();
         
         $product->delete();
+    }
+
+    public function doWhere($x1,$x2,$x3)
+    {
+        return DB::table('accessory')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('accessory.id as accessoryid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->get();
     }
 }

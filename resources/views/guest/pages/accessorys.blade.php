@@ -4,10 +4,6 @@
 	Kết quả tìm kiếm
 @endsection
 
-@section('head')
-	<link rel="alternate" type="application/rss+xml" title="Nguồn tin Demo thegioidiong flatsome &raquo; Sản phẩm" href="http://localhost/TGDD/cua-hang/feed/" />
-@endsection
-
 @section('main')
 	<div class="shop-page-title category-page-title page-title ">
 		<div class="page-title-inner flex-row  medium-flex-wrap container">

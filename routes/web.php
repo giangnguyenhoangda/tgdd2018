@@ -11,6 +11,36 @@
 |
 */
 
+Route::get('san-pham/xoa-binh-luan/{id}','CommentController@getDeleteProductComment')->name('getDeleteProductComment');
+
+Route::get('nhan-vien/don-hang/{id}','BillController@getBill')->name('getBill');
+
+Route::get('don-hang/xoa/{id}','BillController@getDeleteBill')->name('getDeleteBill');
+
+Route::get('nhan-vien/danh-sach-don-hang','BillController@getListBill')->name('getListBill');
+
+Route::get('dien-thoai/hang/{hang}','SmartPhoneController@getSmartPhoneByManufacturer')->name('getSmartPhoneByManufacturer');
+
+Route::get('phu-kien/loai/{productType}','AccessoryController@getAccessoryByProductType')->name('getAccessoryByProductType');
+
+Route::get('may-tinh-bang/hang/{hang}','TabletController@getTabletByManufacturer')->name('getTabletByManufacturer');
+
+Route::get('may-tinh/hang/{hang}','LaptopController@getLaptopByManufacturer')->name('getLaptopByManufacturer');
+
+Route::get('tin-tuc/xoa-binh-luan/{id}','CommentController@getDeleteNewComment')->name('getDeleteNewComment');
+
+Route::post('thong-ke/doanh-so','StatisticController@postSaleStatistic')->name('postSaleStatistic');
+
+Route::post('thong-ke/doanh-thu','StatisticController@postIncomeStatistic')->name('postIncomeStatistic');
+
+Route::post('thong-ke/loi-nhuan','StatisticController@postProfitStatistic')->name('postProfitStatistic');
+
+Route::get('danh-sach-binh-luan/{id}','CommentController@getProductComment')->name('getProductComment');
+
+Route::get('tin-tuc/danh-sach-binh-luan/{id}','CommentController@getNewComment')->name('getNewComment');
+
+Route::get('thanh-toan/thong-bao','BillController@getNotice')->name('thanhtoanthongbao');
+
 Route::get('thanh-toan','BillController@request')->name('request');
 
 Route::get('huong-dan','GuestController@getHelp')->name('getHelp');
@@ -162,6 +192,10 @@ Route::get('admin/nhan-vien','EmployeeController@getEmployees')->name('getEmploy
 
 Route::get('thong-ke/doanh-so','StatisticController@getSaleStatistic')->name('getSaleStatistic')->middleware('adminLogin');
 
+Route::get('thong-ke/doanh-thu','StatisticController@getIncomeStatistic')->name('getIncomeStatistic')->middleware('adminLogin');
+
+Route::get('thong-ke/loi-nhuan','StatisticController@getProfitStatistic')->name('getProfitStatistic')->middleware('adminLogin');
+
 Route::post('admin/them-nhan-vien','EmployeeController@postAddEmployee')->name('postAddEmployee')->middleware('adminLogin');
 
 Route::get('admin/sua-nhan-vien/{id}','EmployeeController@getEditEmployee')->name('getEditEmployee')->middleware('adminLogin');
@@ -170,4 +204,4 @@ Route::post('admin/sua-nhan-vien','EmployeeController@postEditEmployee')->name('
 
 Route::post('tin-tuc/them-binh-luan','CommentController@postAddCommentNew')->name('postAddCommentNew');
 
-
+Route::post('san-pham/them-binh-luan','CommentController@postAddCommentProduct')->name('postAddCommentProduct');

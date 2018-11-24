@@ -28,8 +28,8 @@
 
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="{{ route('getSaleStatistic') }}"><i class="icon-quill4"></i> Doanh Số</a></li>
-						<li><a href="{{ route('getSaleStatistic') }}"><i class="icon-file-text"></i> Danh Thu</a></li>
-						<li><a href="{{ route('getSaleStatistic') }}"><i class="icon-file-text"></i> Lợi Nhuận</a></li>
+						<li><a href="{{ route('getIncomeStatistic') }}"><i class="icon-file-text"></i> Danh Thu</a></li>
+						<li><a href="{{ route('getProfitStatistic') }}"><i class="icon-file-text"></i> Lợi Nhuận</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -21,49 +21,54 @@
 									<a style="color: #333333" href="{{ route('getListSmartPhone') }}"><span class="menu-heading underlined">Điện Thoại</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddSmartPhone') }}">Thêm Điện Thoại</a></li>
-										<li><a href="form_inputs_basic.html">Iphone</a></li>
-										<li><a href="form_checkboxes_radios.html">Samsung</a></li>
-										<li><a href="form_input_groups.html">Lg</a></li>
-										<li><a href="form_controls_extended.html">Sony</a></li>
-										<li><a href="form_floating_labels.html">HTC</a></li>
-										<li><a href="form_select2.html">Xiaomi</a></li>
-										<li><a href="form_select2.html">Hãng Khác</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','iphone') }}">Iphone</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','samsung') }}">Samsung</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','lg') }}">Lg</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','sony') }}">Sony</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','htc') }}">HTC</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer','xiaomi') }}">Xiaomi</a></li>
+										<li><a href="{{ route('getSmartPhoneByManufacturer', ' hang-khac') }}">Hãng Khác</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
 									<a href="{{ route('getListLaptop') }}" style="color: #333333"><span class="menu-heading underlined">Laptop</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddLaptop') }}">Thêm Laptop</a></li>
-										<li><a href="components_modals.html">Apple</a></li>
-										<li><a href="components_dropdowns.html">Asus <span class="badge badge-default">30+</span></a></li>
-										<li><a href="components_popups.html">Acer</a></li>
-										<li><a href="components_tabs.html">Dell</a></li>
-										<li><a href="components_navs.html">HP</a></li>
-										<li><a href="components_navs.html">Lenovo</a></li>
-										<li><a href="components_notifications_pnotify.html">Hãng Khác <span class="badge badge-danger">3</span></a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','apple') }}">Apple</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','asus') }}">Asus 
+											{{-- <span class="badge badge-default">30+</span> --}}
+										</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','acer') }}">Acer</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','dell') }}">Dell</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','hp') }}">HP</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','lenovo') }}">Lenovo</a></li>
+										<li><a href="{{ route('getLaptopByManufacturer','hang-khac') }}">Hãng Khác 
+											{{-- <span class="badge badge-danger">3</span> --}}
+										</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
 									<a href="{{ route('getListTablet') }}" style="color: #333333"><span class="menu-heading underlined">Máy Tính Bảng</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddTablet') }}">Thêm Máy Tính Bảng</a></li>
-										<li><a href="sidebar_default_collapse.html">Samsung</a></li>
-										<li><a href="sidebar_mini_collapse.html">Asus</a></li>
-										<li><a href="sidebar_dual.html">Acer</a></li>
-										<li><a href="sidebar_double_collapse.html">Apple</a></li>
-										<li><a href="sidebar_detached_left.html">Hãng Khác</a></li>
+										<li><a href="{{ route('getTabletByManufacturer','samsung') }}">Samsung</a></li>
+										<li><a href="{{ route('getTabletByManufacturer','asus') }}">Asus</a></li>
+										<li><a href="{{ route('getTabletByManufacturer','acer') }}">Acer</a></li>
+										<li><a href="{{ route('getTabletByManufacturer','apple') }}">Apple</a></li>
+										<li><a href="{{ route('getTabletByManufacturer','hang-khac') }}">Hãng Khác</a></li>
 									</ul>
 								</div>
 								<div class="col-md-3">
 									<a href="{{ route('getListAccessory') }}" style="color: #333333"><span class="menu-heading underlined">Phụ Kiện</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddAccessory') }}">Thêm Phụ Kiện</a></li>
-										<li><a href="navigation_horizontal_click.html">Tai Nghe</a></li>
-										<li><a href="navigation_horizontal_hover.html">Sạc - Cáp</a></li>
-										<li><a href="navigation_horizontal_elements.html">USB - Thẻ Nhớ</a></li>
-										<li><a href="navigation_horizontal_tabs.html">Loa</a></li>
-										<li><a href="navigation_horizontal_disabled.html">Bao Da</a></li>
-										<li><a href="navigation_horizontal_disabled.html">Phụ Kiện Khác</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','bao-da-op-lung') }}">Bao Da Ốp Lưng</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','sac-du-phong') }}">Sạc Dự Phòng</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','the-nho') }}">Thẻ Nhớ</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','tai-nghe-loa') }}">Tai Nghe, Loa</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','chuot') }}">Chuột</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','mieng-dan-man-hinh') }}">Miếng Dán Màn Hình</a></li>
+										<li><a href="{{ route('getAccessoryByProductType','phu-kien-khac') }}">Phụ Kiện Khác</a></li>
 									</ul>
 								</div>
 							</div>
@@ -81,10 +86,11 @@
 						<li><a href="{{ route('getListNews') }}"><i class="icon-file-text"></i> Danh Sách</a></li>
 					</ul>
 				</li>
+				<li><a href="{{ route('getListBill') }}">Danh Sách Đơn Hàng</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
+				{{-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="icon-bell2"></i>
 							<span class="visible-xs-inline-block position-right">Thông báo</span>
@@ -167,7 +173,7 @@
 								</li>
 							</ul>
 						</div>
-					</li>
+					</li> --}}
 
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
@@ -178,7 +184,7 @@
 
 					<ul class="dropdown-menu dropdown-menu-right">
 						<li><a href="{{ route('getInfo') }}"><i class="icon-user"></i> Thông tin</a></li>
-						<li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Thông báo</a></li>
+						{{-- <li><a href="#"><span class="badge badge-warning pull-right">58</span> <i class="icon-comment-discussion"></i> Thông báo</a></li> --}}
 						<li class="divider"></li>
 						<li><a href="{{ route('getLogoutE') }}"><i class="icon-switch2"></i> Đăng xuất</a></li>
 					</ul>

@@ -35,6 +35,13 @@ class TabletController extends Controller
         return redirect('gio-hang');
     }
 
+    public function getTabletByManufacturer($hang)
+    {
+        $tablet=new Tablet;
+        $list=$tablet->doWhere('manufacturer','=',$hang);
+        return view('employee.pages.tablet.tabletbymanufacturer',['list'=>$list]);
+    }
+
     public function getEditTablet($id)
     {
         $tablet=new Tablet;
@@ -46,7 +53,8 @@ class TabletController extends Controller
     {
         $tablet=Tablet::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
-        return view('guest.pages.tablet-info',['tablet'=>$tablet,'news'=>$news]);
+        $listComment=($tablet->isProduct)->getListComment();
+        return view('guest.pages.tablet-info',['tablet'=>$tablet,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getListTablet()
@@ -59,7 +67,7 @@ class TabletController extends Controller
     {
         $tablet=new Tablet;
         $tablet->doDelete($id);
-        return redirect('nhan-vien/may-tinh-bang');
+        return redirect()->back();
     }
 
     public function postEditTablet(Request $req)
@@ -83,7 +91,7 @@ class TabletController extends Controller
         $purchase=$req->purchase;
         $price=$req->price;
         $discountPercent=$req->discountPercent;
-        $productType=$req->productType;
+        $manufacturer=$req->manufacturer;
         $weight=$req->weight;
         $madein=$req->madein;
         $status=$req->status; 
@@ -95,10 +103,10 @@ class TabletController extends Controller
 
         $tablet=new Tablet;
         if($req->hasFile('imagesurl')){
-             $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,true);
+             $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,true);
         }
         else{
-            $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
+            $tablet->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
         }
         
         return redirect('nhan-vien/may-tinh-bang');
@@ -124,7 +132,7 @@ class TabletController extends Controller
     	$purchase=$req->purchase;
     	$price=$req->price;
     	$discountPercent=$req->discountPercent;
-    	$productType=$req->productType;
+    	$manufacturer=$req->manufacturer;
     	$weight=$req->weight;
     	$madein=$req->madein;
     	$status=$req->status; 
@@ -135,7 +143,7 @@ class TabletController extends Controller
     	$sim=$req->sim;
 
     	$tablet=new Tablet;
-    	$tablet->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
+    	$tablet->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
     	return redirect('nhan-vien/may-tinh-bang');
     }

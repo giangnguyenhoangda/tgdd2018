@@ -205,6 +205,79 @@
                     </table>
                   </div>    
                   <div class="panel entry-content " id="tab-ux_global_tab">
+                    <div id="comments" class="comments-area">
+                            <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $s->productName }}</span>&rdquo;     </h3>
+                            <ol class="comment-list">
+                                @if (count($listComment)>0)
+                                   
+                                
+                                @foreach ($listComment as $element)
+                                    <li class="comment even thread-even depth-1" id="li-comment-13">
+                                        <article id="comment-13" class="comment-inner">
+                                            <div class="flex-row align-top">
+                                                <div class="flex-col">
+                                                    <div class="comment-author mr-half">
+                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
+                                                </div>
+                                                <!-- .large-3 -->
+                                                <div class="flex-col flex-grow">
+                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <div class="comment-content">
+                                                        <p>{{ $element->content }}</p>
+                                                    </div>
+                                                    <div class="comment-meta commentmetadata uppercase is-xsmall clear">
+                                                        <a href="">
+                                                            <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
+                                                                {{ $element->time }} </time>
+                                                        </a>
+                                                        
+                                                        <!-- .reply -->
+                                                    </div>
+                                                    <!-- .comment-meta .commentmetadata -->
+                                                </div>
+                                                <!-- .flex-col -->
+                                            </div>
+                                            <!-- .flex-row -->
+                                        </article>
+                                        <!-- #comment -->
+                                    </li>
+                                @endforeach
+                                @endif
+                                <!-- #comment-## -->
+                            </ol>
+                            <!-- .comment-list -->
+                            <div id="respond" class="comment-respond">
+                                <h3 id="reply-title" class="comment-reply-title">Bình Luận <small><a rel="nofollow" id="cancel-comment-reply-link" href="/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/#respond" style="display:none;">Hủy</a></small></h3>
+                                <form action="{{ route('postAddCommentProduct') }}" method="post" id="commentform" class="comment-form" novalidate enctype="multipart/form-data">
+                                    <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment">Bình luận</label>
+                                        <input type="hidden" name="productid" value="{{ $s->id }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label for="author">Tên <span class="required">*</span></label>
+                                        <input id="author" name="name" type="text" value="" size="30" maxlength="245" required='required' />
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email">Email <span class="required">*</span></label>
+                                        <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' />
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="url">Số Điện Thoại</label>
+                                        <input id="url" name="phone" type="text" value="" size="30" maxlength="200" />
+                                    </p>
+                                    <p class="form-submit">
+                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
+                                        <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
+                                        <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                                    </p>
+                                </form>
+                            </div>
+                            <!-- #respond -->
+                        </div>
+                        <!-- #comments -->
                   </div>
                 </div><!-- .tab-panels -->
               </div><!-- .tabbed-content -->

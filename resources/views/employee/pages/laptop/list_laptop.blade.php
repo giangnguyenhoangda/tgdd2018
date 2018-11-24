@@ -49,6 +49,7 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="{{ route('getProductComment',$element->isProduct->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
 													<li><a href="{{ route('getEditLaptop',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
 													<li><a class="deleteLaptop" sw_title="Thông báo" sw_contnet="Bạn muốn xóa Laptop này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteLaptop',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>

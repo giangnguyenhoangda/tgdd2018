@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Smartdevice;
 use App\Product;
+use Illuminate\Support\Facades\DB;
 
 class Laptop extends Model
 {
@@ -13,13 +14,13 @@ class Laptop extends Model
     protected $primaryKey='id';
 
 
-    public function add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description)
+    public function add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description)
     {
     	$smartdevice=new Smartdevice;
     	$product=new Product;
 
     	$laptop=new Laptop;
-    	$laptop->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description);
+    	$laptop->productid=$product->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,'laptop',$weight,$madein,$status,$imagesurl,$gift,$description);
     	$laptop->smartdeviceid=$smartdevice->add($firstcamera,null,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen);
     	$laptop->keyboard=$keyboard;
     	$laptop->save();
@@ -44,13 +45,13 @@ class Laptop extends Model
         return array('laptop'=>$laptop,'product'=>$product,'smartdevice'=>$smartdevice);
     }
 
-    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,$isLogoNew)
+    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,$isLogoNew)
     {
         $smartdevice=new Smartdevice;
         $product=new Product;
 
         $laptop=Laptop::find($id);
-        $product->edit($laptop->productid,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
+        $product->edit($laptop->productid,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,'laptop',$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew);
         $smartdevice->edit($laptop->smartdeviceid,$firstcamera,null,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen);
         $laptop->keyboard=$keyboard;
         $laptop->save();
@@ -64,5 +65,14 @@ class Laptop extends Model
         $laptop->delete();
         $smartdevice->delete();
         $product->delete();
+    }
+
+    public function doWhere($x1,$x2,$x3)
+    {
+        return DB::table('laptop')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('laptop.id as laptopid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->get();
     }
 }

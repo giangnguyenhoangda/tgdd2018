@@ -36,6 +36,6 @@ class ProductsController extends Controller
         if($cart->items==null){
             Session::forget('cart');
         }
-        return redirect('gio-hang');
+        return redirect()->back();
     }
 }

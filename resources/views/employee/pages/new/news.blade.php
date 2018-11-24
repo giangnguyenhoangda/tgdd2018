@@ -49,6 +49,7 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="{{ route('getNewComment',$element->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
 													<li><a href="{{ route('getEditNew',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
 													<li><a class="deleteNew" sw_title="Thông báo" sw_contnet="Bạn muốn xóa tin tức?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteNew',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>

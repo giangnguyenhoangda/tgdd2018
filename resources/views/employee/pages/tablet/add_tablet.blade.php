@@ -31,7 +31,7 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Hãng Sản Xuất: <span class="text-danger">*</span></label>
-											<select name="productType" data-placeholder="Chọn hãng sản xuất" class="select required">
+											<select name="manufacturer" data-placeholder="Chọn hãng sản xuất" class="select required">
 												<option></option>
 													<option value="apple">Apple</option>
 													<option value="samsung">Samsung</option>

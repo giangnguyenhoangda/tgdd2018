@@ -22,6 +22,14 @@ class LaptopController extends Controller
         return view('guest.pages.laptops',['list'=>$list]);
     }
 
+    public function getLaptopByManufacturer($hang)
+    {
+        $laptop=new Laptop;
+        $list=$laptop->doWhere('manufacturer','=',$hang);
+        return view('employee.pages.laptop.laptopbymanufacturer',['list'=>$list]);
+        
+    }
+
     public function postLaptopAddCart(Request $req)
     {
         $laptop=Laptop::find($req->id);
@@ -37,7 +45,8 @@ class LaptopController extends Controller
     {
         $laptop=Laptop::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
-        return view('guest.pages.laptop-info',['laptop'=>$laptop,'news'=>$news]);
+        $listComment=($laptop->isProduct)->getListComment();
+        return view('guest.pages.laptop-info',['laptop'=>$laptop,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function postAddLaptop(Request $req)
@@ -58,7 +67,7 @@ class LaptopController extends Controller
     	$purchase=$req->purchase;
     	$price=$req->price;
     	$discountPercent=$req->discountPercent;
-    	$productType=$req->productType;
+    	$manufacturer=$req->manufacturer;
     	$weight=$req->weight;
     	$madein=$req->madein;
     	$status=$req->status; 
@@ -69,7 +78,7 @@ class LaptopController extends Controller
     	$keyboard=$req->keyboard;
 
     	$smartphone=new Laptop;
-    	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description);
+    	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description);
 
     	return redirect('nhan-vien/laptop');
     }
@@ -100,7 +109,7 @@ class LaptopController extends Controller
         $purchase=$req->purchase;
         $price=$req->price;
         $discountPercent=$req->discountPercent;
-        $productType=$req->productType;
+        $manufacturer=$req->manufacturer;
         $weight=$req->weight;
         $madein=$req->madein;
         $status=$req->status; 
@@ -112,10 +121,10 @@ class LaptopController extends Controller
 
         $laptop=new Laptop;
         if($req->hasFile('imagesurl')){
-             $laptop->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,true);
+             $laptop->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,true);
         }
         else{
-            $laptop->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,false);
+            $laptop->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$keyboard,$description,false);
         }
         
         return redirect('nhan-vien/laptop');
@@ -125,7 +134,7 @@ class LaptopController extends Controller
     {
     	$laptop=new Laptop;
         $laptop->doDelete($id);
-        return redirect('nhan-vien/laptop');
+        return redirect()->back();
     }
 
     public function getListLaptop()

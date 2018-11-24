@@ -94,10 +94,10 @@
                                                             <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
                                                                 {{ $element->time }} </time>
                                                         </a>
-                                                        <div class="reply pull-right">
+                                                        {{-- <div class="reply pull-right">
                                                             <a rel='nofollow' class='comment-reply-link' href='http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/?replytocom=13#respond' onclick='return addComment.moveForm( "comment-13", "13", "respond", "2044" )' aria-label='Phản hồi đến {{ $element->name }}'>Trả lời
                                                             </a> 
-                                                        </div>
+                                                        </div> --}}
                                                         <!-- .reply -->
                                                     </div>
                                                     <!-- .comment-meta .commentmetadata -->
@@ -136,7 +136,7 @@
                                         <input id="url" name="phone" type="text" value="" size="30" maxlength="200" />
                                     </p>
                                     <p class="form-submit">
-                                        <input name="submit" type="submit" id="submit" class="submit" value="Phản hồi" />
+                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
                                         <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
                                         <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                                     </p>

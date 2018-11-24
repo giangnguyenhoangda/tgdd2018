@@ -1,6 +1,6 @@
 @extends('admin.elements.master')
 @section('title')
-	Thống Kê Doanh Số
+	Thống Kê Doanh Thu
 @endsection
 @section('content')
 	<!-- Date picker -->
@@ -29,7 +29,7 @@
 							</div>
 						</div>
 						<div class="col-md-12">						
-							<button type="button" id="check_sale" link="{{ route('postSaleStatistic') }}" class="btn border-slate text-slate-800 btn-flat legitRipple">
+							<button type="button" id="check_income" link="{{ route('postSaleStatistic') }}" class="btn border-slate text-slate-800 btn-flat legitRipple">
 							Thống Kê
 							</button>			
 						</div>

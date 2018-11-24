@@ -227,10 +227,7 @@ class BillController extends Controller
 				$billitem->add($value['item']->isProduct->id,$bill->id,$value['qty']);
 			}
 
-			$this->clearSession();
-
-			echo "Giao Dịch Thành Công";
-
+			return view('guest.pages.checkout-notice',['transStatus'=>'Thành Công','isComplete'=>true,'notice'=>$this->getResponseDescription($txnResponseCode)]);
 
 		}elseif ($hashValidated=="INVALID HASH" && $txnResponseCode=="0"){
 			$transStatus = "Giao dịch Pendding";
@@ -335,4 +332,32 @@ class BillController extends Controller
 	}
 	//  ----------------------------------------------------------------------------
 
+	public function getNotice()
+	{
+		return view('guest.pages.checkout-notice');
+	}
+
+	public function getListBill()
+	{
+		$bills=Bill::all();
+		return view('employee.pages.bill.bills',['bills'=>$bills]);
+	}
+
+	public function getDeleteBill($id)
+	{
+		$bill=Bill::find($id);
+		$billitems=$bill->getBillItem;
+		foreach ($billitems as  $billitem) {
+			$billitem->delete();
+		}
+		$bill->delete();
+		return redirect()->back();
+	}
+
+	public function getBill($id)
+	{
+		$bill=Bill::find($id);
+		$billitems=$bill->getBillItem;
+		return view('employee.pages.bill.bill',['bill'=>$bill,'billitems'=>$billitems]);
+	}
 }

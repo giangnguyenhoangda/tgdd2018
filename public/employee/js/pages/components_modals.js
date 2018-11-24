@@ -381,6 +381,9 @@ $(function() {
     delete_item('deleteSmartPhone');
     delete_item('deleteNew');
     delete_item('deleteEmployee');
+    delete_item('deleteProductComment');
+    delete_item('deleteNewComment');
+    delete_item('deleteBill');
 
     $('#btnAddE').on('click', function( event ) {
         if (!$('#form-add-e').valid()) {

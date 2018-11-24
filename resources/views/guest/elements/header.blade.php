@@ -145,14 +145,56 @@
                                 <li class="cart-item has-icon has-dropdown">
                                     <div class="header-button">
                                         <a href="{{ route('getCart') }}" title="Giỏ hàng" class="header-cart-link icon button circle is-outline is-small">
-                                            <i class="icon-shopping-basket" data-icon-label="0"></i>
+                                            @if (Session::has('cart'))
+                                                <i class="icon-shopping-basket" data-icon-label="{{ (Session::get('cart'))->totalQty }}"></i>
+                                            @else
+                                                <i class="icon-shopping-basket" data-icon-label="0"></i>
+                                            @endif
                                         </a>
                                     </div>
                                     <ul class="nav-dropdown nav-dropdown-default dark dropdown-uppercase">
                                         <li class="html widget_shopping_cart">
                                             <div class="widget_shopping_cart_content">
+                                                @if (!Session::has('cart'))
+                                                   <p class="woocommerce-mini-cart__empty-message">Chưa có sản phẩm trong giỏ hàng.</p>
+                                                @else
+                                                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+                                                        @php
+                                                            $cart=Session::get('cart');
+                                                            $items=$cart->items;
+                                                        @endphp
+                                                        @foreach ($items as $item)
+                                                            {{-- expr --}}
+                                                            @php
+                                                                $product=$item['item']->isProduct;
+                                                            @endphp
+                                                        <li class="woocommerce-mini-cart-item mini_cart_item" style="color: black;">
+                                                            <a href="{{ route('getDeleteProductInCart',$product->id) }}" class="remove remove_from_cart_button" aria-label="Xóa sản phẩm này">&times;</a>
+                                                            <a href="
+                                                            @if ($product->productType=='smartphone')
+                                                                {{ route('getSmartPhone',$item['item']->id) }}
+                                                            @elseif($product->productType=='laptop')
+                                                                {{ route('getLaptop',$item['item']->id) }}
+                                                            @elseif($product->productType=='tablet')
+                                                                {{ route('getTablet',$item['item']->id) }}
+                                                            @else
+                                                                {{ route('getAccessory',$item['item']->id) }}
+                                                            @endif   
+                                                            ">      
+                                                                    <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($product->imagesurl) }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />{{ $product->productName }}
+                                                                </a>
+                                                            <span class="quantity">{{ $item['qty'] }} &times; <span class="woocommerce-Price-amount amount" style="color: black;">{{ $product->price }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></span>                 
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
 
-                                                <p class="woocommerce-mini-cart__empty-message">Chưa có sản phẩm trong giỏ hàng.</p>
+                                                    <p class="woocommerce-mini-cart__total total"><strong>Tổng cộng:</strong> <span class="woocommerce-Price-amount amount" style="color: black;">{{ $cart->totalPrice }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></p>
+                                                    <p class="woocommerce-mini-cart__buttons buttons">
+                                                        <a href="{{ route('getCart') }}" class="button wc-forward">Xem giỏ hàng</a>
+                                                        {{-- <a href="" class="button checkout wc-forward">Thanh toán</a> --}}
+                                                    </p>
+                                                @endif
+                                                
 
                                             </div>
                                         </li>

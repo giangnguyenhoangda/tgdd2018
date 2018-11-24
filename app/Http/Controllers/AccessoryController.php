@@ -35,11 +35,19 @@ class AccessoryController extends Controller
         return redirect('gio-hang');
     }
 
+    public function getAccessoryByProductType($productType)
+    {
+        $accessory=new Accessory;
+        $list=$accessory->doWhere('productType','=',$productType);
+        return view('employee.pages.accessory.accessorybyproducttype',['list'=>$list]);
+    }
+
     public function getAccessory($id)
     {
         $accessory=Accessory::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
-        return view('guest.pages.accessory-info',['accessory'=>$accessory,'news'=>$news]);
+        $listComment=($accessory->isProduct)->getListComment();
+        return view('guest.pages.accessory-info',['accessory'=>$accessory,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getEditAccessory($id)
@@ -59,7 +67,7 @@ class AccessoryController extends Controller
     {
         $accessory=new Accessory;
         $accessory->doDelete($id);
-        return redirect('nhan-vien/phu-kien');
+        return redirect()->back();
     }
 
     public function postEditAccessory(Request $req)

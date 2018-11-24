@@ -10,7 +10,7 @@ class Product extends Model
     public $timestamps=false;
     protected $primaryKey='id';
 
-    public function add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description)
+    public function add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$productType,$weight,$madein,$status,$imagesurl,$gift,$description)
     {
     	$product=new Product;
     	$product->productName=$productName;
@@ -19,6 +19,7 @@ class Product extends Model
     	$product->price=$price;
     	$product->discountPercent=$discountPercent;
     	$product->productType=$productType;
+        $product->manufacturer=$manufacturer;
     	$product->weight=$weight;
     	$product->madein=$madein;
     	$product->status=$status;
@@ -32,7 +33,7 @@ class Product extends Model
     	return $product->id;
     }
 
-    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew)
+    public function edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$productType,$weight,$madein,$status,$imagesurl,$gift,$description,$isLogoNew)
     {
         $product=Product::find($id);
         $product->productName=$productName;
@@ -41,6 +42,7 @@ class Product extends Model
         $product->price=$price;
         $product->discountPercent=$discountPercent;
         $product->productType=$productType;
+        $product->manufacturer=$manufacturer;
         $product->weight=$weight;
         $product->madein=$madein;
         $product->status=$status;
@@ -55,5 +57,20 @@ class Product extends Model
         $product->gift=$gift;
         $product->description=$description;
         $product->save();
+    }
+
+    public function listCommentHref()
+    {
+        return $this->hasMany('App\Comment_Product_Href','productid','id');
+    }
+
+    public function getListComment()
+    {
+        $listComment=array();
+        $listCommentHref=$this->listCommentHref;
+        foreach ($listCommentHref as $value) {
+            array_push($listComment,$value->getComment);
+        }
+        return $listComment;
     }
 }

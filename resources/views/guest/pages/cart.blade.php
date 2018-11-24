@@ -48,13 +48,36 @@
               												<a href="{{ route('getDeleteProductInCart',$item['item']->isProduct->id) }}" class="remove" aria-label="Xóa sản phẩm này">&times;
               												</a>            
               											</td>
+              											@php
+              												$product=$item['item']->isProduct;
+              											@endphp
             											<td class="product-thumbnail">
-            												<a href="{{ route('getSmartPhone',$item['item']->id) }}">
+            												<a href="
+            												@if ($product->productType=='smartphone')
+                                                                {{ route('getSmartPhone',$item['item']->id) }}
+                                                            @elseif($product->productType=='laptop')
+                                                                {{ route('getLaptop',$item['item']->id) }}
+                                                            @elseif($product->productType=='tablet')
+                                                                {{ route('getTablet',$item['item']->id) }}
+                                                            @else
+                                                                {{ route('getAccessory',$item['item']->id) }}
+                                                            @endif 
+                                                            ">
             													<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($item['item']->isProduct->imagesurl) }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />
             												</a>
             											</td>
             											<td class="product-name" data-title="Sản phẩm">
-            												<a href="{{ route('getSmartPhone',$item['item']->id) }}">{{ $item['item']->isProduct->productName }}
+            												<a href="
+            												@if ($product->productType=='smartphone')
+                                                                {{ route('getSmartPhone',$item['item']->id) }}
+                                                            @elseif($product->productType=='laptop')
+                                                                {{ route('getLaptop',$item['item']->id) }}
+                                                            @elseif($product->productType=='tablet')
+                                                                {{ route('getTablet',$item['item']->id) }}
+                                                            @else
+                                                                {{ route('getAccessory',$item['item']->id) }}
+                                                            @endif
+            												">{{ $item['item']->isProduct->productName }}
             												</a>
             												{{-- <dl class="variation">
 																<dt class="variation-DungLng">Dung Lượng:</dt>

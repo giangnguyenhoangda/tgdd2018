@@ -25,7 +25,6 @@ class SmartPhoneController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($smartphone, $smartphone->isProduct->id,$req->quantity);
         $req->session()->put('cart', $cart);
-        // Session::forget('cart');
         return redirect('gio-hang');
     }
 
@@ -33,7 +32,8 @@ class SmartPhoneController extends Controller
     {
         $smartphone=Smartphone::find($id);
         $news=DB::table('new')->orderBy('id','desc')->take(10)->get();
-        return view('guest.pages.smartphone-info',['smartphone'=>$smartphone,'news'=>$news]);
+        $listComment=($smartphone->isProduct)->getListComment();
+        return view('guest.pages.smartphone-info',['smartphone'=>$smartphone,'news'=>$news,'listComment'=>$listComment]);
     }
 
     public function getEditSmartPhone($id)
@@ -49,11 +49,18 @@ class SmartPhoneController extends Controller
         return view('employee.pages.smartphone.list_smartphone',['list'=>$list]);
     }
 
+    public function getSmartPhoneByManufacturer($hang)
+    {
+        $smartphone=new Smartphone;
+        $list=$smartphone->doWhere('manufacturer','=',$hang);
+        return view('employee.pages.smartphone.smartphonebymanufacturer',['list'=>$list]);
+    }
+
     public function getDeleteSmartPhone($id)
     {
         $smartphone=new Smartphone;
         $smartphone->doDelete($id);
-        return redirect('nhan-vien/dien-thoai');
+        return redirect()->back();
     }
 
     public function postEditSmartPhone(Request $req)
@@ -77,7 +84,7 @@ class SmartPhoneController extends Controller
         $purchase=$req->purchase;
         $price=$req->price;
         $discountPercent=$req->discountPercent;
-        $productType=$req->productType;
+        $manufacturer=$req->manufacturer;
         $weight=$req->weight;
         $madein=$req->madein;
         $status=$req->status; 
@@ -89,10 +96,10 @@ class SmartPhoneController extends Controller
 
         $smartphone=new Smartphone;
         if($req->hasFile('imagesurl')){
-             $smartphone->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,true);
+             $smartphone->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,true);
         }
         else{
-            $smartphone->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
+            $smartphone->edit($id,$productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$req->old_imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description,false);
         }
         
         return redirect('nhan-vien/dien-thoai');
@@ -118,7 +125,7 @@ class SmartPhoneController extends Controller
     	$purchase=$req->purchase;
     	$price=$req->price;
     	$discountPercent=$req->discountPercent;
-    	$productType=$req->productType;
+    	$manufacturer=$req->manufacturer;
     	$weight=$req->weight;
     	$madein=$req->madein;
     	$status=$req->status; 
@@ -129,7 +136,7 @@ class SmartPhoneController extends Controller
     	$sim=$req->sim;
 
     	$smartphone=new Smartphone;
-    	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$productType,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
+    	$smartphone->add($productName,$quantity,$purchase,$price,$discountPercent,$manufacturer,$weight,$madein,$status,$imagesurl,$gift,$firstcamera,$second,$chipset,$gpu,$ram,$connections,$memory,$battery,$design,$utility,$screen,$sim,$description);
 
     	return redirect('nhan-vien/dien-thoai');
     }

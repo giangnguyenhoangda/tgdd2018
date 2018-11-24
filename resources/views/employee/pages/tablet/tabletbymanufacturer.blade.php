@@ -37,10 +37,10 @@
 								@foreach ($list as $element)
 								<tr>
 									<td>{{ $element->id }}</td>
-									<td><img src="{{ asset($element->isProduct->imagesurl) }}" width="50px"></td>
-									<td>{{ $element->isProduct->productName }}</td>
-									<td>{{ $element->isProduct->purchase }} VND</td>
-									<td>{{ $element->isProduct->price }} VND</td>
+									<td><img src="{{ asset($element->imagesurl) }}" width="50px"></td>
+									<td>{{ $element->productName }}</td>
+									<td>{{ $element->purchase }} VND</td>
+									<td>{{ $element->price }} VND</td>
 									<td class="text-center" width="10%">
 										<ul class="icons-list">
 											<li class="dropdown">
@@ -49,9 +49,9 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="{{ route('getProductComment',$element->isProduct->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
-													<li><a href="{{ route('getEditTablet',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
-													<li><a class="deleteTablet" sw_title="Thông báo" sw_contnet="Bạn muốn xóa máy tính bảng này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteTablet',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
+													<li><a href="{{ route('getProductComment',$element->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
+													<li><a href="{{ route('getEditTablet',$element->tabletid) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
+													<li><a class="deleteTablet" sw_title="Thông báo" sw_contnet="Bạn muốn xóa máy tính bảng này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteTablet',$element->tabletid) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>
 											</li>
 										</ul>

@@ -4,13 +4,6 @@
 	BKTECH - Thế Giới Công Nghệ
 @endsection
 
-@section('head')
-	<link rel="canonical" href="http://localhost/TGDD/" />
-	<link rel='shortlink' href='http://localhost/TGDD/' />
-	<link rel="alternate" type="application/json+oembed" href="http://localhost/TGDD/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2FTGDD%2F" />
-	<link rel="alternate" type="text/xml+oembed" href="http://localhost/TGDD/wp-json/oembed/1.0/embed?url=http%3A%2F%2Flocalhost%2FTGDD%2F&#038;format=xml" />
-@endsection
-
 @section('main')
 	<main id="main" class="">
 		<div id="content" role="main" class="content-area">

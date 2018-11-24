@@ -199,147 +199,7 @@
                         
                       </div>
                     </div>
-                    {{-- <div id="readditional" class="itab-content" data-role="content">
-                      <div class="additional-attributes-wrapper table-wrapper">
-                        <article>
-                          <h4 class="heading-caption">Thông số kỹ thuật</h4>
-                          <div id="product-attribute-specs-table" class="data table additional-attributes">
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Màn hình</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Công nghệ màn hình: LED-backlit IPS LCD</li>
-                                  <li>Độ phân giải: HD (1334 x 750 Pixels)</li>
-                                  <li>Màn hình rộng: 4.7&#8243;</li>
-                                  <li>Mặt kính cảm ứng: Kính oleophobic (ion cường lực)</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Camera sau</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Độ phân giải: 12 MP</li>
-                                  <li>Quay phim: Quay phim 4K 2160p@30fps</li>
-                                  <li>Đèn Flash: Có</li>
-                                  <li>Chụp ảnh nâng cao: Tự động lấy nét, Chạm lấy nét, Nhận diện khuôn mặt, HDR, Panorama</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Camera trước</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Độ phân giải: 5 MP</li>
-                                  <li>Videocall: Có</li>
-                                  <li>Thông tin khác: Nhận diện khuôn mặt, Selfie ngược sáng HDR, Tự động cân bằng sáng, Panorama</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Hệ điều hành &#8211; CPU</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Hệ điều hành: iOS 9</li>
-                                  <li>Chipset (hãng SX CPU): Apple A9 2 nhân 64-bit</li>
-                                  <li>Tốc độ CPU: 1.8 GHz</li>
-                                  <li>Chip đồ họa (GPU): PowerVR GT7600</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Bộ nhớ &#8211; Lưu trữ</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>RAM: 2 GB</li>
-                                  <li>Bộ nhớ trong: 16 GB</li>
-                                  <li>Bộ nhớ còn lại (khả dụng): Khoảng 10 GB</li>
-                                  <li>Thẻ nhớ ngoài: Không</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Kết nối</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Mạng di động: 3G, 4G LTE Cat 6</li>
-                                  <li>SIM: 1 Nano SIM</li>
-                                  <li>Wifi: Wi-Fi 802.11 a/b/g/n/ac, Dual-band, DLNA, Wi-Fi Direct, Wi-Fi hotspot</li>
-                                  <li>GPS: A-GPS, GLONASS</li>
-                                  <li>Bluetooth: A2DP, V4.1</li>
-                                  <li>Cổng kết nối/sạc: Lightning</li>
-                                  <li>Jack tai nghe: 3.5 mm</li>
-                                  <li>Kết nối khác: Air Play, OTG, HDMI</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Thiết kế &#8211; Trọng lượng</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Thiết kế: Nguyên khối</li>
-                                  <li>Chất liệu: Hợp kim nhôm</li>
-                                  <li>Kích thước: Dài 138.3 mm &#8211; Ngang 67.1 mm &#8211; Dày 7.1 mm</li>
-                                  <li>Trọng lượng: 143 g</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Thông tin pin &#8211; Sạc</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Dung lượng pin: 1715 mAh</li>
-                                  <li>Loại pin: Pin chuẩn Li-Po</li>
-                                  <li>Công nghệ pin: Đang cập nhật</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Tiện ích</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Bảo mật nâng cao: Đang cập nhật</li>
-                                  <li>Tính năng đặc biệt: 3D Touch Mở khóa nhanh bằng vân tay Mặt kính 2.5D</li>
-                                  <li>Ghi âm: Có</li>
-                                  <li>Radio: Không</li>
-                                  <li>Nghe nhạc: AMR, MP3, WAV, WMA, eAAC+</li>
-                                  <li>Xem phim: MP4, AVI, WMV, H.263, H.264(MPEG4-AVC), DivX, Xvid</li>
-                                </ul>
-                              </div>
-                            </div>
-                            <div class="iattribute">
-                              <div class="col-label">
-                                <label>Thông tin khác</label>
-                              </div>
-                              <div class="col-data">
-                                <ul>
-                                  <li>Thời điểm ra mắt: Tháng 9, năm 2015</li>
-                                </ul>
-                              </div>
-                            </div>
-                          </div>
-                        </article>
-                      </div>
-                    </div> --}}
-                    {{-- <pre data-initialized="true" data-gclp-id="7"></pre> --}}
+                    
                   </div>    
                   <div class="panel entry-content " id="tab-additional_information">                
                     <table class="shop_attributes">
@@ -431,16 +291,79 @@
                     </table>
                   </div>    
                   <div class="panel entry-content " id="tab-ux_global_tab">
-                    {{-- <b>Liên hệ:</b> Lê Thành Trung<br>
-                    <b>Số điện thoại:</b>0942.207246<br>
-                    <b>Email:</b> thanhtrungit.dev@gmail.com<br>
-                    <b>Website:</b> <a href="http://quangtriweb.com">http://quangtriweb.com</a>
-                    <Br><br>
-                    <b>THÔNG TIN THANH TOÁN</b><br>
-                    <b>1. Ngân hàng Vietcombank</b><br>
-                    - Số tài khoản: 0041000295328<br>
-                    - Tên tài khoản: Lê Thành Trung<br>
-                    - Chi nhánh: VCB Chi nhánh Đà Nẵng<br> --}}
+                    <div id="comments" class="comments-area">
+                            <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $s->productName }}</span>&rdquo;     </h3>
+                            <ol class="comment-list">
+                                @if (count($listComment)>0)
+                                   
+                                
+                                @foreach ($listComment as $element)
+                                    <li class="comment even thread-even depth-1" id="li-comment-13">
+                                        <article id="comment-13" class="comment-inner">
+                                            <div class="flex-row align-top">
+                                                <div class="flex-col">
+                                                    <div class="comment-author mr-half">
+                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
+                                                </div>
+                                                <!-- .large-3 -->
+                                                <div class="flex-col flex-grow">
+                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <div class="comment-content">
+                                                        <p>{{ $element->content }}</p>
+                                                    </div>
+                                                    <div class="comment-meta commentmetadata uppercase is-xsmall clear">
+                                                        <a href="">
+                                                            <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
+                                                                {{ $element->time }} </time>
+                                                        </a>
+                                                        
+                                                        <!-- .reply -->
+                                                    </div>
+                                                    <!-- .comment-meta .commentmetadata -->
+                                                </div>
+                                                <!-- .flex-col -->
+                                            </div>
+                                            <!-- .flex-row -->
+                                        </article>
+                                        <!-- #comment -->
+                                    </li>
+                                @endforeach
+                                @endif
+                                <!-- #comment-## -->
+                            </ol>
+                            <!-- .comment-list -->
+                            <div id="respond" class="comment-respond">
+                                <h3 id="reply-title" class="comment-reply-title">Bình Luận <small><a rel="nofollow" id="cancel-comment-reply-link" href="/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/#respond" style="display:none;">Hủy</a></small></h3>
+                                <form action="{{ route('postAddCommentProduct') }}" method="post" id="commentform" class="comment-form" novalidate enctype="multipart/form-data">
+                                    <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
+                                    <p class="comment-form-comment">
+                                        <label for="comment">Bình luận</label>
+                                        <input type="hidden" name="productid" value="{{ $s->id }}">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
+                                    </p>
+                                    <p class="comment-form-author">
+                                        <label for="author">Tên <span class="required">*</span></label>
+                                        <input id="author" name="name" type="text" value="" size="30" maxlength="245" required='required' />
+                                    </p>
+                                    <p class="comment-form-email">
+                                        <label for="email">Email <span class="required">*</span></label>
+                                        <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required='required' />
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <label for="url">Số Điện Thoại</label>
+                                        <input id="url" name="phone" type="text" value="" size="30" maxlength="200" />
+                                    </p>
+                                    <p class="form-submit">
+                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
+                                        <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
+                                        <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+                                    </p>
+                                </form>
+                            </div>
+                            <!-- #respond -->
+                        </div>
+                        <!-- #comments -->
                   </div>
                 </div><!-- .tab-panels -->
               </div><!-- .tabbed-content -->

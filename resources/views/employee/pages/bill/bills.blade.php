@@ -1,6 +1,6 @@
 @extends('employee.elements.master')
 @section('title')
-	Máy Tính Bảng
+	Danh Sách Đơn Hàng
 @endsection
 @section('content')
 	<!-- Multi column ordering -->
@@ -24,23 +24,23 @@
 							<thead>
 								<tr>
 									<th width="5%">ID</th>
-									<th width="10%">Ảnh</th>
-									<th width="40%">Tên Máy Tính Bảng</th>
-									<th width="15%">Giá Mua</th>
-									<th>Giá Bán</th>
+									<th width="25%">Tên Khách Hàng</th>
+									<th width="30%">Địa Chỉ</th>
+									<th>Số Điện Thoại</th>
+									<th width="15%">Thời Gian Đặt</th>
 									<th class="text-center">Hành Động</th>
 								</tr>
 							</thead>
 							<tbody>
-								@if (count($list)>0)
+								@if (count($bills)>0)
 								
-								@foreach ($list as $element)
+								@foreach ($bills as $bill)
 								<tr>
-									<td>{{ $element->id }}</td>
-									<td><img src="{{ asset($element->isProduct->imagesurl) }}" width="50px"></td>
-									<td>{{ $element->isProduct->productName }}</td>
-									<td>{{ $element->isProduct->purchase }} VND</td>
-									<td>{{ $element->isProduct->price }} VND</td>
+									<td>{{ $bill->id }}</td>
+									<td>{{ $bill->customername }}</td>
+									<td>{{ $bill->customeraddress }}</td>
+									<td>{{ $bill->customernumber }}</td>
+									<td>{{ date('d/m/y H:i:s',strtotime($bill->datetime)) }}</td>
 									<td class="text-center" width="10%">
 										<ul class="icons-list">
 											<li class="dropdown">
@@ -49,9 +49,8 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="{{ route('getProductComment',$element->isProduct->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
-													<li><a href="{{ route('getEditTablet',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
-													<li><a class="deleteTablet" sw_title="Thông báo" sw_contnet="Bạn muốn xóa máy tính bảng này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteTablet',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
+													<li><a href="{{ route('getBill',$bill->id) }}"><i class="icon-database-refresh"></i> Chi Tiết</a></li>
+													<li><a class="deleteBill" sw_title="Thông báo" sw_contnet="Bạn muốn xóa đơn này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteBill',$bill->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>
 											</li>
 										</ul>

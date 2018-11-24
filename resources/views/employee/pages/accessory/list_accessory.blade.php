@@ -49,6 +49,7 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="{{ route('getProductComment',$element->isProduct->id) }}"><i class="icon-database-refresh"></i> DS Bình Luận</a></li>
 													<li><a href="{{ route('getEditAccessory',$element->id) }}"><i class="icon-database-refresh"></i> Sửa</a></li>
 													<li><a class="deleteAccessory" sw_title="Thông báo" sw_contnet="Bạn muốn xóa phụ kiện?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteAccessory',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>

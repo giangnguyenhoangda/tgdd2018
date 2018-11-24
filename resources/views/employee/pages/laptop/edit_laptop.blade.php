@@ -24,27 +24,27 @@
 											<input type="hidden" id="c" sw_title="Nhắc nhở" sw_contnet="Bạn muốn sửa thông tin laptop?" sw_notice="Sửa thành công" sw_form_id="editLaptop">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
 											<input type="hidden" name="id" value="{{ $laptop['id'] }}">
-											<select name="productType" data-placeholder="Chọn hãng sản xuất" class="select required">
+											<select name="manufacturer" data-placeholder="Chọn hãng sản xuất" class="select required">
 												<option></option>
-													<option value="apple" @if ($product['productType']=='apple')
+													<option value="apple" @if ($product['manufacturer']=='apple')
 														selected 
 													@endif>Apple</option>
-													<option value="asus" @if ($product['productType']=='asus')
+													<option value="asus" @if ($product['manufacturer']=='asus')
 														selected 
 													@endif>Asus</option>
-													<option value="acer" @if ($product['productType']=='acer')
+													<option value="acer" @if ($product['manufacturer']=='acer')
 														selected 
 													@endif>Acer</option>
-													<option value="dell" @if ($product['productType']=='dell')
+													<option value="dell" @if ($product['manufacturer']=='dell')
 														selected 
 													@endif>Dell</option>
-													<option value="hp" @if ($product['productType']=='hp')
+													<option value="hp" @if ($product['manufacturer']=='hp')
 														selected 
 													@endif>HP</option>
-													<option value="lenovo" @if ($product['productType']=='lenovo')
+													<option value="lenovo" @if ($product['manufacturer']=='lenovo')
 														selected 
 													@endif>Lenovo</option>
-													<option value="hang-khac" @if ($product['productType']=='hang-khac')
+													<option value="hang-khac" @if ($product['manufacturer']=='hang-khac')
 														selected 
 													@endif>Hãng Khác</option>
 											</select>

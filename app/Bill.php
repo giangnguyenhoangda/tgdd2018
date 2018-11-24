@@ -19,4 +19,9 @@ class Bill extends Model
     	$this->save();
     }
 
+    public function getBillItem()
+    {
+        return $this->hasMany('App\Billitem','billid','id');
+    }
+
 }

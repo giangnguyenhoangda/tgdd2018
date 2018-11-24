@@ -24,27 +24,27 @@
 											<input type="hidden" id="c" sw_title="Nhắc nhở" sw_contnet="Bạn muốn sửa thông tin điện thoại?" sw_notice="Sửa thông tin thành công" sw_form_id="editSmartphone">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
 											<input type="hidden" name="id" value="{{ $smartphone['id'] }}">
-											<select name="productType" data-placeholder="Chọn hãng sản xuất" class="select required">
+											<select name="manufacturer" data-placeholder="Chọn hãng sản xuất" class="select required">
 												<option></option>
-													<option value="iphone" @if ($product['productType']=='iphone')
+													<option value="iphone" @if ($product['manufacturer']=='iphone')
 														selected 
 													@endif>Iphone</option>
-													<option value="samsung" @if ($product['productType']=='samsung')
+													<option value="samsung" @if ($product['manufacturer']=='samsung')
 														selected 
 													@endif>Samsung</option>
-													<option value="lg" @if ($product['productType']=='lg')
+													<option value="lg" @if ($product['manufacturer']=='lg')
 														selected 
 													@endif>Lg</option>
-													<option value="htc" @if ($product['productType']=='htc')
+													<option value="htc" @if ($product['manufacturer']=='htc')
 														selected 
 													@endif>HTC</option>
-													<option value="xiaomi" @if ($product['productType']=='xiaomi')
+													<option value="xiaomi" @if ($product['manufacturer']=='xiaomi')
 														selected 
 													@endif>Xiaomi</option>
-													<option value="sony" @if ($product['productType']=='sony')
+													<option value="sony" @if ($product['manufacturer']=='sony')
 														selected 
 													@endif>Sony</option>
-													<option value="hang-khac" @if ($product['productType']=='hang-khac')
+													<option value="hang-khac" @if ($product['manufacturer']=='hang-khac')
 														selected 
 													@endif>Hãng Khác</option>
 											</select>

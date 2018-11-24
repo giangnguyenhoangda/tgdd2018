@@ -17,4 +17,9 @@ class Billitem extends Model
     	$this->quantity=$quantity;
     	$this->save();
     }
+
+    public function isProduct()
+    {
+        return $this->belongsTo('App\Product','productid','id');
+    }
 }
