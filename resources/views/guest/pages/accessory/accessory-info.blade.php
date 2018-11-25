@@ -185,7 +185,7 @@
                     <a href="#tab-additional_information">Thông số kỹ thuật</a>
                   </li> --}}
                   <li class="ux_global_tab_tab  ">
-                    <a href="#tab-ux_global_tab">Thông tin liên hệ</a>
+                    <a href="#tab-ux_global_tab">Bình Luận</a>
                   </li>
                 </ul>
                 <div class="tab-panels">    
@@ -199,11 +199,7 @@
                       </div>
                     </div>
                     
-                  </div>    
-                  <div class="panel entry-content " id="tab-additional_information">                
-                    <table class="shop_attributes">
-                    </table>
-                  </div>    
+                  </div>       
                   <div class="panel entry-content " id="tab-ux_global_tab">
                     <div id="comments" class="comments-area">
                             <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $s->productName }}</span>&rdquo;     </h3>
@@ -256,7 +252,21 @@
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                     </p>
-                                    <p class="comment-form-author">
+                                    @if (session('nhan-vien'))
+                                    @php
+                                      $nv=Session::get('nhan-vien');
+                                    @endphp
+                                      <p class="comment-form-author">
+                                        <input id="author" name="name" type="hidden" value="{{ $nv->fullname }}" size="30" maxlength="245" />
+                                      </p>
+                                    <p class="comment-form-email">
+                                        <input id="email" name="email" type="hidden" value="{{ $nv->email }}" size="30" maxlength="100" aria-describedby="email-notes" />
+                                    </p>
+                                    <p class="comment-form-url">
+                                        <input id="url" name="phone" type="hidden" value="{{ $nv->phonenumber }}" size="30" maxlength="200" />
+                                    </p>
+                                    @else
+                                      <p class="comment-form-author">
                                         <label for="author">Tên <span class="required">*</span></label>
                                         <input id="author" name="name" type="text" value="" size="30" maxlength="245" required='required' />
                                     </p>
@@ -268,6 +278,8 @@
                                         <label for="url">Số Điện Thoại</label>
                                         <input id="url" name="phone" type="text" value="" size="30" maxlength="200" />
                                     </p>
+                                    @endif
+                                    
                                     <p class="form-submit">
                                         <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
                                         <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
@@ -281,7 +293,7 @@
                   </div>
                 </div><!-- .tab-panels -->
               </div><!-- .tabbed-content -->
-              <div class="related related-products-wrapper product-section">
+              {{-- <div class="related related-products-wrapper product-section">
                 <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">Sản phẩm tương tự</h3>  
                 <div class="row large-columns-4 medium-columns- small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push"  data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>                
                   <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
@@ -556,7 +568,7 @@
                     </div><!-- .col-inner -->
                   </div><!-- col -->      
                 </div>
-              </div>
+              </div> --}}
             </div>  
           </div><!-- col large-9 -->
           <div id="product-sidebar" class="col large-3 hide-for-medium shop-sidebar ">

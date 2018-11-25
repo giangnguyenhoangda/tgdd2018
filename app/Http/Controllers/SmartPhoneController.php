@@ -10,6 +10,7 @@ use App\Smartphone;
 use Session;
 use App\Cart;
 use Illuminate\Support\Facades\DB;
+use App\Billitem;
 
 class SmartPhoneController extends Controller
 {
@@ -58,8 +59,16 @@ class SmartPhoneController extends Controller
 
     public function getDeleteSmartPhone($id)
     {
-        $smartphone=new Smartphone;
-        $smartphone->doDelete($id);
+        $s=Smartphone::find($id);
+        $product=$s->isProduct;
+        $billitems=Billitem::where('productid',$product->id)->get()->toArray();
+        if (count($billitems)>0) {
+            $product->status=-1;
+            $product->save();
+        } else {
+            $smartphone=new Smartphone;
+            $smartphone->doDelete($id);
+        }
         return redirect()->back();
     }
 

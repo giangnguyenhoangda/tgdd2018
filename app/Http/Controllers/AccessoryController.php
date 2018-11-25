@@ -10,6 +10,7 @@ use App\Accessory;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Cart;
+use App\Billitem;
 
 class AccessoryController extends Controller
 {
@@ -65,8 +66,16 @@ class AccessoryController extends Controller
 
     public function getDeleteAccessory($id)
     {
-        $accessory=new Accessory;
-        $accessory->doDelete($id);
+        $a=Accessory::find($id);
+        $product=$a->isProduct;
+        $billitems=Billitem::where('productid',$product->id)->get()->toArray();
+        if (count($billitems)>0) {
+            $product->status=-1;
+            $product->save();
+        } else {
+            $accessory=new Smartphone;
+            $accessory->doDelete($id);
+        }
         return redirect()->back();
     }
 

@@ -10,6 +10,7 @@ use App\Tablet;
 use Session;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
+use App\Billitem;
 
 class TabletController extends Controller
 {
@@ -65,8 +66,16 @@ class TabletController extends Controller
 
     public function getDeleteTablet($id)
     {
-        $tablet=new Tablet;
-        $tablet->doDelete($id);
+        $t=Tablet::find($id);
+        $product=$t->isProduct;
+        $billitems=Billitem::where('productid',$product->id)->get()->toArray();
+        if (count($billitems)>0) {
+            $product->status=-1;
+            $product->save();
+        } else {
+            $tablet=new Tablet;
+            $tablet->doDelete($id);
+        }
         return redirect()->back();
     }
 

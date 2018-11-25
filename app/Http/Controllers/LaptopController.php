@@ -8,6 +8,7 @@ use App\Laptop;
 use Session;
 use Illuminate\Support\Facades\DB;
 use App\Cart;
+use App\Billitem;
 
 class LaptopController extends Controller
 {
@@ -132,8 +133,16 @@ class LaptopController extends Controller
 
     public function getDeleteLaptop($id)
     {
-    	$laptop=new Laptop;
-        $laptop->doDelete($id);
+    	$l=Laptop::find($id);
+        $product=$l->isProduct;
+        $billitems=Billitem::where('productid',$product->id)->get()->toArray();
+        if (count($billitems)>0) {
+            $product->status=-1;
+            $product->save();
+        } else {
+            $laptop=new Laptop;
+            $laptop->doDelete($id);
+        }
         return redirect()->back();
     }
 
