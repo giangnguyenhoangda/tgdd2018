@@ -293,7 +293,7 @@
                   <div class="panel entry-content " id="tab-ux_global_tab">
                     <div id="comments" class="comments-area">
                             <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $s->productName }}</span>&rdquo;     </h3>
-                            <ol class="comment-list">
+                            <ol class="comment-list" id="comment_content">
                                 @if (count($listComment)>0)
                                    
                                 
@@ -303,11 +303,11 @@
                                             <div class="flex-row align-top">
                                                 <div class="flex-col">
                                                     <div class="comment-author mr-half">
-                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
+                                                        <img alt='' src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
                                                 </div>
                                                 <!-- .large-3 -->
                                                 <div class="flex-col flex-grow">
-                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <cite class="strong fn"><a href='' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
                                                     <div class="comment-content">
                                                         <p>{{ $element->content }}</p>
                                                     </div>
@@ -338,8 +338,8 @@
                                     <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Bình luận</label>
-                                        <input type="hidden" name="productid" value="{{ $s->id }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="productid" id="productid" value="{{ $s->id }}">
+                                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                                         <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                     </p>
                                     @if (session('nhan-vien'))
@@ -370,7 +370,7 @@
                                     </p>
                                     @endif
                                     <p class="form-submit">
-                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
+                                        <input name="submit" type="button" id="btnCommentProduct" ajax_url="{{ route('postAddCommentProduct') }}" avatar="{{ asset('themes/flatsome/assets/img/lazy.png') }}" style="background-color: #DD3333; color: #fff;" class="submit" value="Bình Luận" />
                                         <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
                                         <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                                     </p>
@@ -748,4 +748,5 @@
     /* ]]> */
   </script>
   <script type='text/javascript' src='{{ asset('plugins/yith-essential-kit-for-woocommerce-1/modules/yith-woocommerce-colors-labels-variations/assets/js/frontend.min.js?ver=1.3.0') }}'></script>
+  <script type="text/javascript" src="{{ asset('js/myjs.js') }}"></script>
 @endsection

@@ -71,7 +71,7 @@
                         <!-- #-2044 -->
                         <div id="comments" class="comments-area">
                             <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $news['title'] }}</span>&rdquo;     </h3>
-                            <ol class="comment-list">
+                            <ol class="comment-list" id="comment_content">
                                 @if (count($listComment)>0)
                                    
                                 
@@ -81,11 +81,11 @@
                                             <div class="flex-row align-top">
                                                 <div class="flex-col">
                                                     <div class="comment-author mr-half">
-                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
+                                                        <img alt="" src="{{ asset("themes/flatsome/assets/img/lazy.png") }}" data-src="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g" srcset="" data-srcset="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x" class="lazy-load avatar avatar-70 photo" height="70" width="70" /> </div>
                                                 </div>
-                                                <!-- .large-3 -->
+                                                
                                                 <div class="flex-col flex-grow">
-                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <cite class="strong fn"><a href="" rel="external nofollow" class="url">{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
                                                     <div class="comment-content">
                                                         <p>{{ $element->content }}</p>
                                                     </div>
@@ -94,19 +94,15 @@
                                                             <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
                                                                 {{ $element->time }} </time>
                                                         </a>
-                                                        {{-- <div class="reply pull-right">
-                                                            <a rel='nofollow' class='comment-reply-link' href='http://localhost/TGDD/tai-hinh-nen-y-nghia-cho-may-tinh/?replytocom=13#respond' onclick='return addComment.moveForm( "comment-13", "13", "respond", "2044" )' aria-label='Phản hồi đến {{ $element->name }}'>Trả lời
-                                                            </a> 
-                                                        </div> --}}
-                                                        <!-- .reply -->
+                                                        
                                                     </div>
-                                                    <!-- .comment-meta .commentmetadata -->
+                                                   
                                                 </div>
-                                                <!-- .flex-col -->
+                                                
                                             </div>
-                                            <!-- .flex-row -->
+                                           
                                         </article>
-                                        <!-- #comment -->
+                                        
                                     </li>
                                 @endforeach
                                 @endif
@@ -119,8 +115,8 @@
                                     <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Bình luận</label>
-                                        <input type="hidden" name="newid" value="{{ $news['id'] }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="newid" id="newid" value="{{ $news['id'] }}">
+                                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                                         <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                     </p>
                                     @if (session('nhan-vien'))
@@ -151,7 +147,7 @@
                                     </p>
                                     @endif
                                     <p class="form-submit">
-                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
+                                        <input name="submit" type="button" style="background-color: #DD3333; color: #fff;" id="btnCommentNew" ajax_url="{{ route('postAddCommentNew') }}" avatar="{{ asset('themes/flatsome/assets/img/lazy.png') }}" class="submit" value="Bình Luận" />
                                         <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
                                         <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                                     </p>
@@ -171,4 +167,5 @@
 
 @section('script')
     <script type='text/javascript' src='{{ asset('js/comment-reply.min.js?ver=4.9.8') }}'></script>
+    <script type="text/javascript" src="{{ asset('js/myjs.js') }}"></script>
 @endsection

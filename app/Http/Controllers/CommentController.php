@@ -22,7 +22,40 @@ class CommentController extends Controller
 
     	$t=new Comment_New_Href;
     	$t->add($req->newid,$commentid);
-    	return redirect('tin-tuc/'.$req->newid);
+        $news=News::find($req->newid);
+        $listComment=$news->getListComment();  
+        $str='';
+        foreach ($listComment as $comment) {
+            $str.='<li class="comment even thread-even depth-1" id="li-comment-13">
+                                        <article id="comment-13" class="comment-inner">
+                                            <div class="flex-row align-top">
+                                                <div class="flex-col">
+                                                    <div class="comment-author mr-half">
+                                                        <img alt="" src="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&amp;d=mm&amp;r=g" data-src="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&amp;d=mm&amp;r=g 2x" data-srcset="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo lazy-load-active" height="70" width="70"> </div>
+                                                </div>
+                                                
+                                                <div class="flex-col flex-grow">
+                                                    <cite class="strong fn"><a href="" rel="external nofollow" class="url">'.$comment->name.'</a></cite> <span class="says">bình luận:</span>
+                                                    <div class="comment-content">
+                                                        <p>'.$comment->content.'</p>
+                                                    </div>
+                                                    <div class="comment-meta commentmetadata uppercase is-xsmall clear">
+                                                        <a href="">
+                                                            <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
+                                                                '.$comment->time.' </time>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </article>
+                                        
+                                    </li>';
+        }
+        return $str;
     }
 
     public function postAddCommentProduct(Request $req)
@@ -35,7 +68,40 @@ class CommentController extends Controller
 
     	$t=new Comment_Product_Href;
     	$t->add($req->productid,$commentid);
-    	return redirect()->back();
+        $product=Product::find($req->productid);
+        $listComment=$product->getListComment(); 
+        $str='';
+        foreach ($listComment as $comment) {
+            $str.='<li class="comment even thread-even depth-1" id="li-comment-13">
+                                        <article id="comment-13" class="comment-inner">
+                                            <div class="flex-row align-top">
+                                                <div class="flex-col">
+                                                    <div class="comment-author mr-half">
+                                                        <img alt="" src="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&amp;d=mm&amp;r=g" data-src="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&amp;d=mm&amp;r=g" srcset="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&amp;d=mm&amp;r=g 2x" data-srcset="http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo lazy-load-active" height="70" width="70"> </div>
+                                                </div>
+                                                
+                                                <div class="flex-col flex-grow">
+                                                    <cite class="strong fn"><a href="" rel="external nofollow" class="url">'.$comment->name.'</a></cite> <span class="says">bình luận:</span>
+                                                    <div class="comment-content">
+                                                        <p>'.$comment->content.'</p>
+                                                    </div>
+                                                    <div class="comment-meta commentmetadata uppercase is-xsmall clear">
+                                                        <a href="">
+                                                            <time datetime="2018-03-24T14:24:13+00:00" class="pull-left">
+                                                                '.$comment->time.' </time>
+                                                        </a>
+                                                        
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </div>
+                                           
+                                        </article>
+                                        
+                                    </li>';
+        }
+        return $str;
     }
 
     public function getProductComment($id)

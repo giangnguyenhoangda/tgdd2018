@@ -203,7 +203,7 @@
                   <div class="panel entry-content " id="tab-ux_global_tab">
                     <div id="comments" class="comments-area">
                             <h3 class="comments-title uppercase">Bình luận về &ldquo;<span>{{ $s->productName }}</span>&rdquo;     </h3>
-                            <ol class="comment-list">
+                            <ol class="comment-list" id="comment_content">
                                 @if (count($listComment)>0)
                                    
                                 
@@ -213,11 +213,11 @@
                                             <div class="flex-row align-top">
                                                 <div class="flex-col">
                                                     <div class="comment-author mr-half">
-                                                        <img alt='' src="http://localhost/TGDD/wp-content/themes/flatsome/assets/img/lazy.png" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
+                                                        <img alt='' src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=70&#038;d=mm&#038;r=g' srcset="" data-srcset='http://1.gravatar.com/avatar/71d05d14c90dddd19364d80b7ec41474?s=140&#038;d=mm&#038;r=g 2x' class='lazy-load avatar avatar-70 photo' height='70' width='70' /> </div>
                                                 </div>
                                                 <!-- .large-3 -->
                                                 <div class="flex-col flex-grow">
-                                                    <cite class="strong fn"><a href='http://hungyen.thaibinhweb.com' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
+                                                    <cite class="strong fn"><a href='' rel='external nofollow' class='url'>{{ $element->name }}</a></cite> <span class="says">bình luận:</span>
                                                     <div class="comment-content">
                                                         <p>{{ $element->content }}</p>
                                                     </div>
@@ -248,8 +248,8 @@
                                     <p class="comment-notes"><span id="email-notes">Email của bạn sẽ không được hiển thị công khai.</span> Các trường bắt buộc được đánh dấu <span class="required">*</span></p>
                                     <p class="comment-form-comment">
                                         <label for="comment">Bình luận</label>
-                                        <input type="hidden" name="productid" value="{{ $s->id }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="productid" id="productid" value="{{ $s->id }}">
+                                        <input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
                                         <textarea id="comment" name="content" cols="45" rows="8" maxlength="65525" required="required"></textarea>
                                     </p>
                                     @if (session('nhan-vien'))
@@ -281,7 +281,7 @@
                                     @endif
                                     
                                     <p class="form-submit">
-                                        <input name="submit" type="submit" id="submit" class="submit" value="Bình Luận" />
+                                        <input name="submit" type="button" style="background-color: #DD3333; color: #fff;" id="btnCommentProduct" class="submit" value="Bình Luận" ajax_url="{{ route('postAddCommentProduct') }}" avatar="{{ asset('themes/flatsome/assets/img/lazy.png') }}" />
                                         <input type='hidden' name='comment_post_ID' value='2044' id='comment_post_ID' />
                                         <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
                                     </p>
@@ -293,282 +293,7 @@
                   </div>
                 </div><!-- .tab-panels -->
               </div><!-- .tabbed-content -->
-              {{-- <div class="related related-products-wrapper product-section">
-                <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase">Sản phẩm tương tự</h3>  
-                <div class="row large-columns-4 medium-columns- small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push"  data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>                
-                  <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                    <div class="col-inner">
-                      <div class="badge-container absolute left top z-1">
-                        <div class="callout badge badge-circle">
-                          <div class="badge-inner secondary on-sale">
-                            <span class="onsale">-2%</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />       
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">Apple</p> 
-                            <p class="name product-title"><a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <del>
-                                <span class="woocommerce-Price-amount amount">5.979.000
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </del> 
-                              <ins>
-                                <span class="woocommerce-Price-amount amount">1
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </ins>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->              
-                  <div class="product-small col has-hover post-1955 product type-product status-publish has-post-thumbnail product_cat-dien-thoai product_cat-iphone product_cat-iphone-6s-6s-plus  instock shipping-taxable purchasable product-type-simple">
-                    <div class="col-inner">  
-                      <div class="badge-container absolute left top z-1">
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/iphone-6s-plus-16gb-quoc-te-like-new/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />        
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">ĐIỆN THOẠI</p> 
-                            <p class="name product-title">
-                              <a href="http://localhost/TGDD/cua-hang/iphone-6s-plus-16gb-quoc-te-like-new/">iPhone 6S Plus 16GB Quốc Tế (Like New)</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <span class="woocommerce-Price-amount amount">2
-                                <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                              </span>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->        
-                  <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                    <div class="col-inner">
-                      <div class="badge-container absolute left top z-1">
-                        <div class="callout badge badge-circle">
-                          <div class="badge-inner secondary on-sale">
-                            <span class="onsale">-2%</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />       
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">Apple</p> 
-                            <p class="name product-title"><a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <del>
-                                <span class="woocommerce-Price-amount amount">5.979.000
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </del> 
-                              <ins>
-                                <span class="woocommerce-Price-amount amount">3
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </ins>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->        
-                  <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                    <div class="col-inner">
-                      <div class="badge-container absolute left top z-1">
-                        <div class="callout badge badge-circle">
-                          <div class="badge-inner secondary on-sale">
-                            <span class="onsale">-2%</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />       
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">Apple</p> 
-                            <p class="name product-title"><a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <del>
-                                <span class="woocommerce-Price-amount amount">5.979.000
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </del> 
-                              <ins>
-                                <span class="woocommerce-Price-amount amount">4
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </ins>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->
-                  <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                    <div class="col-inner">
-                      <div class="badge-container absolute left top z-1">
-                        <div class="callout badge badge-circle">
-                          <div class="badge-inner secondary on-sale">
-                            <span class="onsale">-2%</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />       
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">Apple</p> 
-                            <p class="name product-title"><a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <del>
-                                <span class="woocommerce-Price-amount amount">5.979.000
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </del> 
-                              <ins>
-                                <span class="woocommerce-Price-amount amount">5
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </ins>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->
-                  <div class="product-small col has-hover post-1970 product type-product status-publish has-post-thumbnail product_cat-apple product_cat-hang-san-xuat product_cat-tablet product_tag-sales pa_dung-luong-16gb pa_dung-luong-32gb pa_dung-luong-dung-luong  instock sale shipping-taxable purchasable product-type-variable has-default-attributes has-children">
-                    <div class="col-inner">
-                      <div class="badge-container absolute left top z-1">
-                        <div class="callout badge badge-circle">
-                          <div class="badge-inner secondary on-sale">
-                            <span class="onsale">-2%</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="product-small box ">
-                        <div class="box-image">
-                          <div class="image-none">
-                            <a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">
-                              <img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-plus-16gb-quoc-te-like-new-trang-didongviet_1_1-247x296.jpg') }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />       
-                            </a>
-                          </div>
-                          <div class="image-tools is-small top right show-on-hover">
-                          </div>
-                          <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                          </div>
-                          <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                          </div>
-                        </div><!-- box-image -->
-                        <div class="box-text box-text-products text-center grid-style-2">
-                          <div class="title-wrapper">   
-                            <p class="category uppercase is-smaller no-text-overflow product-cat op-7">Apple</p> 
-                            <p class="name product-title"><a href="http://localhost/TGDD/cua-hang/ipad-mini-3-16gb-wifi-4g/">iPad Mini 3 16GB Wifi &#038; 4G</a>
-                            </p>
-                          </div>
-                          <div class="price-wrapper">
-                            <span class="price">
-                              <del>
-                                <span class="woocommerce-Price-amount amount">5.979.000
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </del> 
-                              <ins>
-                                <span class="woocommerce-Price-amount amount">6
-                                  <span class="woocommerce-Price-currencySymbol">&#8363;</span>
-                                </span>
-                              </ins>
-                            </span>
-                          </div>    
-                        </div><!-- box-text -->
-                      </div><!-- box -->
-                    </div><!-- .col-inner -->
-                  </div><!-- col -->      
-                </div>
-              </div> --}}
+              
             </div>  
           </div><!-- col large-9 -->
           <div id="product-sidebar" class="col large-3 hide-for-medium shop-sidebar ">
@@ -659,4 +384,5 @@
     /* ]]> */
   </script>
   <script type='text/javascript' src='{{ asset('plugins/yith-essential-kit-for-woocommerce-1/modules/yith-woocommerce-colors-labels-variations/assets/js/frontend.min.js?ver=1.3.0') }}'></script>
+  <script type="text/javascript" src="{{ asset('js/myjs.js') }}"></script>
 @endsection
