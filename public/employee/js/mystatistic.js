@@ -11,6 +11,7 @@ $('#check_profit').on('click',function(){
 });
 
 function statisticAjax(url) {
+	console.log($('#timestart').val());
 	$.ajax({
 		url: url,
 		method: 'post',

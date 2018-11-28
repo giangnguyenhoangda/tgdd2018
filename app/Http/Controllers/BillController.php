@@ -231,8 +231,10 @@ class BillController extends Controller
 
 		}elseif ($hashValidated=="INVALID HASH" && $txnResponseCode=="0"){
 			$transStatus = "Giao dịch Pendding";
+			echo $transStatus;
 		}else {
 			$transStatus = "Giao dịch thất bại";
+			echo $transStatus;
 		}
 				
     }

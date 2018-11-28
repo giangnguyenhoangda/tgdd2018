@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use Session;
+use App\Http\Controllers\StatisticController;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,7 +18,14 @@ class AdminController extends Controller
 
     public function getHome()
     {
-    	return view('admin.pages.home');
+        $w=DB::select('SELECT WEEKOFYEAR(NOW()) as week');
+        $numberw=$w[0]->week;
+        $s=new StatisticController;
+        $kq=$s->getTotalNow();
+        $doanhsotuan=$s->getDoanhSoTuan();
+        $doanhthutuan=$s->getDoanhThuTuan();
+        $loinhuantuan=$s->getLoiNhuanTuan();
+        return view('admin.pages.home',['kq'=>$kq,'doanhsotuan'=>$doanhsotuan,'doanhthutuan'=>$doanhthutuan,'loinhuantuan'=>$loinhuantuan,'numberw'=>$numberw]);
     }
 
     public function postLogin(Request $req)

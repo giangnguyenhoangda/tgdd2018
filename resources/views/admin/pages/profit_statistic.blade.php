@@ -29,19 +29,19 @@
 							</div>
 						</div>
 						<div class="col-md-12">						
-							<button type="button" id="check_profit" link="{{ route('postSaleStatistic') }}" class="btn border-slate text-slate-800 btn-flat legitRipple">
+							<button type="button" id="check_profit" link="{{ route('postProfitStatistic') }}" class="btn border-slate text-slate-800 btn-flat legitRipple">
 							Thống Kê
 							</button>			
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="col-md-6"></div>
-					<div class="col-md-6">
+					<div class="col-md-4"></div>
+					<div class="col-md-8">
 						<div class="content-group-lg">
 							<h6 class="text-semibold">Tổng:</h6>
 							<div class="input-group">
-								<h1 style="color: red;font-size: 30px" id="tong">100000000000VND</h1>
+								<h1 style="color: red;font-size: 30px" id="tong">0VND</h1>
 							</div>
 						</div>
 					</div>
@@ -58,26 +58,7 @@
 					</tr>
 				</thead>
 				<tbody id="nd">
-					<tr>
-						<td>1</td>
-						<td>1/10/2018</td>
-						<td>22000000</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>2/10/2018</td>
-						<td>22000000</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>13/10/2018</td>
-						<td>22000000</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>14/10/2018</td>
-						<td>22000000</td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>

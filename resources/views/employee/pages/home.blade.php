@@ -34,6 +34,8 @@
 											</tr>
 										</thead>
 										<tbody>
+											@if (count($bills)>0)
+											@foreach ($bills as $bill)
 											<tr>
 												<td>
 													<div class="media-left media-middle">
@@ -44,100 +46,18 @@
 
 													<div class="media-body">
 														<div class="media-heading">
-															<a href="#" class="letter-icon-title">Nguyễn Hoàng Giang</a>
+															<a href="#" class="letter-icon-title">{{ $bill->customername }}</a>
 														</div>
 
-														<div class="text-muted text-size-small"><i class="icon-checkmark3 text-size-mini position-left"></i> Mã: XXXXX</div>
+														<div class="text-muted text-size-small"><i class="icon-checkmark3 text-size-mini position-left"></i> Mã: {{ $bill->id }}</div>
 													</div>
 												</td>
 												<td>
-													<span class="text-muted text-size-small">06:28 pm</span>
+													<span class="text-muted text-size-small">{{ $bill->datetime }}</span>
 												</td>
 											</tr>
-
-											<tr>
-												<td>
-													<div class="media-left media-middle">
-														<a href="#" class="btn bg-danger-400 btn-rounded btn-icon btn-xs">
-															<span class="letter-icon"></span>
-														</a>
-													</div>
-
-													<div class="media-body">
-														<div class="media-heading">
-															<a href="#" class="letter-icon-title">Nguyễn Hoàng Giang</a>
-														</div>
-
-														<div class="text-muted text-size-small"><i class="icon-spinner11 text-size-mini position-left"></i> Mã: XXXXX</div>
-													</div>
-												</td>
-												<td>
-													<span class="text-muted text-size-small">04:52 pm</span>
-												</td>
-											</tr>
-
-											<tr>
-												<td>
-													<div class="media-left media-middle">
-														<a href="#" class="btn bg-indigo-400 btn-rounded btn-icon btn-xs">
-															<span class="letter-icon"></span>
-														</a>
-													</div>
-
-													<div class="media-body">
-														<div class="media-heading">
-															<a href="#" class="letter-icon-title">Nguyễn Hoàng Giang</a>
-														</div>
-
-														<div class="text-muted text-size-small"><i class="icon-lifebuoy text-size-mini position-left"></i> Mã: XXXXX</div>
-													</div>
-												</td>
-												<td>
-													<span class="text-muted text-size-small">01:26 pm</span>
-												</td>
-											</tr>
-
-											<tr>
-												<td>
-													<div class="media-left media-middle">
-														<a href="#" class="btn bg-success-400 btn-rounded btn-icon btn-xs">
-															<span class="letter-icon"></span>
-														</a>
-													</div>
-
-													<div class="media-body">
-														<div class="media-heading">
-															<a href="#" class="letter-icon-title">Nguyễn Hoàng Giang</a>
-														</div>
-
-														<div class="text-muted text-size-small"><i class="icon-lifebuoy text-size-mini position-left"></i> Mã: XXXXX</div>
-													</div>
-												</td>
-												<td>
-													<span class="text-muted text-size-small">11:46 am</span>
-												</td>
-											</tr>
-
-											<tr>
-												<td>
-													<div class="media-left media-middle">
-														<a href="#" class="btn bg-danger-400 btn-rounded btn-icon btn-xs">
-															<span class="letter-icon"></span>
-														</a>
-													</div>
-
-													<div class="media-body">
-														<div class="media-heading">
-															<a href="#" class="letter-icon-title">Nguyễn Hoàng Giang</a>
-														</div>
-
-														<div class="text-muted text-size-small"><i class="icon-spinner11 text-size-mini position-left"></i> Mã: XXXXX</div>
-													</div>
-												</td>
-												<td>
-													<span class="text-muted text-size-small">10:29 am</span>
-												</td>
-											</tr>
+											@endforeach
+											@endif
 										</tbody>
 									</table>
 								</div>

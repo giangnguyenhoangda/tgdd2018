@@ -1,102 +1,189 @@
 @extends('admin.elements.master')
 @section('title')
-	Sửa Nhân Viên
+	Trang Quản Trị
 @endsection
 @section('content')
-	<!-- 2 columns form -->
-	<div class="col-md-3"></div>
-					<form action="{{ route('postEditEmployee') }}" method="post" enctype="multipart/form-data">
-						<div class="panel panel-flat col-md-6">
-							<div class="panel-heading">
-								<h5 class="panel-title">Sửa Nhân Viên</h5>
-								<div class="heading-elements">
-									<ul class="icons-list">
-				                		<li><a data-action="collapse"></a></li>
-				                		<li><a data-action="reload"></a></li>
-				                		<li><a data-action="close"></a></li>
-				                	</ul>
-			                	</div>
-							</div>
-
-							<div class="panel-body">
-								<div class="row">
-									<div>
-										<fieldset>
-						                	<legend class="text-semibold"><i class="icon-reading position-left"></i> Thông Tin Nhân Viên</legend>
-
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<input type="hidden" name="_token" value="{{ csrf_token() }}">
-														<label>Tên Đăng Nhập:</label>
-														<input type="hidden" name="id" value="{{ $user->id }}">
-														<input readonly name="username" placeholder="Nhập tên đăng nhập của bạn" value="{{ $user->username }}" class="form-control">
-													</div>
-												</div>
-
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>Mật Khẩu:</label>
-														<input type="text" value="{{ $user->password }}" name="password" placeholder="Nhập mật khẩu của bạn" class="form-control">
-													</div>
-												</div>
-											</div>
-
-											<div class="row">
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>Họ Và Tên:</label>
-														<input type="text" name="fullname" value="{{ $user->fullname }}" placeholder="Nguyễn Văn A" class="form-control">
-													</div>
-												</div>
-
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>Số Điện Thoại:</label>
-														<input type="text" name="phonenumber" value="{{ $user->phonenumber }}" placeholder="+8412345678" class="form-control">
-													</div>
-												</div>
-											</div>
-
-											<div class="row">
-												
-												<div class="col-md-6">
-													<div class="form-group">
-														<label class="text-semibold">Ảnh Bìa:</label>
-														<div class="media no-margin-top">
-															<div class="media-left">
-																<a href="#"><img src="{{ asset($user->avatar)}}" style="width: 200px; height: 150px; border-radius: 2px;" alt=""></a>
-															</div>
-												
-															<div class="row" style="margin-left: 0.1%">
-
-																<input type="file" class="file-styled" name="avatar_new">
-																<input type="hidden" name="old_avatar" value="{{ $user->avatar }}">
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="col-md-6">
-													<div class="form-group">
-														<label>Email:</label>
-														<input type="text" name="email" value="{{ $user->email }}"  placeholder="abc@email.com" class="form-control">
-													</div>
-												</div>
-											</div>
-
-										</fieldset>
-									</div>
-									<div class="col-md-3"></div>
-								</div>
-
-								<div class="text-right">
-									<button type="submit" class="btn btn-primary">Sửa Nhân Viên <i class="icon-arrow-right14 position-right"></i></button>
-								</div>
-							</div>
+<div class="row">
+	<div class="col-lg-9">
+		<!-- Quick stats boxes -->
+		<div class="row">
+			<div class="col-lg-4">
+				<!-- Current server load -->
+				<div class="panel bg-teal-400">
+					<div class="panel-body">
+						<div class="heading-elements">
+							<ul class="icons-list">
+								<li class="dropdown">
+							    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-sync"></i> Cập nhật</a></li>
+										<li><a href="#"><i class="icon-list-unordered"></i> Xem</a></li>
+									</ul>
+								</li>
+							</ul>
 						</div>
-					</form>
-					<!-- /2 columns form -->
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/selects/select2.min.js') }}"></script>
-					<script type="text/javascript" src="{{ asset('employee/js/plugins/forms/styling/uniform.min.js') }}"></script>	
-					<script type="text/javascript" src="{{ asset('employee/js/pages/form_layouts.js') }}"></script>
+						Doanh Số
+						<h3 class="no-margin">{{ $kq[0] }}</h3>										
+						<div class="text-muted text-size-small">VND</div>
+					</div>
+					<div id="server-load"></div>
+				</div>
+				<!-- /current server load -->
+			</div>
+			<div class="col-lg-4">
+				<!-- Current server load -->
+				<div class="panel bg-pink-400">
+					<div class="panel-body">
+						<div class="heading-elements">
+							<ul class="icons-list">
+								<li class="dropdown">
+							    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-sync"></i> Cập nhật</a></li>
+										<li><a href="#"><i class="icon-list-unordered"></i> Xem</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						Doanh Thu
+						<h3 class="no-margin">{{ $kq[1] }}</h3>										
+						<div class="text-muted text-size-small">VND</div>
+					</div>
+					<div id="server-load"></div>
+				</div>
+				<!-- /current server load -->
+			</div>
+			<div class="col-lg-4">
+				<!-- Current server load -->
+				<div class="panel bg-blue-400">
+					<div class="panel-body">
+						<div class="heading-elements">
+							<ul class="icons-list">
+								<li class="dropdown">
+							    	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog3"></i> <span class="caret"></span></a>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#"><i class="icon-sync"></i> Cập nhật</a></li>
+										<li><a href="#"><i class="icon-list-unordered"></i> Xem</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						Lợi Nhuận
+						<h3 class="no-margin">{{ $kq[2] }}</h3>										
+						<div class="text-muted text-size-small">VND</div>
+					</div>
+				<div id="server-load"></div>
+			</div>
+			<!-- /current server load -->
+		</div>								
+	</div>
+	<!-- /quick stats boxes -->
+	<div class="row">
+		<!-- Chart data colors -->
+		<div class="panel panel-flat">
+			<div class="panel-heading">
+				<h6 class="panel-title text-semibold">Chart data colors</h6>
+				<div class="heading-elements">
+					<ul class="icons-list">
+			            <li><a data-action="collapse"></a></li>
+			            <li><a data-action="reload"></a></li>
+			            <li><a data-action="close"></a></li>
+			        </ul>
+		        </div>
+			</div>
+			<div class="panel-body">
+				<div class="chart-container">
+					<div class="chart" id="c3-data-color"></div>
+				</div>
+			</div>
+		</div>
+		<!-- /chart data colors -->
+	</div>
+	</div>
+	<div class="col-lg-3">
+		<div class="panel panel-flat">
+			<div class="table-responsive">
+				<table class="table text-nowrap">
+					<tbody>
+						<tr class="active">
+							<td colspan="5">Hôm Nay</td>
+							<td></td>
+							<td class="text-center">
+								<ul class="icons-list">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#"><i class="icon-file-stats"></i> Cập nhật</a></li>
+											<li><a href="#"><i class="icon-file-text2"></i> Xem</a></li>
+										</ul>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">Doanh Số</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td >
+								
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">Doanh Thu</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td>
+							</td>
+						</tr><tr>
+							<td colspan="5">Lợi Nhuận</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td>
+							</td>
+						</tr>
+						<tr class="active">
+							<td colspan="5">Hôm Qua</td>
+							<td></td>
+							<td class="text-center">
+								<ul class="icons-list">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+										<ul class="dropdown-menu dropdown-menu-right">
+											<li><a href="#"><i class="icon-file-stats"></i> Cập nhật</a></li>
+											<li><a href="#"><i class="icon-file-text2"></i> Xem</a></li>
+										</ul>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">Doanh Số</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td>
+							</td>
+						</tr><tr>
+							<td colspan="5">Doanh Thu</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td >
+							</td>
+						</tr><tr>
+							<td colspan="5">Lợi Nhuận</td>
+							<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> 2.43%</span></td>
+							<td>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="{{ asset('employee/js/plugins/visualization/d3/d3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('employee/js/plugins/visualization/c3/c3.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('employee/js/charts/c3/c3_advanced.js') }}"></script>
+@endsection
+@section('js3')
+	<script type="text/javascript" src="{{ asset('employee/js/pages/dashboard.js') }}"></script>
+@endsection
+
+@section('js2')
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/ui/moment/moment.min.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('employee/js/plugins/pickers/daterangepicker.js') }}"></script>
 @endsection

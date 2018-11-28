@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\News;
+use App\Bill;
 use Session;
 
 class EmployeeController extends Controller
@@ -13,7 +14,8 @@ class EmployeeController extends Controller
     {
         $news_left=News::orderBy('id','desc')->take(3)->get();
         $news_right=News::orderBy('id','desc')->skip(3)->take(3)->get();
-    	return view('employee/pages/home',['news_left'=>$news_left,'news_right'=>$news_right]);
+        $bills=Bill::orderBy('id','desc')->take(5)->get();
+    	return view('employee/pages/home',['news_left'=>$news_left,'news_right'=>$news_right,'bills'=>$bills]);
     }
 
     public function postLogin(Request $req)

@@ -215,3 +215,5 @@ Route::get('may-tinh-bang/hang-san-xuat/{name}','TabletController@getTabletByHan
 Route::get('phu-kien/loai-phu-kien/{name}','AccessoryController@getAccessoryByLoai')->name('getAccessoryByLoai');
 
 Route::get('tin-tuc/loai-tin/{name}','NewsController@getNewByLoai')->name('getNewByLoai');
+
+Route::get('test','StatisticController@getTest');
