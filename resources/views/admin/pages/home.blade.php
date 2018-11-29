@@ -120,7 +120,7 @@
 						</tr>
 						<tr>
 							<td colspan="5">Doanh Số</td>
-							@if ($kq[3]>100)
+							@if ($kq[3]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[3]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[3],2) }}%</span></td>
@@ -132,7 +132,7 @@
 						</tr>
 						<tr>
 							<td colspan="5">Doanh Thu</td>
-							@if ($kq[4]>100)
+							@if ($kq[4]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[4]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[4],2) }}%</span></td>
@@ -141,7 +141,7 @@
 							</td>
 						</tr><tr>
 							<td colspan="5">Lợi Nhuận</td>
-							@if ($kq[5]>100)
+							@if ($kq[5]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[5]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[5],2) }}%</span></td>
@@ -166,7 +166,7 @@
 						</tr>
 						<tr>
 							<td colspan="5">Doanh Số</td>
-							@if ($kq[6]>100)
+							@if ($kq[6]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[6]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[6],2) }}%</span></td>
@@ -177,7 +177,7 @@
 							</td>
 						</tr><tr>
 							<td colspan="5">Doanh Thu</td>
-							@if ($kq[7]>100)
+							@if ($kq[7]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[7]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[7],2) }}%</span></td>
@@ -188,7 +188,7 @@
 							</td>
 						</tr><tr>
 							<td colspan="5">Lợi Nhuận</td>
-							@if ($kq[8]>100)
+							@if ($kq[8]>=100)
 								<td><span class="text-success-600"><i class="icon-stats-growth2 position-left"></i> {{ round($kq[8]-100,2) }}%</span></td>
 							@else
 								<td><span class="text-danger"><i class="icon-stats-decline2 position-left"></i> {{ round(100 - $kq[8],2) }}%</span></td>

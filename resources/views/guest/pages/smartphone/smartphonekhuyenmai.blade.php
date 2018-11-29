@@ -1,7 +1,11 @@
 @extends('guest.elements.master')
 
 @section('title')
-	Phụ Kiện
+	Điện Thoại Khuyến Mãi
+@endsection
+
+@section('head')
+	<link rel="alternate" type="application/rss+xml" title="Nguồn tin Demo thegioidiong flatsome &raquo; Sản phẩm" href="http://localhost/TGDD/cua-hang/feed/" />
 @endsection
 
 @section('main')
@@ -13,8 +17,8 @@
   						<a href="http://localhost/TGDD">Trang chủ</a> 
   						<span class="divider">/</span> 
   						<a href="http://localhost/TGDD/cua-hang/">Cửa hàng</a> 
-  						<span class="divider">/</span> Phụ Kiện
-  						<span class="divider">/</span> {{ $loai }}
+  						<span class="divider">/</span> Điện Thoại
+  						<span class="divider">/</span> Khuyến Mãi
   					</nav>
   				</div>
 	  		</div><!-- .flex-left -->
@@ -58,7 +62,7 @@
 								<div class="product-small box ">
 									<div class="box-image">
 										<div class="image-none">
-											<a href="{{ route('getAccessory',$element->accessoryid) }}">
+											<a href="{{ route('getSmartPhone',$element->smartphoneid) }}">
 												<img width="247" height="296" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($product->imagesurl) }}" class="lazy-load attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" />				
 											</a>
 										</div>
@@ -76,7 +80,7 @@
 												{{ $product->productType }}		
 											</p> 
 											<p class="name product-title">
-												<a href="{{ route('getAccessory',$element->accessoryid) }}">{{ $product->productName }}
+												<a href="{{ route('getSmartPhone',$element->smartphoneid) }}">{{ $product->productName }}
 												</a>
 											</p>
 										</div>

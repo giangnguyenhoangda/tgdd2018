@@ -19,7 +19,7 @@ class LaptopController extends Controller
 
     public function getAllLaptop()
     {
-        $list=Laptop::all();
+        $list=Laptop::paginate(15);
         return view('guest.pages.laptop.laptops',['list'=>$list]);
     }
 
@@ -155,7 +155,7 @@ class LaptopController extends Controller
     public function getLaptopByHang($name)
     {
         $laptop=new Laptop;
-        $list=$laptop->doWhere('manufacturer','=',$name);
+        $list=$laptop->doWherePagination('manufacturer','=',$name,15);
         return view('guest.pages.laptop.laptopbyhang',['list'=>$list,'hang'=>$name]);
     }
 }

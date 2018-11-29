@@ -23,7 +23,7 @@
 	  		</div><!-- .flex-left -->
 	   		<div class="flex-col medium-text-center"> 	
 				<p class="woocommerce-result-count hide-for-medium">Xem tất cả {{ count($list) }} kết quả</p>
-				<form class="woocommerce-ordering" method="get">
+				{{-- <form class="woocommerce-ordering" method="get">
 					<select name="orderby" class="orderby">
 						<option value="relevance" selected="selected">Độ liên quan</option>
 						<option value="popularity">Thứ tự theo mức độ phổ biến</option>
@@ -34,7 +34,7 @@
 					</select>
 					<input type="hidden" name="paged" value="1">
 					<input type="hidden" name="s" value="iphone"><input type="hidden" name="post_type" value="product">
-				</form>
+				</form> --}}
 	   		</div><!-- .flex-right -->
 		</div><!-- flex-row -->
 	</div>
@@ -103,6 +103,9 @@
 						@endforeach
 						
 					</div><!-- row -->
+					<div style="text-align: center;" class="row">
+							{{ $list->render('vendor\pagination\semantic-ui') }}
+					</div>
 				</div><!-- shop container -->        
 				<hr/>
 				{{-- <h4 class="uppercase">Trang và bài đăng tìm thấy</h4>

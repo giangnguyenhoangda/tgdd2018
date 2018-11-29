@@ -74,4 +74,23 @@ class Smartphone extends Model
         ->where($x1,$x2,$x3)
         ->get();
     }
+
+    public function doWhereLimit($x1,$x2,$x3,$x4)
+    {
+        return DB::table('smartphone')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('smartphone.id as smartphoneid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->take($x4)
+        ->get();
+    }
+
+    public function doWherePagination($x1,$x2,$x3,$x4)
+    {
+        return DB::table('smartphone')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('smartphone.id as smartphoneid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->paginate($x4);
+    }
 }

@@ -21,7 +21,7 @@ class TabletController extends Controller
 
     public function getAllTablet()
     {
-        $list=Tablet::all();
+        $list=Tablet::paginate(15);
         return view('guest.pages.tablet.tablets',['list'=>$list]);
     }
 
@@ -160,7 +160,7 @@ class TabletController extends Controller
     public function getTabletByHang($name)
     {
         $tablet=new Tablet;
-        $list=$tablet->doWhere('manufacturer','=',$name);
+        $list=$tablet->doWherePagination('manufacturer','=',$name,15);
         return view('guest.pages.tablet.tabletbyhang',['list'=>$list,'hang'=>$name]);
     }
 }

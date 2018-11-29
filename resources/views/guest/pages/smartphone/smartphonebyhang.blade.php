@@ -104,6 +104,9 @@
 						@endforeach
 						
 					</div><!-- row -->
+					<div style="text-align: center;" class="row">
+							{{ $list->render('vendor\pagination\semantic-ui') }}
+					</div>
 				</div><!-- shop container -->        
 				<hr/>
 				{{-- <h4 class="uppercase">Trang và bài đăng tìm thấy</h4>

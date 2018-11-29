@@ -9,13 +9,13 @@ class NewsController extends Controller
 {
     public function getNews()
     {
-        $news= News::all();
+        $news= News::paginate(9);
     	return view('guest.pages.new.news',['news'=>$news]);
     }
 
     public function getNewByLoai($name)
     {
-        $news=News::where('type',$name)->get();
+        $news=News::where('type',$name)->paginate(9);
         return view('guest.pages.new.newbytheloai',['news'=>$news,'loai'=>$name]);
     }
 

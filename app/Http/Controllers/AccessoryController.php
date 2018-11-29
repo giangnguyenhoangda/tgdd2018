@@ -21,7 +21,7 @@ class AccessoryController extends Controller
 
     public function getAllAccessory()
     {
-        $list=Accessory::all();
+        $list=Accessory::paginate(15);
         return view('guest.pages.accessory.accessorys',['list'=>$list]);
     }
 
@@ -131,7 +131,7 @@ class AccessoryController extends Controller
     public function getAccessoryByLoai($name)
     {
         $accessory=new Accessory;
-        $list=$accessory->doWhere('productType','=',$name);
+        $list=$accessory->doWherePagination('productType','=',$name,15);
         return view('guest.pages.accessory.accessorybyloai',['list'=>$list,'loai'=>$name]);
     }
 }

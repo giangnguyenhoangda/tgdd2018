@@ -152,14 +152,24 @@ class SmartPhoneController extends Controller
 
     public function getAllSmartPhone()
     {
-        $list=Smartphone::all();
+        $list=Smartphone::paginate(15);
         return view('guest.pages.smartphone.smartphones',['list'=>$list]);
     }
 
     public function getSmartPhoneByHang($name)
     {
         $smartphone=new Smartphone;
-        $list=$smartphone->doWhere('manufacturer','=',$name);
+        $list=$smartphone->doWherePagination('manufacturer','=',$name,15);
         return view('guest.pages.smartphone.smartphonebyhang',['list'=>$list,'hang'=>$name]);
+    }
+
+    public function getAllKhuyenMai()
+    {
+        $list=DB::table('smartphone')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('smartphone.id as smartphoneid,product.*'))
+        ->where('product.discountPercent','>',0)
+        ->paginate(15);
+        return view('guest.pages.smartphone.smartphonekhuyenmai',['list'=>$list]);
     }
 }

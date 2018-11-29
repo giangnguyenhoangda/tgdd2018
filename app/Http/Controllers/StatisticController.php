@@ -264,7 +264,9 @@ class StatisticController extends Controller
 
         // So sánh nay - qua
             $ss_doanhso_nay_qua=0;
-            if($t_doanhso_homqua==0 || $t_doanhso_homnay==0){
+            if ($t_doanhso_homqua==0 && $t_doanhso_homnay==0) {
+                $ss_doanhso_nay_qua=100;
+            }elseif($t_doanhso_homqua==0 || $t_doanhso_homnay==0){
                 if($t_doanhso_homnay==0){
                     $ss_doanhso_nay_qua=0;
                 }else{
@@ -275,7 +277,9 @@ class StatisticController extends Controller
             }
 
             $ss_doanhthu_nay_qua=0;
-            if($t_doanhthu_homqua==0 || $t_doanhthu_homnay==0){
+            if ($t_doanhthu_homqua==0 && $t_doanhthu_homnay==0) {
+               $ss_doanhthu_nay_qua=100;
+            }elseif($t_doanhthu_homqua==0 || $t_doanhthu_homnay==0){
                 if($t_doanhthu_homnay==0){
                     $ss_doanhthu_nay_qua=0;
                 }else{
@@ -286,7 +290,9 @@ class StatisticController extends Controller
             }
 
             $ss_loinhuan_nay_qua=0;
-            if($t_loinhuan_homqua==0 || $t_loinhuan_homnay==0){
+            if ($t_loinhuan_homqua==0 && $t_loinhuan_homnay==0) {
+                $ss_loinhuan_nay_qua=100;
+            }elseif($t_loinhuan_homqua==0 || $t_loinhuan_homnay==0){
                 if($t_loinhuan_homnay==0){
                     $ss_loinhuan_nay_qua=0;
                 }else{
@@ -298,7 +304,9 @@ class StatisticController extends Controller
 
         // So sánh qua - kia
             $ss_doanhso_qua_kia=0;
-            if($t_doanhso_homqua==0 || $t_doanhso_homkia==0){
+            if ($t_doanhso_homqua==0 && $t_doanhso_homkia==0) {
+                $ss_doanhso_qua_kia=100;
+            }elseif($t_doanhso_homqua==0 || $t_doanhso_homkia==0){
                 if($t_doanhso_homkia==0){
                     $ss_doanhso_qua_kia=200;
                 }else{
@@ -309,7 +317,10 @@ class StatisticController extends Controller
             }
 
             $ss_doanhthu_qua_kia=0;
-            if($t_doanhthu_homqua==0 || $t_doanhthu_homkia==0){
+            if ($t_doanhthu_homqua==0 && $t_doanhthu_homkia==0) {
+                $ss_doanhthu_qua_kia=100;
+            }
+            elseif($t_doanhthu_homqua==0 || $t_doanhthu_homkia==0){
                 if($t_doanhthu_homkia==0){
                     $ss_doanhthu_qua_kia=200;
                 }else{
@@ -320,7 +331,9 @@ class StatisticController extends Controller
             }
 
             $ss_loinhuan_qua_kia=0;
-            if($t_loinhuan_homqua==0 || $t_loinhuan_homkia==0){
+            if ($t_loinhuan_homqua==0 && $t_loinhuan_homkia==0) {
+                $ss_loinhuan_qua_kia=100;
+            }elseif($t_loinhuan_homqua==0 || $t_loinhuan_homkia==0){
                 if($t_loinhuan_homkia==0){
                     $ss_loinhuan_qua_kia=200;
                 }else{

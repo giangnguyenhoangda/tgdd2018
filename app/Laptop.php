@@ -75,4 +75,13 @@ class Laptop extends Model
         ->where($x1,$x2,$x3)
         ->get();
     }
+
+    public function doWherePagination($x1,$x2,$x3,$x4)
+    {
+        return DB::table('laptop')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('laptop.id as laptopid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->paginate($x4);
+    }
 }

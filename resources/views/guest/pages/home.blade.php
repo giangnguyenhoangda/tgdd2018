@@ -227,7 +227,7 @@
 											<a href="/danh-muc/dien-thoai/">KHUYẾN MÃI HOT NHẤT</a>
 										</h3>
 										<div class="vi-right-link pull-right" style="font-weight: bold;">
-											<a class="vi-more" href="">Xem tất cả</a>
+											<a class="vi-more" style="color: #d70018;" href="{{ route('getAllKhuyenMai') }}">Xem tất cả</a>
 										</div>
 									</div>
 								</div>
@@ -324,12 +324,12 @@
 											<a href="/danh-muc/dien-thoai/">ĐIỆN THOẠI</a>
 										</h3>
 										<div class="vi-right-link pull-right" style="font-weight: bold;">
-											<a href="/danh-muc/dien-thoai/">Vertu</a>
+											{{-- <a href="/danh-muc/dien-thoai/">Vertu</a>
 											<a href="/danh-muc/dien-thoai/">Sony</a>
 											<a href="/danh-muc/dien-thoai/">iPhone</a>
 											<a href="/danh-muc/dien-thoai/">LG</a>
-											<a href="/danh-muc/dien-thoai/">Samsung</a>
-											<a class="vi-more" href="https://thietbidienpanasonic.com/danh-muc/cong-tac-o-cam/">Xem tất cả</a>
+											<a href="/danh-muc/dien-thoai/">Samsung</a> --}}
+											<a class="vi-more" style="color: #d70018;" href="{{ route('getAllSmartPhone') }}">Xem tất cả</a>
 										</div>
 									</div>
 								</div>
@@ -341,48 +341,6 @@
 							<div class="col-inner" style="background-color:rgb(255, 255, 255);">
 								<div class="row large-columns-4 medium-columns- small-columns-2 row-small has-shadow row-box-shadow-1 row-box-shadow-2-hover slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'></div>
 								<div class="row large-columns-5 medium-columns-3 small-columns-3 row-normal">
-									{{-- <div class="col">
-										<div class="col-inner">
-											<div class="badge-container absolute left top z-1"></div>
-											<div class="product-small box has-hover box-normal box-text-bottom">
-												<div class="box-image">
-													<div class="image-zoom">
-														<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-x-64gb/">
-															<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset('uploads/iphone-6s-hong-didongviet_5_6-300x300.jpg') }} 300w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-510x510.jpg') }} 510w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-100x100.jpg') }} 100w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-150x150.jpg') }} 150w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6-768x768.jpg') }} 768w, {{ asset('uploads/iphone-6s-hong-didongviet_5_6.jpg') }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
-														</a>
-													</div>
-													<div class="image-tools top right show-on-hover"></div>
-													<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
-												</div>
-												<!-- box-image -->
-												<div class="box-text text-center">
-													<div class="title-wrapper">
-														<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
-	                                                        ĐIỆN THOẠI </p>
-														<p class="name product-title">
-															<a href="http://localhost/TGDD/cua-hang/dien-thoai-iphone-8-64gb/">Điện thoại iPhone 8 64GB</a>
-														</p>
-													</div>
-													<div class="price-wrapper">
-														<div class="star-rating">
-															<span style="width:100%">Được xếp hạng 
-																<strong class="rating">5.00</strong> 5 sao
-															</span>
-														</div>
-														<span class="price">
-															<span class="woocommerce-Price-amount amount">20.990.000
-																<span class="woocommerce-Price-currencySymbol">&#8363;</span>
-															</span>
-														</span>
-													</div>
-												</div>
-												<!-- box-text -->
-											</div>
-											<!-- box -->
-										</div>
-										<!-- .col-inner -->
-									</div> --}}
-									<!-- col -->
 									@foreach ($smartphones as $element)
 									<div class="col">
 										<div class="col-inner">
@@ -508,17 +466,100 @@
 								<div class="col-inner">
 									<div class="clearfix vi-header">
 										<h3 class="vi-left-title pull-left">
+											<a href="/danh-muc/dien-thoai/">LAPTOP
+												<br />
+											</a>
+										</h3>
+										<div class="vi-right-link pull-right" style="font-weight: bold;">
+											{{-- <a href="/danh-muc/dien-thoai/">Vertu</a>
+											<a href="/danh-muc/dien-thoai/">Apple</a>
+											<a href="/danh-muc/dien-thoai/">Samsung</a>
+											<a href="/danh-muc/dien-thoai/">LG</a>
+											<a href="/danh-muc/dien-thoai/">Xiaomi</a> --}}
+											<a class="vi-more" style="color: #d70018;" href="{{ route('getAllLaptop') }}">Xem tất cả</a>
+										</div>
+									</div>
+								</div>
+								<div class="gap-element" style="display:block; height:auto; padding-top:5px" class="clearfix"></div>
+								<div class="row" id="row-120202206">
+									<div class="col small-12 large-12">
+										<div class="col-inner" style="background-color:rgb(255, 255, 255);">
+											<div class="row large-columns-4 medium-columns-4 small-columns-4 row-normal">
+												@foreach ($laptops as $item)
+												@php
+													$element=$item->isProduct;
+												@endphp
+												<div class="col">
+													<div class="col-inner">
+														@if ($element->discountPercent>0)
+											<div class="badge-container absolute left top z-1">
+												<div class="callout badge badge-circle">
+													<div class="badge-inner secondary on-sale">
+														<span class="onsale">-{{ $element->discountPercent }}%</span>
+													</div>
+												</div>
+											</div>
+											@endif
+														<div class="product-small box has-hover box-normal box-text-bottom">
+															<div class="box-image">
+																<div class="image-zoom">
+																	<a href="{{ route('getLaptop',$item->id) }}">
+																		<img width="300" height="300" src="{{ asset('themes/flatsome/assets/img/lazy.png') }}" data-src="{{ asset($element->imagesurl) }}" class="lazy-load attachment-medium size-medium wp-post-image" alt="" srcset="" data-srcset="{{ asset($element->imagesurl) }} 300w, {{ asset($element->imagesurl) }} 510w, {{ asset($element->imagesurl) }} 100w, {{ asset($element->imagesurl) }} 150w, {{ asset($element->imagesurl) }} 768w, {{ asset($element->imagesurl) }} 800w" sizes="(max-width: 300px) 100vw, 300px" />
+																	</a>
+																</div>
+																<div class="image-tools top right show-on-hover"></div>
+																<div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover"></div>
+															</div>
+															<!-- box-image -->
+															<div class="box-text text-center">
+																<div class="title-wrapper">
+																	<p class="category uppercase is-smaller no-text-overflow product-cat op-7">
+	                                                                    {{ $element->productType }} </p>
+																	<p class="name product-title">
+																		<a href="{{ route('getLaptop',$item->id) }}">{{ $element->productName }}</a>
+																	</p>
+																</div>
+																<div class="price-wrapper">
+																	<span class="price">
+															<del>
+																{{-- <span class="woocommerce-Price-amount amount">32.000.000
+																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+																</span> --}}
+															</del>
+															<ins>
+																<span class="woocommerce-Price-amount amount">{{ $element->price }}
+																	<span class="woocommerce-Price-currencySymbol">&#8363;</span>
+																</span>
+															</ins>
+														</span>
+																</div>
+															</div>
+															<!-- box-text -->
+														</div>
+														<!-- box -->
+													</div>
+													<!-- .col-inner -->
+												</div>
+												<!-- col -->
+												@endforeach
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-inner">
+									<div class="clearfix vi-header">
+										<h3 class="vi-left-title pull-left">
 											<a href="/danh-muc/dien-thoai/">TABLET
 												<br />
 											</a>
 										</h3>
 										<div class="vi-right-link pull-right" style="font-weight: bold;">
-											<a href="/danh-muc/dien-thoai/">Vertu</a>
+											{{-- <a href="/danh-muc/dien-thoai/">Vertu</a>
 											<a href="/danh-muc/dien-thoai/">Apple</a>
 											<a href="/danh-muc/dien-thoai/">Samsung</a>
 											<a href="/danh-muc/dien-thoai/">LG</a>
-											<a href="/danh-muc/dien-thoai/">Xiaomi</a>
-											<a class="vi-more" href="https://thietbidienpanasonic.com/danh-muc/cong-tac-o-cam/">Xem tất cả</a>
+											<a href="/danh-muc/dien-thoai/">Xiaomi</a> --}}
+											<a class="vi-more" style="color: #d70018;" href="{{ route('getAllTablet') }}">Xem tất cả</a>
 										</div>
 									</div>
 								</div>
@@ -596,12 +637,12 @@
 											</a>
 										</h3>
 										<div class="vi-right-link pull-right" style="font-weight: bold;">
-											<a href="/danh-muc/dien-thoai/">Vertu</a>
+											{{-- <a href="/danh-muc/dien-thoai/">Vertu</a>
 											<a href="/danh-muc/dien-thoai/">Cáp kết nối </a>
 											<a href="/danh-muc/dien-thoai/">Củ Sạc</a>
 											<a href="/danh-muc/dien-thoai/"> dán cường lực</a>
-											<a href="/danh-muc/dien-thoai/">Ốp lưng</a>
-											<a class="vi-more" href="https://thietbidienpanasonic.com/danh-muc/cong-tac-o-cam/">Xem tất cả</a>
+											<a href="/danh-muc/dien-thoai/">Ốp lưng</a> --}}
+											<a class="vi-more" style="color: #d70018;" href="{{ route('getAllAccessory') }}">Xem tất cả</a>
 										</div>
 									</div>
 								</div>

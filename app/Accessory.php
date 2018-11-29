@@ -65,4 +65,13 @@ class Accessory extends Model
         ->where($x1,$x2,$x3)
         ->get();
     }
+
+    public function doWherePagination($x1,$x2,$x3,$x4)
+    {
+        return DB::table('accessory')
+        ->join('product','productid','=','product.id')
+        ->select(DB::Raw('accessory.id as accessoryid,product.*'))
+        ->where($x1,$x2,$x3)
+        ->paginate($x4);
+    }
 }

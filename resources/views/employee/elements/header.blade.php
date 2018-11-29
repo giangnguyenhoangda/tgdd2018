@@ -18,7 +18,7 @@
 						<div class="dropdown-content-body">
 							<div class="row">
 								<div class="col-md-3">
-									<a style="color: #333333" href="{{ route('getListSmartPhone') }}"><span class="menu-heading underlined">Điện Thoại</span></a>
+									<a style="color: #333333" href="{{ route('getListSmartPhone') }}"><span class="menu-heading underlined"><i style="font-size: 20px;" class="fa fa-mobile-phone"></i>Điện Thoại</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddSmartPhone') }}">Thêm Điện Thoại</a></li>
 										<li><a href="{{ route('getSmartPhoneByManufacturer','iphone') }}">Iphone</a></li>
@@ -31,7 +31,7 @@
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getListLaptop') }}" style="color: #333333"><span class="menu-heading underlined">Laptop</span></a>
+									<a href="{{ route('getListLaptop') }}" style="color: #333333"><span class="menu-heading underlined"><i style="font-size: 20px;" class="fa fa-laptop"></i>Laptop</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddLaptop') }}">Thêm Laptop</a></li>
 										<li><a href="{{ route('getLaptopByManufacturer','apple') }}">Apple</a></li>
@@ -48,7 +48,7 @@
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getListTablet') }}" style="color: #333333"><span class="menu-heading underlined">Máy Tính Bảng</span></a>
+									<a href="{{ route('getListTablet') }}" style="color: #333333"><span class="menu-heading underlined"><i style="font-size: 20px;" class="fa fa-tablet"></i>Máy Tính Bảng</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddTablet') }}">Thêm Máy Tính Bảng</a></li>
 										<li><a href="{{ route('getTabletByManufacturer','samsung') }}">Samsung</a></li>
@@ -59,7 +59,7 @@
 									</ul>
 								</div>
 								<div class="col-md-3">
-									<a href="{{ route('getListAccessory') }}" style="color: #333333"><span class="menu-heading underlined">Phụ Kiện</span></a>
+									<a href="{{ route('getListAccessory') }}" style="color: #333333"><span class="menu-heading underlined"><i style="font-size: 20px;" class="fa fa-headphones"></i>Phụ Kiện</span></a>
 									<ul class="menu-list">
 										<li><a href="{{ route('getAddAccessory') }}">Thêm Phụ Kiện</a></li>
 										<li><a href="{{ route('getAccessoryByProductType','bao-da-op-lung') }}">Bao Da Ốp Lưng</a></li>

@@ -29,6 +29,8 @@ Route::get('may-tinh/hang/{hang}','LaptopController@getLaptopByManufacturer')->n
 
 Route::get('tin-tuc/xoa-binh-luan/{id}','CommentController@getDeleteNewComment')->name('getDeleteNewComment');
 
+Route::get('dien-thoai/khuyen-mai','SmartPhoneController@getAllKhuyenMai')->name('getAllKhuyenMai');
+
 Route::post('thong-ke/doanh-so','StatisticController@postSaleStatistic')->name('postSaleStatistic');
 
 Route::post('thong-ke/doanh-thu','StatisticController@postIncomeStatistic')->name('postIncomeStatistic');

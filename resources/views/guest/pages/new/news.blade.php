@@ -44,6 +44,9 @@
 						</div><!-- .col -->
 						@endforeach
 					</div>
+					<div style="text-align: center;" class="row">
+							{{ $news->render('vendor\pagination\semantic-ui') }}
+					</div>
 				</div> <!-- .large-9 -->
 			</div><!-- .row -->
 		</div><!-- .page-wrapper .blog-wrapper -->
