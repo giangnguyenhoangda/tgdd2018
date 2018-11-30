@@ -28,15 +28,15 @@
 												<h5 class="post-title is-large ">{{ mb_substr($element->title, 0,50,'utf-8') }}...</h5>
 												<div class="is-divider"></div>
 												<p class="from_the_blog_excerpt "></p>
-					                            <p class="from_the_blog_comments uppercase is-xsmall">1 Bình luận</p>
+					                            <p class="from_the_blog_comments uppercase is-xsmall">{{ count($element->getCountComment) }} Bình luận</p>
                     						</div><!-- .box-text-inner -->
 										</div><!-- .box-text -->
 										<div class="badge absolute top post-date badge-square">
-											<div class="badge-inner">
+											{{-- <div class="badge-inner">
 												<span class="post-date-day">09</span>
 												<br>
 												<span class="post-date-month is-xsmall">Th3</span>
-											</div>
+											</div> --}}
 										</div>
 									</div><!-- .box -->
 								</a><!-- .link -->

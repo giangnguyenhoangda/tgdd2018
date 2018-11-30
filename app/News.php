@@ -63,4 +63,8 @@ class News extends Model
     {
         return $this->belongsTo('App\User','postEmpid','id');
     }
+
+    public function getCountComment(){
+        return $this->hasMany('App\Comment_New_Href','newid','id');
+    }
 }
