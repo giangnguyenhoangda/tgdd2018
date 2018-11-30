@@ -39,10 +39,18 @@
 			</ol>
 		</li>
 		<li>III. Thẻ ngân hàng:
-			<ul>Thẻ VCB:
+			<ul style="color: green;">Thẻ VCB ( Thẻ này đang bị lỗi, không dùng được ):
 				<ul>
 					<li>Tên: NGUYEN HONG NHUNG</li>
 					<li>Số thẻ: 6868682607535021 </li>
+					<li>Tháng/Năm phát hành: 12/08</li>
+					<li>Mã OTP: 123456</li>
+				</ul>
+			</ul>
+			<ul style="color: green;">Thẻ ABB:
+				<ul>
+					<li>Tên: NGUYEN HONG NHUNG</li>
+					<li>Số thẻ: 9704250000000001 </li>
 					<li>Tháng/Năm phát hành: 12/08</li>
 					<li>Mã OTP: 123456</li>
 				</ul>

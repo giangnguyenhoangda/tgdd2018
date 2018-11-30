@@ -14,7 +14,7 @@
 								<h6 class="text-semibold">Từ Ngày:</h6>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="icon-calendar"></i></span>
-										<input type="text" name="timestart" id="timestart" class="form-control datepicker-menus" placeholder="Pick a date&hellip;">
+										<input type="text" value="{{ date('m/d/Y',time()) }}" name="timestart" id="timestart" class="form-control datepicker-menus" placeholder="Pick a date&hellip;">
 										<input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}">
 								</div>
 							</div>
@@ -24,7 +24,7 @@
 								<h6 class="text-semibold">Đến Ngày:</h6>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="icon-calendar"></i></span>
-										<input type="text" name="timeend" id="timeend" class="form-control datepicker-menus" placeholder="Pick a date&hellip;">
+										<input type="text" value="{{ date('m/d/Y',time()) }}" name="timeend" id="timeend" class="form-control datepicker-menus" placeholder="Pick a date&hellip;">
 								</div>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 						<div class="content-group-lg">
 							<h6 class="text-semibold">Tổng:</h6>
 							<div class="input-group">
-								<h1 style="color: red;font-size: 30px" id="tong">0VND</h1>
+								<h1 style="color: red;font-size: 30px" id="tong">0 VND</h1>
 							</div>
 						</div>
 					</div>
