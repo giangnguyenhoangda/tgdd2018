@@ -39,12 +39,12 @@ class StatisticController extends Controller
         $s=DB::select('SELECT DATE_FORMAT(bill.datetime, "%d/%m/%Y") AS ngay,SUM(product.price*billitem.quantity) AS doanhso FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"
             GROUP BY DATE_FORMAT(bill.datetime, "%d/%m/%Y")');
         $totals=DB::select('SELECT SUM(product.price*billitem.quantity) AS doanhso FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"');
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"');
     	$str='';
     	
         $total=0;
@@ -73,12 +73,12 @@ class StatisticController extends Controller
         $s=DB::select('SELECT DATE_FORMAT(bill.datetime, "%d/%m/%Y") AS ngay,SUM(billitem.quantity*((100-product.discountPercent)/100)*product.price) AS doanhthu FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"
             GROUP BY DATE_FORMAT(bill.datetime, "%d/%m/%Y")');
         $totals=DB::select('SELECT SUM(billitem.quantity*((100-product.discountPercent)/100)*product.price) AS doanhthu FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"');
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"');
         $str='';
         
         $total=0;
@@ -107,12 +107,12 @@ class StatisticController extends Controller
         $s=DB::select('SELECT DATE_FORMAT(bill.datetime, "%d/%m/%Y") AS ngay,SUM((product.price-product.purchase)*billitem.quantity) AS loinhuan FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"
             GROUP BY DATE_FORMAT(bill.datetime, "%d/%m/%Y")');
         $totals=DB::select('SELECT SUM((product.price-product.purchase)*billitem.quantity) AS loinhuan FROM bill,billitem,product
             WHERE bill.id=billitem.billid
             AND billitem.productid=product.id
-            AND bill.datetime>="'.$timestart.'" AND bill.datetime<="'.$timeend.'"');
+            AND DATE(bill.datetime)>="'.$timestart.'" AND DATE(bill.datetime)<="'.$timeend.'"');
         $str='';
         
         $total=0;
