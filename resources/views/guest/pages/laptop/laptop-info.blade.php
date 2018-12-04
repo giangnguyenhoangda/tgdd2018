@@ -131,7 +131,8 @@
                       <span> Phiếu mua hàng trị giá 50K</span>
                     </li>
                   </div>
-                  <form class="variations_form cart" action="{{ route('postLaptopAddCart') }}" method="post" enctype='multipart/form-data'>    
+                  @if ($s->status==1 && $s->quantity>0)
+                    <form class="variations_form cart" action="{{ route('postSmartPhoneAddCart') }}" method="post" enctype='multipart/form-data'>    
                        
                     <div class="single_variation_wrap" style="display:none;">
                       <div class="woocommerce-variation single_variation"></div>
@@ -152,6 +153,22 @@
                       </div>
                     </div>        
                   </form>
+                  @else
+                    @if ($s->status!=1 && $s->quantity>0)
+                      @if ($s->status==0)
+                        <h1 style="color: red;">Sắp Về</h1>
+                        <br>
+                      @else
+                        <h1 style="color: red;">Ngừng Kinh Doanh</h1>
+                        <br>
+                      @endif  
+                    @else
+                      @if ($s->quantity<=0)
+                        <h1 style="color: red;">Hết Hàng</h1>
+                        <br>
+                      @endif
+                    @endif
+                  @endif
                   <div class="row row-small"  id="row-2091906678">
                     <div class="col medium-6 small-12 large-6"  >
                       <div class="col-inner"  >

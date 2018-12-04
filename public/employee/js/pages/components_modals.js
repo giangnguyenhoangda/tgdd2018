@@ -391,11 +391,27 @@ $(function() {
         } 
         else {
             $('#form-add-e').valid();
-            my_swal($(this).attr('sw_title'),
-            $(this).attr('sw_contnet'),
-            $(this).attr('sw_notice'),
-            event
-            );
+            $.ajax({
+                url: $('#btnAddE').attr('url_ajax'),
+                method: 'post',
+                data:{
+                    _token:$('#_token').val(),
+                    username: $('#username').val()
+                },
+                success: function(data){
+                    console.log(data);
+                    if(data == 1){
+                        alert('Têm Tài Khoản Đã Tồn Tại')
+                    }else{
+                        // alert('Tài Khoản Chưa Tồn Tại');
+                        my_swal($('#btnAddE').attr('sw_title'),
+                            $('#btnAddE').attr('sw_contnet'),
+                            $('#btnAddE').attr('sw_notice'),
+                            event
+                        );
+                    }
+                }
+            });
         }
     });
 
@@ -428,6 +444,8 @@ $(function() {
     }); 
 
 });
+
+
 
 function my_swal(title,text,notice,event){
     swal({

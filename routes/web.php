@@ -11,6 +11,8 @@
 |
 */
 
+Route::post('kiem-tra-username','EmployeeController@postCheckUserName')->name('postCheckUserName');
+
 Route::get('san-pham/xoa-binh-luan/{id}','CommentController@getDeleteProductComment')->name('getDeleteProductComment');
 
 Route::get('nhan-vien/don-hang/{id}','BillController@getBill')->name('getBill');

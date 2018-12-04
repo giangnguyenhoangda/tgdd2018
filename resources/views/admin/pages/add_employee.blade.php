@@ -35,9 +35,9 @@
 
 												<div class="col-md-6">
 													<div class="form-group">
-														<input type="hidden" name="_token" value="{{ csrf_token() }}">
+														<input type="hidden" name="_token" id="_token" value="{{ csrf_token() }}">
 														<label>Tên Đăng Nhập:</label>
-														<input type="text" name="username" class="form-control" required="required" placeholder="Nhập tên đăng nhập của bạn">
+														<input type="text" name="username" id="username" class="form-control" required="required" placeholder="Nhập tên đăng nhập của bạn">
 													</div>
 												</div>
 											</div>
@@ -79,7 +79,7 @@
 								</div>
 
 								<div class="text-right">
-									<button type="button" class="btn btn-danger btn-sm " id="btnAddE" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn thêm nhân viên?" sw_notice="Thêm thành công." sw_form_id="form-add-e">Thêm Nhân Viên <i class="icon-arrow-right14 position-right"></i></button>
+									<button type="button" class="btn btn-danger btn-sm " id="btnAddE" sw_title="Nhắc Nhở" sw_contnet="Bạn muốn thêm nhân viên?" sw_notice="Thêm thành công." sw_form_id="form-add-e" url_ajax="{{ route('postCheckUserName') }}">Thêm Nhân Viên <i class="icon-arrow-right14 position-right"></i></button>
 								</div>
 							</div>
 						</div>

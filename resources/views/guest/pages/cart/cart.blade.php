@@ -147,20 +147,20 @@
 													<tr class="cart-subtotal">
 														<th>Email:</th>
 														<td data-title="Tổng cộng">
-															<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customeremail" id="calc_shipping_city" />
+															<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customeremail" id="customeremail" />
 														</td>
 													</tr>
 													<tr class="cart-subtotal">
 														<th>Số Điện Thoại:</th>
 														<td data-title="Tổng cộng">
-															<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customernumber" id="calc_shipping_city" />
+															<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customernumber" id="customernumber" />
 														</td>
 													</tr>			
 													<tr class="shipping">
 														<th>Địa Chỉ</th>
 														<td data-title="Giao hàng">
 															<p class="form-row form-row-wide" style="border: none;" id="calc_shipping_city_field">
-																<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customeraddress" id="calc_shipping_city" />
+																<input type="text" style="text-align: right;" class="input-text" value="" placeholder="" name="customeraddress" id="customeraddress" />
 																<input type="hidden" name="vpc_Merchant" value="ONEPAY" size="20" maxlength="16" />
 																<input type="hidden" name="vpc_AccessCode" value="D67342C2" size="20" maxlength="8" />
 																<input type="hidden" name="vpc_MerchTxnRef"
@@ -245,7 +245,15 @@
 	<script type="text/javascript" src="{{ asset('js/mycart.js') }}"></script>
 	<script type="text/javascript">
 		$('#a-checkout').on('click',function(){
-			$('#form-checkout').submit();
+			var fullname=$('#calc_shipping_city').val();
+			var email=$('#customeremail').val();
+			var address=$('#customeraddress').val();
+			var phone=$('#customernumber').val();
+			if (fullname=='' || email=='' || address=='' || phone=='') {
+				alert('Chưa điền đủ thông tin.');
+			} else {
+				$('#form-checkout').submit();
+			}
 		});											
 	</script>
 @endsection

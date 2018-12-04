@@ -18,6 +18,17 @@ class EmployeeController extends Controller
     	return view('employee/pages/home',['news_left'=>$news_left,'news_right'=>$news_right,'bills'=>$bills]);
     }
 
+    public function postCheckUserName(Request $req)
+    {
+        $user=User::where('username',$req->username)->get();
+        if(count($user)>0){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
     public function postLogin(Request $req)
     {
         $username=$req->username;
