@@ -37,7 +37,7 @@
 	            "friction": 0.6        }'>
 										<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_730417236">
 											<div class="img-inner dark">
-												<img width="800" height="290" src="{{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459.jpg') }} " class="attachment-original size-original" alt="" srcset="{{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459.jpg') }} 800w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-510x185.jpg') }} 510w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-300x109.jpg') }} 300w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-768x278.jpg') }} 768w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-24x9.jpg') }} 24w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-36x13.jpg') }} 36w, {{ asset('uploads/tang-tai-nghe-xiaomi-cuoi-tuan_1520499459-48x17.jpg') }} 48w" sizes="(max-width: 800px) 100vw, 800px" />
+												<img width="800" height="290" src="{{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} " class="attachment-original size-original" alt="" srcset="{{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 800w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 510w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 300w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 768w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 24w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 36w, {{ asset('uploads/s9_plus_update_1_12_2018.jpg') }} 48w" sizes="(max-width: 800px) 100vw, 800px" />
 											</div>
 											<style scope="scope">
 	                                            #image_730417236 {
@@ -47,7 +47,17 @@
 										</div>
 										<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_302531699">
 											<div class="img-inner dark">
-												<img width="1020" height="371" src="{{ asset('uploads/img_20180228_193914_911_1519821728-1024x372.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/img_20180228_193914_911_1519821728-1024x372.jpg') }} 1024w, {{ asset('uploads/img_20180228_193914_911_1519821728-510x185.jpg') }} 510w, {{ asset('uploads/img_20180228_193914_911_1519821728-300x109.jpg') }} 300w, {{ asset('uploads/img_20180228_193914_911_1519821728-768x279.jpg') }} 768w, {{ asset('uploads/img_20180228_193914_911_1519821728-24x9.jpg') }} 24w, {{ asset('uploads/img_20180228_193914_911_1519821728-36x13.jpg') }} 36w, {{ asset('uploads/img_20180228_193914_911_1519821728-48x17.jpg') }} 48w" sizes="(max-width: 1020px) 100vw, 1020px" />
+												<img width="1020" height="371" src="{{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 1024w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 510w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 300w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 768w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 24w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 36w, {{ asset('uploads/samsung-galaxy-a9-v2-800x300update_11_10_01_12.jpg') }} 48w" sizes="(max-width: 1020px) 100vw, 1020px" />
+											</div>
+											<style scope="scope">
+	                                            #image_302531699 {
+	                                                width: 100%;
+	                                            }
+	                                        </style>
+										</div>
+										<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_302531600">
+											<div class="img-inner dark">
+												<img width="1020" height="371" src="{{ asset('uploads/huaweinova3i.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/huaweinova3i.jpg') }} 1024w, {{ asset('uploads/huaweinova3i.jpg') }} 510w, {{ asset('uploads/huaweinova3i.jpg') }} 300w, {{ asset('uploads/huaweinova3i.jpg') }} 768w, {{ asset('uploads/huaweinova3i.jpg') }} 24w, {{ asset('uploads/huaweinova3i.jpg') }} 36w, {{ asset('uploads/huaweinova3i.jpg') }} 48w" sizes="(max-width: 1020px) 100vw, 1020px" />
 											</div>
 											<style scope="scope">
 	                                            #image_302531699 {
@@ -71,7 +81,7 @@
 								</div>
 								<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_347924980">
 									<div class="img-inner image-cover dark" style="padding-top:48%;">
-										<img width="350" height="143" src="{{ asset('uploads/banner-xiaomi-redmi-note-5-pro_1520070910.jpg') }} " class="attachment-large size-large" alt="" srcset="{{ asset('uploads/banner-xiaomi-redmi-note-5-pro_1520070910.jpg') }}  350w, {{ asset('uploads/banner-xiaomi-redmi-note-5-pro_1520070910-300x123.jpg') }}  300w" sizes="(max-width: 350px) 100vw, 350px" />
+										<img width="350" height="143" src="{{ asset('uploads/huaweinova3i.jpg') }} " class="attachment-large size-large" alt="" srcset="{{ asset('uploads/huaweinova3i.jpg') }}  350w, {{ asset('uploads/huaweinova3i.jpg') }}  300w" sizes="(max-width: 350px) 100vw, 350px" />
 									</div>
 									<style scope="scope">
 	                                    #image_347924980 {
@@ -403,7 +413,7 @@
 										<div class="col-inner">
 											<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1333415072">
 												<div class="img-inner dark">
-													<img width="368" height="197" src="{{ asset('uploads/nho_1513741962.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/nho_1513741962.jpg') }} 368w, {{ asset('uploads/nho_1513741962-300x161.jpg') }} 300w" sizes="(max-width: 368px) 100vw, 368px" />
+													<img width="368" height="197" src="{{ asset('uploads/oppo-a7-ft-4.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/oppo-a7-ft-4.jpg') }} 368w, {{ asset('uploads/oppo-a7-ft-4.jpg') }} 300w" sizes="(max-width: 368px) 100vw, 368px" />
 												</div>
 												<style scope="scope">
 	                                                #image_1333415072 {
@@ -417,7 +427,7 @@
 										<div class="col-inner">
 											<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_731851686">
 												<div class="img-inner dark">
-													<img width="368" height="197" src="{{ asset('uploads/momo_1517371261.png') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/momo_1517371261.png') }} 368w, {{ asset('uploads/momo_1517371261-300x161.png') }} 300w" sizes="(max-width: 368px) 100vw, 368px" />
+													<img width="368" height="197" src="{{ asset('uploads/XS-XSMAX-XR-v2-375x175.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/XS-XSMAX-XR-v2-375x175.jpg') }} 368w, {{ asset('uploads/XS-XSMAX-XR-v2-375x175.jpg') }} 300w" sizes="(max-width: 368px) 100vw, 368px" />
 												</div>
 												<style scope="scope">
 	                                                #image_731851686 {
@@ -431,7 +441,7 @@
 										<div class="col-inner">
 											<div class="img has-hover x md-x lg-x y md-y lg-y" id="image_1423231897">
 												<div class="img-inner dark">
-													<img width="368" height="197" src="uploads/q.png" class="attachment-large size-large" alt="" srcset="uploads/q.png 368w, uploads/q-300x161.png 300w" sizes="(max-width: 368px) 100vw, 368px" />
+													<img width="368" height="197" src="{{ asset('uploads/hp-15-da0054tu-4me68pa-33397-ft-destop1.jpg') }}" class="attachment-large size-large" alt="" srcset="{{ asset('uploads/hp-15-da0054tu-4me68pa-33397-ft-destop1.jpg') }} 368w, {{ asset('uploads/hp-15-da0054tu-4me68pa-33397-ft-destop1.jpg') }} 300w" sizes="(max-width: 368px) 100vw, 368px" />
 												</div>
 												<style scope="scope">
 	                                                #image_1423231897 {
