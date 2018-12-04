@@ -121,7 +121,7 @@ class CommentController extends Controller
     public function getDeleteNewComment($id)
     {
         $comment=Comment::find($id);
-        $comment_new_href=$comment->getComment_Product_Href;
+        $comment_new_href=$comment->getComment_New_Href;
         $comment_new_href->delete();
         $comment->delete();
         return redirect()->back();

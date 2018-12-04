@@ -131,7 +131,7 @@
 	          								<table cellspacing="0">
           										<thead>
               										<tr>
-                  										<th class="product-name" colspan="2" style="border-width:3px;">Tổng số lượng</th>
+                  										<th class="product-name" colspan="2" style="border-width:3px;">Thông Tin</th>
               										</tr>
           										</thead>
           									</table>  

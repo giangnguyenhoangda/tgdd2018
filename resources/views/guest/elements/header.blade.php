@@ -6,7 +6,7 @@
                         <div id="logo" class="flex-col logo">
                             <!-- Header logo -->
                             <a href="{{ route('getHome') }}" title="Demo thegioidiong flatsome - Demo thegioidiong flatsome" rel="home">
-                                <img width="120" height="63" src="{{ asset('uploads/46494632_325816944906945_3298964650640539648_n.png') }} " class="header_logo header-logo" alt="Demo thegioidiong flatsome" /><img width="120" height="63" src="{{ asset('uploads/46494632_325816944906945_3298964650640539648_n.png') }} " class="header-logo-dark" alt="Demo thegioidiong flatsome" /></a>
+                                <img width="120" height="63" src="{{ asset('uploads/logovuong5.png') }} " class="header_logo header-logo" alt="Demo thegioidiong flatsome" /><img width="120" height="63" src="{{ asset('uploads/logovuong5.png') }} " class="header-logo-dark" alt="Demo thegioidiong flatsome" /></a>
                         </div>
                         <!-- Mobile Left Elements -->
                         <div class="flex-col show-for-medium flex-left">

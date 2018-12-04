@@ -9,7 +9,11 @@ $('#btnCommentNew').on('click',function(){
 });
 
 $('#btnCommentProduct').on('click',function(){
-	addCommentProduct_Ajax($(this));
+	if (checkInput()) {
+		addCommentProduct_Ajax($(this));
+	} else {
+		alert('Bạn chưa điền đủ nội dung hoặc không phù hợp.');
+	}
 });
 
 function checkInput() {

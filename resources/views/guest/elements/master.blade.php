@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>@yield('title')</title>
-    <link rel="icon" href="{{ asset('uploads/46494632_325816944906945_3298964650640539648_n.png') }}">
+    <link rel="icon" href="{{ asset('uploads/logotron (1).png') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="profile" href="http://gmpg.org/xfn/11" />
     <link rel="pingback" href="" />

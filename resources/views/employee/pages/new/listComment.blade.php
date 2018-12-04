@@ -49,7 +49,7 @@
 												</a>
 
 												<ul class="dropdown-menu dropdown-menu-right">
-													<li><a class="deleteNewComment" sw_title="Thông báo" sw_contnet="Bạn muốn xóa bình luận này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteNew',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
+													<li><a class="deleteNewComment" sw_title="Thông báo" sw_contnet="Bạn muốn xóa bình luận này?" sw_notice="Xóa thành công." sw_url=" {{ route('getDeleteNewComment',$element->id) }} "><i class="icon-database-remove"></i> Xóa</a></li>
 												</ul>
 											</li>
 										</ul>
